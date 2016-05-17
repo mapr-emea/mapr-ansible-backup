@@ -1,4 +1,4 @@
-- name: apply common configuration to all nodes
+- name: Apply common configuration to all nodes
   hosts: all
   remote_user: ec2-user
   become: yes
@@ -8,3 +8,11 @@
     - mapruser
     - rpcbind
     - ntp
+    - init-setup
+- name: Start setup
+  hosts: master
+  remote_user: ec2-user
+  become: yes
+  become_method: sudo
+  roles:
+    - init-setup
