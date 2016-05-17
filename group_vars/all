@@ -1,0 +1,9 @@
+mapr_group: mapr
+mapr_group_gid: 5000
+mapr_user: mapr
+mapr_user_uid: 5000
+
+# sudo gem install mkpasswd
+#
+# passwd is mapr123
+mapr_passwd: $6$X4.bqoTK$RTAwnhg2BG/y.3Dugw9Vc31ZdXFsZAitwKtKuu3HgKSNutcQmZ7zLy4cXasivlv2gKD8QGouAjND5fU7H.HDW0

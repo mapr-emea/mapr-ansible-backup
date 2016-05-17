@@ -1,0 +1,5 @@
+---
+- name: Install RPC bind
+  yum: name=rpcbind state=present
+- name: Start the RPC bind service
+  service: name=rpcbind state=started enabled=yes
