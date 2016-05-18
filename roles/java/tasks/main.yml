@@ -2,34 +2,25 @@
 
 # Oracle JDK playbook
 
-#- name: Copying Java JDK
-#  copy: src="../files/jdk-8u92-linux-x64.tar.gz" dest="/opt/"
-#- name: Install wget
-#  yum: name=wget state=present
-
 - name: Downloading Java JDK
-  get_url: url=http://download.oracle.com/otn-pub/java/jdk/8u91-b14/jdk-8u91-linux-x64.rpm force=yes mode=0440 headers="Cookie:oraclelicense=accept-securebackup-cookie" dest=/tmp/jdk-8u91-linux-x64.rpm
-#  shell: wget --no-check-certificate --no-cookies --header "Cookie:oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u91-b14/jdk-8u91-linux-x64.rpm -O /tmp/jdk-8u91-linux-x64.rpm
+#  get_url: url=http://download.oracle.com/otn-pub/java/jdk/8u91-b14/jdk-8u91-linux-x64.rpm force=yes mode=0440 headers="Cookie:oraclelicense=accept-securebackup-cookie" dest=/tmp/jdk-8u91-linux-x64.rpm timeout=120
+#  shell: curl --no-check-certificate --no-cookies --header "Cookie:oraclelicense=accept-securebackup-cookie" -O http://download.oracle.com/otn-pub/java/jdk/8u91-b14/jdk-8u91-linux-x64.rpm -O /tmp/jdk-8u91-linux-x64.rpm
+  shell:  curl -v -j -k -L -H "Cookie:oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-linux-x64.rpm > /tmp/jdk-8u92-linux-x64.rpm
+
 
 - name: Install Java JDK rpm from a local file
-  yum: name=/tmp/jdk-8u91-linux-x64.rpm state=present
+  yum: name=/tmp/jdk-8u92-linux-x64.rpm state=present
 
-#- name: Create Java directory
-#  file: path=/opt/java/ state=directory owner=root group=root mode=0755 recurse=yes
+- name: Enable JCE Policy
+  copy: src="../files/jce_policy-8.zip" dest="/tmp/"
 
-#- name: Unpack Java
-#  unarchive: src=/tmp/jdk-8u92-linux-x64.tar.gz dest=/opt/java/
+- unarchive: src="/tmp/jce_policy-8.zip" dest="/tmp/"
 
-#- name: Enable JCE Policy
-#  copy: src="../files/jce_policy-8.zip" dest="/opt/"
+- name: Copy US Export Policy
+  copy: src="/tmp/UnlimitedJCEPolicyJDK8/US_export_policy.jar" dest="/usr/java/jdk1.8.0_92/jre/lib/security/"
 
-#- unarchive: src="/opt/jce_policy-8.zip" dest="/tmp/"
-
-#- name: Copy US Export Policy
-#  copy: src="/tmp/UnlimitedJCEPolicyJDK8/US_export_policy.jar" dest="/opt/java/jdk1.8.0_92/jre/lib/security/"
-
-#- name: Copy Local Policy
-#  copy: src="/tmp/UnlimitedJCEPolicyJDK8/local_policy.jar" dest="/opt/java/jdk1.8.0_92/jre/lib/security/"
+- name: Copy Local Policy
+  copy: src="/tmp/UnlimitedJCEPolicyJDK8/local_policy.jar" dest="/usr/java/jdk1.8.0_92/jre/lib/security/"
 
 #  - name: Copy /etc/environment with java and path settings
 #    copy: src="../files/environment" dest="/etc/environment"

@@ -8,7 +8,6 @@
     - mapruser
     - rpcbind
     - ntp
-    - init-setup
 - name: Start setup
   hosts: master
   remote_user: ec2-user

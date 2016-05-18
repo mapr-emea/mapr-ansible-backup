@@ -1,0 +1,7 @@
+[datanodes]
+10.0.0.201 ansible_user=centos
+10.0.0.202 ansible_user=centos
+10.0.0.203 ansible_user=centos
+
+[master]
+10.0.0.201 ansible_user=centos
