@@ -1,10 +1,10 @@
 - name: Apply common configuration to all nodes
   hosts: all
   roles:
-    - java
-    - mapruser
-    - rpcbind
-    - ntp
+    - common-oracle-jdk
+    - common-mapruser
+    - common-rpcbind
+    - common-ntp
 - name: Start setup
   hosts: master
   roles:

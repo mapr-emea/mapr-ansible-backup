@@ -1,0 +1,4 @@
+---
+# Install MapR Core components for all machines
+# Do NOT forget to install compat for Suse
+# Setup repositories!
