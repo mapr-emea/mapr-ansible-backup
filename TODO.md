@@ -1,9 +1,11 @@
 - Fix Java Path
 - Add config for non secure
 - Create config for native secure
+- Configure Job history server...
 - Add streams client
 - Add posix
 - Add Oozie
 - Add storm
+- Add latest patches
 - Add Suse
 - Add Ubuntu

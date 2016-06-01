@@ -1,5 +1,7 @@
 # This a collection of Ansible scripts
 
+Ansible 2.1 or higher required!
+
 ## Supported OS
 
 * Redhat

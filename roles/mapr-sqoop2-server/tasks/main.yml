@@ -1,2 +1,5 @@
 ---
 # Install Sqoop2 Server
+- name: Install mapr-sqoop2-server
+  yum: name=mapr-sqoop2-server state=present
+  when: ansible_os_family == 'RedHat'

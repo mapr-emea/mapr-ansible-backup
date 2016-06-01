@@ -13,13 +13,13 @@
 - name: Install Zookeeper
   hosts: mapr-zookeeper
   roles:
-    - mapr-core
+    - mapr-zookeeper
 - name: Install CLDB
   hosts: mapr-cldb
   roles:
     - mapr-cldb
-- name: Install MFS, MapReduce2, YARN Node Manager
-  hosts: mapr-nodemanager
+- name: Install Filesystem, MapReduce2, YARN Node Manager
+  hosts: mapr-datanode
   roles:
     - mapr-fileserver
     - mapr-mapreduce2
@@ -47,7 +47,7 @@
 - name: Install HBase REST and Thrift Server
   hosts: mapr-hbase-thrift-rest
   roles:
-    - mapr-hbase-rest
+    - mapr-hbase-thrift-rest
 - name: Install History Server
   hosts: mapr-historyserver
   roles:
@@ -110,3 +110,7 @@
 #  roles:
 #    - ext-zeppelin
 
+- name: Configure and start
+  hosts: all
+  roles:
+    - mapr-configure-unsecure

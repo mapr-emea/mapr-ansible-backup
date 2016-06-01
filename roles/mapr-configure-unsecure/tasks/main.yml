@@ -1,7 +1,6 @@
 ---
 # Configure unsecure cluster
 
----
 - name: Get Zookeeper FQDNs
   set_fact: zoo_item={{ hostvars[item]['ansible_fqdn'] }}
   with_items:
@@ -23,8 +22,13 @@
 #- name: Debug CLDB
 #  debug: msg="{{ cldb_string }}"
 
-- name: Configure.sh -secure
-  shell: /opt/mapr/server/configure.sh -N {{ cluster_name }} -Z {{ zookeeper_string }} -C {{ cldb_string }} -u {{ mapr_user }} -g {{mapr_group}} -D {{ disks }} -R
+- name: Configure.sh
+  shell: /opt/mapr/server/configure.sh -R -N {{ cluster_name }} -Z {{ zookeeper_string }} -C {{ cldb_string }} -u {{ mapr_user }} -g {{mapr_group}}
+- name: Write disk tmp file
+  shell: echo {{ disks }} | tr , '\n' > /tmp/disks.txt
+- name: Disk setup
+  shell: /opt/mapr/server/disksetup -F /tmp/disks.txt
+
 
 - name: Restart Zookeeper
   service: name=mapr-zookeeper state=restarted enabled=yes

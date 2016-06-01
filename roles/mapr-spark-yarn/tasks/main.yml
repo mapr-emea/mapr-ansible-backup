@@ -1,5 +1,11 @@
 ---
 # Install Spark on YARN
-- name: Install mapr-resourcemanager
-  yum: name=mapr-resourcemanager state=present
+- name: Install mapr-spark
+  yum: name={{ item }} state=present
+  with_items:
+  - mapr-spark
+  - mapr-spark-historyserver
   when: ansible_os_family == 'RedHat'
+
+# TODO in MapR FS wird /apps/spark benötigt aber das is dann noch nicht da, -> handler
+#  http://maprdocs.mapr.com/51/index.html#Spark/InstallSparkonYARN.html
