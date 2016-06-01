@@ -1,19 +1,18 @@
 ---
 # Oracle JDK playbook
-#- name: Downloading Java JDK
-#  get_url: url=http://download.oracle.com/otn-pub/java/jdk/8u91-b14/jdk-8u91-linux-x64.rpm force=yes mode=0440 headers="Cookie:oraclelicense=accept-securebackup-cookie" dest=/tmp/jdk-8u91-linux-x64.rpm timeout=120
-#  shell: curl --no-check-certificate --no-cookies --header "Cookie:oraclelicense=accept-securebackup-cookie" -O http://download.oracle.com/otn-pub/java/jdk/8u91-b14/jdk-8u91-linux-x64.rpm -O /tmp/jdk-8u91-linux-x64.rpm
-
 - name: Downloading Java JDK
-  shell:  curl -v -j -k -L -H "Cookie:oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-linux-x64.rpm > /tmp/jdk-8u92-linux-x64.rpm
+  get_url: url={{ oracle_jdk_url }} force=yes mode=0440 headers="Cookie:oraclelicense=accept-securebackup-cookie" dest=/tmp/oracle-jdk.rpm timeout=120
+
+#- name: Downloading Java JDK
+#  shell:  curl -v -j -k -L -H "Cookie:oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-linux-x64.rpm > /tmp/jdk-8u92-linux-x64.rpm
 
 - name: Install Java JDK rpm from a local file
-  yum: name=/tmp/jdk-8u92-linux-x64.rpm state=present
+  yum: name=/tmp/oracle-jdk.rpm state=present
 
 - name: Copy Local Policy
-  copy: src="../files/UnlimitedJCEPolicyJDK8/local_policy.jar" dest="/usr/java/jdk1.8.0_92/jre/lib/security/" mode=0644
+  copy: src="../files/UnlimitedJCEPolicyJDK8/local_policy.jar" dest="{{ oracle_jdk_folder }}/jre/lib/security/" mode=0644
 - name: Copy US Export Policy
-  copy: src="../files/UnlimitedJCEPolicyJDK8/US_export_policy.jar" dest="/usr/java/jdk1.8.0_92/jre/lib/security/" mode=0644
+  copy: src="../files/UnlimitedJCEPolicyJDK8/US_export_policy.jar" dest="{{ oracle_jdk_folder }}/jre/lib/security/" mode=0644
 
 #  - name: Copy /etc/environment with java and path settings
 #    copy: src="../files/environment" dest="/etc/environment"
