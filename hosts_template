@@ -104,6 +104,10 @@
 [mapr-pig]
 10.0.0.148 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
+# Oozie
+[mapr-oozie]
+10.0.0.148 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
 # Zeppelin
 [ext-zeppelin]
 10.0.0.148 ansible_user=centos ansible_become=yes ansible_become_method=sudo

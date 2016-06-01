@@ -104,6 +104,10 @@
   hosts: mapr-hue
   roles:
     - mapr-hue
+- name: Install Oozie
+  hosts: mapr-oozie
+  roles:
+    - mapr-oozie
 # TODO implement
 #- name: Install Zeppelin
 #  hosts: ext-zeppelin

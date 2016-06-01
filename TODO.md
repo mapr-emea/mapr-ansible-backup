@@ -1,7 +1,7 @@
-- Fix Java Path
 - Add config for non secure
 - Create config for native secure
 - Configure Job history server...
+- Add Zeppelin
 - Add streams client
 - Add posix
 - Add Oozie
