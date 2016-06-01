@@ -1,12 +1,8 @@
 - name: apply common configuration to all nodes
   hosts: master
-  remote_user: ec2-user
   roles:
-    - nativesecurity-genkeys
+    - ui-setup-nativesecurity-genkeys
 - name: apply security
   hosts: all
-  remote_user: ec2-user
-  become: yes
-  become_method: sudo
   roles:
-    - nativesecurity-secure
+    - ui-setup-nativesecurity-secure

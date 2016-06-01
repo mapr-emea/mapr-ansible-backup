@@ -7,7 +7,5 @@
     - ntp
 - name: Start setup
   hosts: master
-  become: yes
-  become_method: sudo
   roles:
-    - init-ui-setup
+    - ui-setup-init
