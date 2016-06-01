@@ -1,17 +1,9 @@
 - Add config for non secure
-    - Drill
-    - flume
-    - Hbase
-    - history server
-    - hive
-    - hue
-    - mahout
-    - mapred 2
-    - yarn
-    - oozie
-    - pig
-    - sqoop
-    - sqoop2
+    - hive -> metastore mysql
+    - hue -> resource manager
+    - oozie -> mysql
+    - nfs -> Mount
+    - spark history server braucht maprfs://apps/spark, danach spark history server neustarten...
 - Create config for native secure
 - Add Zeppelin
 - Add posix
