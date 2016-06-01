@@ -1,0 +1,9 @@
+---
+# Install HBase REST
+- name: Install mapr-hbase-rest
+  yum: name=mapr-hbase-rest state=present
+  when: ansible_os_family == 'RedHat'
+# Install HBase Thrift
+- name: Install mapr-hbasethrift
+  yum: name=mapr-hbasethrift state=present
+  when: ansible_os_family == 'RedHat'

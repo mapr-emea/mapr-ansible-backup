@@ -1,2 +1,5 @@
 ---
 # Install Apache Drill
+- name: Install mapr-drill
+  yum: name=mapr-drill state=present
+  when: ansible_os_family == 'RedHat'

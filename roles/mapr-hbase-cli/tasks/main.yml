@@ -1,2 +1,5 @@
 ---
 # Install HBase CLI
+- name: Install mapr-hbase
+  yum: name=mapr-hbase state=present
+  when: ansible_os_family == 'RedHat'

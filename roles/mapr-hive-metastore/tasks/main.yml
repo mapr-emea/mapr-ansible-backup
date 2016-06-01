@@ -1,2 +1,5 @@
 ---
 # Install Hive Metastore
+- name: Install mapr-hivemetastore
+  yum: name=mapr-hivemetastore state=present
+  when: ansible_os_family == 'RedHat'

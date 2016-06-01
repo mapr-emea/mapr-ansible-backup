@@ -1,2 +1,5 @@
 ---
 # Install YARN Node Manager
+- name: Install mapr-nodemanager
+  yum: name=mapr-nodemanager state=present
+  when: ansible_os_family == 'RedHat'

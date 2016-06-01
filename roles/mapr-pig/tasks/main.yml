@@ -1,2 +1,5 @@
 ---
 # Install Pig
+- name: Install mapr-pig
+  yum: name=mapr-pig state=present
+  when: ansible_os_family == 'RedHat'

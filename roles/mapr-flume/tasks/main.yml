@@ -1,2 +1,5 @@
 ---
 # Install Flume
+- name: Install mapr-flume
+  yum: name=mapr-flume state=present
+  when: ansible_os_family == 'RedHat'

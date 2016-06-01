@@ -1,2 +1,8 @@
 ---
 # Install Zookeeper
+- name: Install mapr-zookeeper
+  yum: name={{ item }} state=present
+  with_items:
+  - mapr-zookeeper
+  - mapr-zookeeper-internal
+  when: ansible_os_family == 'RedHat'

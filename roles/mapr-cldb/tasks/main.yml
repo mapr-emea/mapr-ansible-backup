@@ -1,2 +1,6 @@
 ---
 # Install CLDB
+
+- name: Install mapr-cldb
+  yum: name=mapr-cldb state=present
+  when: ansible_os_family == 'RedHat'

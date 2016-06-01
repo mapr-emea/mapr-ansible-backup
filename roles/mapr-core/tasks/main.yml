@@ -2,3 +2,11 @@
 # Install MapR Core components for all machines
 # Do NOT forget to install compat for Suse
 # Setup repositories!
+
+- name: Install mapr-core
+  yum: name={{ item }} state=present
+  with_items:
+#  - mapr-compat-suse
+  - mapr-core
+  - mapr-core-internal
+  when: ansible_os_family == 'RedHat'

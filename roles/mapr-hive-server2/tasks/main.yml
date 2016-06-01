@@ -1,2 +1,5 @@
 ---
 # Install Hive Server 2
+- name: Install mapr-hiveserver2
+  yum: name=mapr-hiveserver2 state=present
+  when: ansible_os_family == 'RedHat'

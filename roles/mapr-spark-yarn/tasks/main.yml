@@ -1,2 +1,5 @@
 ---
 # Install Spark on YARN
+- name: Install mapr-resourcemanager
+  yum: name=mapr-resourcemanager state=present
+  when: ansible_os_family == 'RedHat'

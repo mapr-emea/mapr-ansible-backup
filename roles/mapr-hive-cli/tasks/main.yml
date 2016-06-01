@@ -1,2 +1,5 @@
 ---
 # Install Hive CLI
+- name: Install mapr-hive
+  yum: name=mapr-hive state=present
+  when: ansible_os_family == 'RedHat'

@@ -1,2 +1,34 @@
 ---
 # Configure unsecure cluster
+
+---
+- name: Get Zookeeper FQDNs
+  set_fact: zoo_item={{ hostvars[item]['ansible_fqdn'] }}
+  with_items:
+    - "{{ groups['mapr-zookeeper'] }}"
+  register: zookeeper_hosts
+- name: Make Zookeeper String
+  set_fact: zookeeper_string={{ zookeeper_hosts.results | map(attribute='ansible_facts.zoo_item') | list | join(',')}}
+
+- name: Get CLDB FQDNs
+  set_fact: cldb_item={{ hostvars[item]['ansible_fqdn'] }}
+  with_items:
+    - "{{ groups['mapr-cldb'] }}"
+  register: cldb_hosts
+- name: Make CLDB String
+  set_fact: cldb_string={{ cldb_hosts.results | map(attribute='ansible_facts.cldb_item') | list | join(',')}}
+
+#- name: Debug Zookeeper
+#  debug: msg="{{ zookeeper_string }}"
+#- name: Debug CLDB
+#  debug: msg="{{ cldb_string }}"
+
+- name: Configure.sh -secure
+  shell: /opt/mapr/server/configure.sh -N {{ cluster_name }} -Z {{ zookeeper_string }} -C {{ cldb_string }} -u {{ mapr_user }} -g {{mapr_group}} -D {{ disks }} -R
+
+- name: Restart Zookeeper
+  service: name=mapr-zookeeper state=restarted enabled=yes
+
+- name: Restart MapR Warden
+  service: name=mapr-warden state=restarted enabled=yes
+

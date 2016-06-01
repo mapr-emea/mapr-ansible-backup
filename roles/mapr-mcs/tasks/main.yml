@@ -1,2 +1,5 @@
 ---
 # Install MapR Control System (MCS)
+- name: Install mapr-webserver
+  yum: name=mapr-webserver state=present
+  when: ansible_os_family == 'RedHat'

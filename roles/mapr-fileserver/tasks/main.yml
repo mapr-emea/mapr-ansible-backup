@@ -1,0 +1,5 @@
+---
+# Install MapR FileServer (MFS)
+- name: Install mapr-fileserver
+  yum: name=mapr-fileserver state=present
+  when: ansible_os_family == 'RedHat'

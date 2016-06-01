@@ -1,2 +1,5 @@
 ---
 # Install Mahout
+- name: Install mapr-mahout
+  yum: name=mapr-mahout state=present
+  when: ansible_os_family == 'RedHat'

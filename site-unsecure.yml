@@ -8,6 +8,7 @@
 - name: Install MapR Core
   hosts: all
   roles:
+    - mapr-configure-repository
     - mapr-core
 - name: Install Zookeeper
   hosts: mapr-zookeeper
@@ -20,7 +21,7 @@
 - name: Install MFS, MapReduce2, YARN Node Manager
   hosts: mapr-nodemanager
   roles:
-    - mapr-mfs
+    - mapr-fileserver
     - mapr-mapreduce2
     - mapr-nodemanager
 - name: Install YARN Resource Manager
@@ -32,9 +33,9 @@
   roles:
     - mapr-drill
 - name: Install MySQL
-  hosts: mapr-mysql
+  hosts: ext-mysql
   roles:
-    - mapr-mysql
+    - ext-mysql
 - name: Install Flume
   hosts: mapr-flume
   roles:
@@ -43,18 +44,10 @@
   hosts: mapr-hbase-cli
   roles:
     - mapr-hbase-cli
-- name: Install HBase REST
-  hosts: mapr-hbase-rest
+- name: Install HBase REST and Thrift Server
+  hosts: mapr-hbase-thrift-rest
   roles:
     - mapr-hbase-rest
-- name: Install HBase Thrift
-  hosts: mapr-hbase-thrift
-  roles:
-    - mapr-hbase-thrift
-- name: Install HCatalog
-  hosts: mapr-hcatalog
-  roles:
-    - mapr-hcatalog
 - name: Install History Server
   hosts: mapr-historyserver
   roles:
@@ -75,10 +68,6 @@
   hosts: mapr-hive-webhcat
   roles:
     - mapr-hive-webhcat
-- name: Install Hue
-  hosts: mapr-hue
-  roles:
-    - mapr-hue
 - name: Install Mahout
   hosts: mapr-mahout
   roles:
@@ -111,6 +100,13 @@
   hosts: mapr-sqoop2-client
   roles:
     - mapr-sqoop2-client
-
-
+- name: Install Hue
+  hosts: mapr-hue
+  roles:
+    - mapr-hue
+# TODO implement
+#- name: Install Zeppelin
+#  hosts: ext-zeppelin
+#  roles:
+#    - ext-zeppelin
 

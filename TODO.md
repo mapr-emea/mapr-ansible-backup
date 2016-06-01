@@ -1,0 +1,9 @@
+- Fix Java Path
+- Add config for non secure
+- Create config for native secure
+- Add streams client
+- Add posix
+- Add Oozie
+- Add storm
+- Add Suse
+- Add Ubuntu

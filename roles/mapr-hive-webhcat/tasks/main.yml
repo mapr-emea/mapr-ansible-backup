@@ -1,2 +1,5 @@
 ---
 # Install Hive WebHCat
+- name: Install mapr-hivewebhcat
+  yum: name=mapr-hivewebhcat state=present
+  when: ansible_os_family == 'RedHat'

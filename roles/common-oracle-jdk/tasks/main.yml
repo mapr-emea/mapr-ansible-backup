@@ -18,3 +18,4 @@
 #  - name: Copy /etc/environment with java and path settings
 #    copy: src="../files/environment" dest="/etc/environment"
 
+# TODO install on fixed path

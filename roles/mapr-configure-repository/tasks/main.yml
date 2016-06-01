@@ -1,0 +1,19 @@
+---
+- name: Create MapR Releases Repository for RedHat
+  yum_repository:
+    name: maprtech
+    description: MapR Technologies
+    file: external_repos
+    baseurl: http://package.mapr.com/releases/v5.1.0/redhat/
+    gpgcheck: no
+    gpgkey: http://package.mapr.com/releases/pub/maprgpg.key
+  when: ansible_os_family == 'RedHat'
+- name: Create MapR Releases Ecosystem for RedHat
+  yum_repository:
+    name: maprecosystem
+    description: MapR Technologies
+    file: external_repos
+    baseurl: http://package.mapr.com/releases/ecosystem-5.x/redhat/
+    gpgcheck: no
+    gpgkey: http://package.mapr.com/releases/pub/maprgpg.key
+  when: ansible_os_family == 'RedHat'
