@@ -10,4 +10,4 @@
   become: yes
   become_method: sudo
   roles:
-    - init-setup
+    - init-ui-setup
