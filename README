@@ -1,4 +1,0 @@
-ansible-playbook -i hosts site-nativesecurity.yml
-ansible-playbook -i hosts site.yml
-
-export ANSIBLE_HOSTS=/Users/chufe/Documents/workspaces/mapr_ansible/hosts

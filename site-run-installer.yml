@@ -1,8 +1,5 @@
 - name: Apply common configuration to all nodes
   hosts: all
-  remote_user: ec2-user
-  become: yes
-  become_method: sudo
   roles:
     - java
     - mapruser
@@ -10,7 +7,6 @@
     - ntp
 - name: Start setup
   hosts: master
-  remote_user: ec2-user
   become: yes
   become_method: sudo
   roles:

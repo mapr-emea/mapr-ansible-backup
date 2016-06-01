@@ -1,7 +1,0 @@
-[datanodes]
-10.0.0.227 ansible_user=ec2-user
-10.0.0.228 ansible_user=ec2-user
-10.0.0.229 ansible_user=ec2-user
-
-[master]
-10.0.0.227 ansible_user=ec2-user
