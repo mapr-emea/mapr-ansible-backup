@@ -1,0 +1,116 @@
+- name: Apply common configuration to all nodes
+  hosts: all
+  roles:
+    - common-oracle-jdk
+    - common-mapruser
+    - common-rpcbind
+    - common-ntp
+- name: Install MapR Core
+  hosts: all
+  roles:
+    - mapr-core
+- name: Install Zookeeper
+  hosts: mapr-zookeeper
+  roles:
+    - mapr-core
+- name: Install CLDB
+  hosts: mapr-cldb
+  roles:
+    - mapr-cldb
+- name: Install MFS, MapReduce2, YARN Node Manager
+  hosts: mapr-nodemanager
+  roles:
+    - mapr-mfs
+    - mapr-mapreduce2
+    - mapr-nodemanager
+- name: Install YARN Resource Manager
+  hosts: mapr-resourcemanager
+  roles:
+    - mapr-resourcemanager
+- name: Install Drill
+  hosts: mapr-drill
+  roles:
+    - mapr-drill
+- name: Install MySQL
+  hosts: mapr-mysql
+  roles:
+    - mapr-mysql
+- name: Install Flume
+  hosts: mapr-flume
+  roles:
+    - mapr-flume
+- name: Install HBase CLI
+  hosts: mapr-hbase-cli
+  roles:
+    - mapr-hbase-cli
+- name: Install HBase REST
+  hosts: mapr-hbase-rest
+  roles:
+    - mapr-hbase-rest
+- name: Install HBase Thrift
+  hosts: mapr-hbase-thrift
+  roles:
+    - mapr-hbase-thrift
+- name: Install HCatalog
+  hosts: mapr-hcatalog
+  roles:
+    - mapr-hcatalog
+- name: Install History Server
+  hosts: mapr-historyserver
+  roles:
+    - mapr-historyserver
+- name: Install Hive CLI
+  hosts: mapr-hive-cli
+  roles:
+    - mapr-hive-cli
+- name: Install Hive MetaStore
+  hosts: mapr-hive-metastore
+  roles:
+    - mapr-hive-metastore
+- name: Install Hive Server 2
+  hosts: mapr-hive-server2
+  roles:
+    - mapr-hive-server2
+- name: Install Hive WebHCat
+  hosts: mapr-hive-webhcat
+  roles:
+    - mapr-hive-webhcat
+- name: Install Hue
+  hosts: mapr-hue
+  roles:
+    - mapr-hue
+- name: Install Mahout
+  hosts: mapr-mahout
+  roles:
+    - mapr-mahout
+- name: Install MCS
+  hosts: mapr-mcs
+  roles:
+    - mapr-mcs
+- name: Install NFS
+  hosts: mapr-nfs
+  roles:
+    - mapr-nfs
+- name: Install Pig
+  hosts: mapr-pig
+  roles:
+    - mapr-pig
+- name: Install Spark on YARN
+  hosts: mapr-spark-yarn
+  roles:
+    - mapr-spark-yarn
+- name: Install Sqoop v1
+  hosts: mapr-sqoop
+  roles:
+    - mapr-spark-yarn
+- name: Install Sqoop 2 Server
+  hosts: mapr-sqoop2-server
+  roles:
+    - mapr-sqoop2-server
+- name: Install Sqoop 2 Client
+  hosts: mapr-sqoop2-client
+  roles:
+    - mapr-sqoop2-client
+
+
+
