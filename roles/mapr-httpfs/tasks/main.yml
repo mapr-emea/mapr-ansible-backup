@@ -1,0 +1,5 @@
+---
+# Install HttpFS
+- name: Install mapr-httpfs
+  yum: name=mapr-httpfs state=present
+  when: ansible_os_family == 'RedHat'

@@ -108,6 +108,10 @@
   hosts: mapr-oozie
   roles:
     - mapr-oozie
+- name: Install HttpFS
+  hosts: mapr-httpfs
+  roles:
+    - mapr-httpfs
 # TODO implement
 #- name: Install Zeppelin
 #  hosts: ext-zeppelin

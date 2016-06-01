@@ -1,7 +1,19 @@
 - Add config for non secure
+    - Drill
+    - flume
+    - Hbase
+    - history server
+    - hive
+    - hue
+    - mahout
+    - mapred 2
+    - yarn
+    - oozie
+    - pig
+    - sqoop
+    - sqoop2
 - Create config for native secure
 - Add Zeppelin
-- Add streams client
 - Add posix
 - Add storm
 - Add latest patches
