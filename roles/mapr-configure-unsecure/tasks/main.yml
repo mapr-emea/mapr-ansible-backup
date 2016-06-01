@@ -23,7 +23,7 @@
 #  debug: msg="{{ cldb_string }}"
 
 - name: Configure.sh
-  shell: /opt/mapr/server/configure.sh -R -N {{ cluster_name }} -Z {{ zookeeper_string }} -C {{ cldb_string }} -u {{ mapr_user }} -g {{mapr_group}}
+  shell: /opt/mapr/server/configure.sh -N {{ cluster_name }} -Z {{ zookeeper_string }} -C {{ cldb_string }} -u {{ mapr_user }} -g {{mapr_group}}
 - name: Write disk tmp file
   shell: echo {{ disks }} | tr , '\n' > /tmp/disks.txt
 - name: Disk setup
