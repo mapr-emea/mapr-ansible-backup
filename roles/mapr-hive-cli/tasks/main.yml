@@ -33,3 +33,5 @@
   template: src=hive-env.unsecure.sh dest=/opt/mapr/hive/hive-{{ hive_version }}/conf/hive-env.sh
 - name: Add HIVE_HOME to /etc/profile
   lineinfile: dest=/etc/profile state=present line="export HIVE_HOME=/opt/mapr/hive/hive-{{ hive_version }}/"
+- name: Set owner mapr-system user
+  file: path=/opt/mapr/hive owner={{ mapr_user }} group={{ mapr_group }} state=directory recurse=yes

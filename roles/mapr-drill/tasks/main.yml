@@ -3,3 +3,5 @@
 - name: Install mapr-drill
   yum: name=mapr-drill state=present
   when: ansible_os_family == 'RedHat'
+- name: Set owner mapr-system user
+  file: path=/opt/mapr/drill owner={{ mapr_user }} group={{ mapr_group }} state=directory recurse=yes

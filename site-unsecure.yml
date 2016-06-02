@@ -114,3 +114,7 @@
   hosts: mapr-spark-yarn
   roles:
     - mapr-spark-yarn
+- name: Restarting mapr-warden
+  hosts: all
+  roles:
+    - mapr-configure-warden-restart

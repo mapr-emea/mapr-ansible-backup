@@ -3,3 +3,5 @@
 - name: Install mapr-hiveserver2
   yum: name=mapr-hiveserver2 state=present
   when: ansible_os_family == 'RedHat'
+- name: Set owner mapr-system user
+  file: path=/opt/mapr/hive owner={{ mapr_user }} group={{ mapr_group }} state=directory recurse=yes
