@@ -6,7 +6,7 @@
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install mapr-hivewebhcat (Debian / Ubuntu)
-  apt: name=mapr-hivewebhcat state=present
+  apt: name=mapr-hivewebhcat state=present allow_unauthenticated=yes
   when: ansible_os_family == 'Debian'
 # Suse
 - name: Install mapr-hivewebhcat (Suse)

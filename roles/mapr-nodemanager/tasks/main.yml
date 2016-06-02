@@ -6,7 +6,7 @@
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install mapr-nodemanager (Debian / Ubuntu)
-  apt: name=mapr-nodemanager state=present
+  apt: name=mapr-nodemanager state=present allow_unauthenticated=yes
   when: ansible_os_family == 'Debian'
 # Suse
 - name: Install mapr-nodemanager (Suse)

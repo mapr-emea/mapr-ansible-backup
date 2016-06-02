@@ -1,4 +1,4 @@
-- name: Install Hive CLI
-  hosts: mapr-hive-cli
+- name: Java
+  hosts: base
   roles:
-    - mapr-hive-cli
+    - ext-zeppelin

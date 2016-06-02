@@ -25,7 +25,7 @@
   service: name=mysql state=started enabled=yes
   when: ansible_os_family == 'Debian'
 - name: Install mapr-hive (Debian / Ubuntu)
-  apt: name=mapr-hive state=present
+  apt: name=mapr-hive state=present allow_unauthenticated=yes
   when: ansible_os_family == 'Debian'
 # Suse
 - name: Install MySQL (Suse)

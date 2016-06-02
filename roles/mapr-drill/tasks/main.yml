@@ -7,7 +7,7 @@
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install mapr-drill (Debian / Ubuntu)
-  apt: name=mapr-drill state=present
+  apt: name=mapr-drill state=present allow_unauthenticated=yes
   when: ansible_os_family == 'Debian'
 # Suse
 - name: Install mapr-drill (Suse)

@@ -9,7 +9,7 @@
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install mapr-spark (Debian / Ubuntu)
-  apt: name={{ item }} state=present
+  apt: name={{ item }} state=present allow_unauthenticated=yes
   with_items:
   - mapr-spark
   - mapr-spark-historyserver

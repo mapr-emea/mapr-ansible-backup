@@ -6,7 +6,7 @@
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install mapr-historyserver (Debian / Ubuntu)
-  apt: name=mapr-historyserver state=present
+  apt: name=mapr-historyserver state=present allow_unauthenticated=yes
   when: ansible_os_family == 'Debian'
 # Suse
 - name: Install mapr-historyserver (Suse)

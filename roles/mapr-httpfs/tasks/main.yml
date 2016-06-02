@@ -6,7 +6,7 @@
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install mapr-httpfs (Debian / Ubuntu)
-  apt: name=mapr-httpfs state=present
+  apt: name=mapr-httpfs state=present allow_unauthenticated=yes
   when: ansible_os_family == 'Debian'
 # Suse
 - name: Install mapr-httpfs (Suse)

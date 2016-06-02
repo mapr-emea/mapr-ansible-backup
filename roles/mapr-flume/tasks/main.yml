@@ -6,7 +6,7 @@
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install mapr-flume (Debian / Ubuntu)
-  apt: name=mapr-flume state=present
+  apt: name=mapr-flume state=present allow_unauthenticated=yes
   when: ansible_os_family == 'Debian'
 # Suse
 - name: Install mapr-flume (Suse

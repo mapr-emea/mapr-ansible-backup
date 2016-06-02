@@ -11,11 +11,11 @@
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install mapr-nfs (Debian / Ubuntu)
-  apt: name={{ item }} state=present
+  apt: name={{ item }} state=present allow_unauthenticated=yes
   with_items:
 #  - mapr-nfs
   - mapr-loopbacknfs
-  - nfs-utils
+  - nfs-common
   - rpcbind
   when: ansible_os_family == 'Debian'
 # Other

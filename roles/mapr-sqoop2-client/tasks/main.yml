@@ -6,7 +6,7 @@
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install mapr-sqoop2-client (Debian / Ubuntu)
-  apt: name=mapr-sqoop2-client state=present
+  apt: name=mapr-sqoop2-client state=present allow_unauthenticated=yes
   when: ansible_os_family == 'Debian'
 # Suse
 - name: Install mapr-sqoop2-client (Suse)

@@ -11,11 +11,11 @@
 # Debian / Ubuntu
 # Install HBase REST
 - name: Install mapr-hbase-rest (Debian / Ubuntu)
-  apt: name=mapr-hbase-rest state=present
+  apt: name=mapr-hbase-rest state=present allow_unauthenticated=true
   when: ansible_os_family == 'Debian'
 # Install HBase Thrift
 - name: Install mapr-hbasethrift (Debian / Ubuntu)
-  apt: name=mapr-hbasethrift state=present
+  apt: name=mapr-hbasethrift state=present allow_unauthenticated=yes
   when: ansible_os_family == 'Debian'
 # Suse
 # Install HBase REST

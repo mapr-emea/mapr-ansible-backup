@@ -6,7 +6,7 @@
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install mapr-hiveserver2 (Debian / Ubuntu)
-  apt: name=mapr-hiveserver2 state=present
+  apt: name=mapr-hiveserver2 state=present allow_unauthenticated=yes
   when: ansible_os_family == 'Debian'
 # Suse
 - name: Install mapr-hiveserver2 (Suse)

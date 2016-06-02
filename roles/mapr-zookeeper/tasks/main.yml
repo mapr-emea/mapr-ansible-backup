@@ -9,7 +9,7 @@
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install mapr-zookeeper (Debian / Ubuntu)
-  apt: name={{ item }} state=present
+  apt: name={{ item }} state=present allow_unauthenticated=yes
   with_items:
   - mapr-zookeeper
   - mapr-zk-internal

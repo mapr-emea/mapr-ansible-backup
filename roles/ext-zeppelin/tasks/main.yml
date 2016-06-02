@@ -1,10 +1,13 @@
 ---
 # Download, Compile and Install Zeppelin
-- name: Downloading NodeJS Setup
+# Redhat /CentOS
+- name: Downloading NodeJS Setup (RedHat / CentOs)
   get_url: url=https://rpm.nodesource.com/setup force=yes mode=0755 dest=/tmp/nodejs_setup timeout=120
+  when: ansible_os_family == 'RedHat'
 - name:
   shell: /tmp/nodejs_setup
-- name: Install build dependencies
+  when: ansible_os_family == 'RedHat'
+- name: Install build dependencies (RedHat / CentOs)
   yum: name={{ item }} state=present
   with_items:
   - git
@@ -12,12 +15,30 @@
 #  - npm
 #  - libfontconfig
   when: ansible_os_family == 'RedHat'
+ # Suse
+- name: Create NodeJS Repo for Suse
+  zypper_repository: name=Node.js repo=http://download.opensuse.org/repositories/devel:/languages:/nodejs/openSUSE_13.1/
+  when: ansible_os_family == 'Suse'
+- name: Install build dependencies  (Suse)
+  zypper: name={{ item }} state=present
+  with_items:
+  - git
+  - nodejs
+  - npm
+  when: ansible_os_family == 'Suse'
+- name: Install build dependencies (Debian / Ubuntu)
+  apt: name={{ item }} state=present
+  with_items:
+  - git
+  - nodejs
+  - npm
+  when: ansible_os_family == 'Debian'
 - name: Download and extract Maven 3.3.3
   unarchive: src=http://www.eu.apache.org/dist/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz dest=/usr/local/ copy=no
 - name: Create mvn link
   file: src=/usr/local/apache-maven-3.3.3/bin/mvn dest=/usr/local/bin/mvn state=link
 - name: Clone Zeppelin Git Repo
-  git: repo=https://github.com/apache/incubator-zeppelin.git dest=/tmp/zeppelin.git
+  git: repo={{ zeppelin_git_repo }} dest=/tmp/zeppelin.git version={{ zeppelin_git_hash }}
 - name: Build Zeppelin with Maven
   shell: /usr/local/bin/mvn -Pmapr51 -Pyarn -Pbuild-distr -Pspark-1.6 -Phadoop-2.6 -Ppyspark package -DskipTests -B -f /tmp/zeppelin.git/pom.xml
 - name: Create /opt/mapr/zeppelin dir
@@ -36,19 +57,3 @@
   file: path=/opt/mapr/zeppelin owner={{ mapr_user }} group={{ mapr_group }} state=directory recurse=yes
 - name: Start Zeppelin
   shell: /opt/mapr/zeppelin/zeppelin-{{ zeppelin_version }}/bin/zeppelin-daemon.sh start
-
-# copy zeppelin-env.sh
-
-# copy drill driver
-
-# start
-
-
-# git clone https://github.com/apache/incubator-zeppelin.git
-
-
-
-
-
-# Example read-write git checkout from github
-#- git: repo=ssh://git@github.com/mylogin/hello.git dest=/home/mylogin/hello

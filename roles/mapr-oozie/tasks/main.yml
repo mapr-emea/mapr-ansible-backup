@@ -25,7 +25,7 @@
   service: name=mysql state=started enabled=yes
   when: ansible_os_family == 'Debian'
 - name: Install mapr-oozie (Debian / Ubuntu)
-  apt: name=mapr-oozie state=present
+  apt: name=mapr-oozie state=present allow_unauthenticated=yes
   when: ansible_os_family == 'Debian'
 # Suse
 - name: Install MySQL (Suse)
