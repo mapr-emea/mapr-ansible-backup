@@ -1,5 +1,14 @@
 ---
 # Install Sqoop2 Client
+# Redhat / CentOS
 - name: Install mapr-sqoop2-client
   yum: name=mapr-sqoop2-client state=present
   when: ansible_os_family == 'RedHat'
+# Debian / Ubuntu
+- name: Install mapr-sqoop2-client
+  apt: name=mapr-sqoop2-client state=present
+  when: ansible_os_family == 'Debian'
+# Suse
+- name: Install mapr-sqoop2-client
+  zypper: name=mapr-sqoop2-client state=present
+  when: ansible_os_family == 'Suse'

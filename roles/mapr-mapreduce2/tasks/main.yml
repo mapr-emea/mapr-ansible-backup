@@ -1,5 +1,14 @@
 ---
 # Install MapReduce2
+# Redhat / CentOS
 - name: Install mapr-mapreduce2
   yum: name=mapr-mapreduce2 state=present
   when: ansible_os_family == 'RedHat'
+# Debian / Ubuntu
+- name: Install mapr-mapreduce2
+  apt: name=mapr-mapreduce2 state=present
+  when: ansible_os_family == 'Debian'
+# Suse
+- name: Install mapr-mapreduce2
+  zypper: name=mapr-mapreduce2 state=present
+  when: ansible_os_family == 'Suse'

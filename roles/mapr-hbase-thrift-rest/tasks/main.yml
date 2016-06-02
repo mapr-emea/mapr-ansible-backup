@@ -1,4 +1,5 @@
 ---
+# Redhat / CentOS
 # Install HBase REST
 - name: Install mapr-hbase-rest
   yum: name=mapr-hbase-rest state=present
@@ -7,3 +8,23 @@
 - name: Install mapr-hbasethrift
   yum: name=mapr-hbasethrift state=present
   when: ansible_os_family == 'RedHat'
+
+# Debian / Ubuntu
+# Install HBase REST
+- name: Install mapr-hbase-rest
+  apt: name=mapr-hbase-rest state=present
+  when: ansible_os_family == 'Debian'
+# Install HBase Thrift
+- name: Install mapr-hbasethrift
+  apt: name=mapr-hbasethrift state=present
+  when: ansible_os_family == 'Debian'
+
+# Suse
+# Install HBase REST
+- name: Install mapr-hbase-rest
+  zypper: name=mapr-hbase-rest state=present
+  when: ansible_os_family == 'Suse'
+# Install HBase Thrift
+- name: Install mapr-hbasethrift
+  zypper: name=mapr-hbasethrift state=present
+  when: ansible_os_family == 'Suse'

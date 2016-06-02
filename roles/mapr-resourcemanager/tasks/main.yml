@@ -1,5 +1,14 @@
 ---
 # Install YARN Resource Manager
+# Redhat / CentOS
 - name: Install mapr-resourcemanager
   yum: name=mapr-resourcemanager state=present
   when: ansible_os_family == 'RedHat'
+# Debian / Ubuntu
+- name: Install mapr-resourcemanager
+  apt: name=mapr-resourcemanager state=present
+  when: ansible_os_family == 'Debian'
+# Suse
+- name: Install mapr-resourcemanager
+  zypper: name=mapr-resourcemanager state=present
+  when: ansible_os_family == 'Suse'

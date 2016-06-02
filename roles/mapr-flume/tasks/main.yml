@@ -1,5 +1,14 @@
 ---
 # Install Flume
+# Redhat / CentOS
 - name: Install mapr-flume
   yum: name=mapr-flume state=present
   when: ansible_os_family == 'RedHat'
+# Debian / Ubuntu
+- name: Install mapr-flume
+  apt: name=mapr-flume state=present
+  when: ansible_os_family == 'Debian'
+# Suse
+- name: Install mapr-flume
+  zypper: name=mapr-flume state=present
+  when: ansible_os_family == 'Suse'

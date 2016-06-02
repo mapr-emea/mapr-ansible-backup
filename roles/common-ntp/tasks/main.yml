@@ -1,8 +1,16 @@
 ---
+# Redhat / CentOS
 - name: Install ntp
   yum: name=ntp state=present
-  tags: ntp
   when: ansible_os_family == 'RedHat'
+# Debian / Ubuntu
+- name: Install ntp
+  apt: name=ntp state=present
+  when: ansible_os_family == 'Debian'
+# Suse
+- name: Install ntp
+  zypper: name=ntp state=present
+  when: ansible_os_family == 'Suse'
+# Other actions
 - name: Start the ntp service
   service: name=ntpd state=started enabled=yes
-  tags: ntp

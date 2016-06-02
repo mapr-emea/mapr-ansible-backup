@@ -6,9 +6,19 @@
 #- name: Downloading Java JDK
 #  shell:  curl -v -j -k -L -H "Cookie:oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-linux-x64.rpm > /tmp/jdk-8u92-linux-x64.rpm
 
+# Redhat / CentOS
 - name: Install Java JDK rpm from a local file
   yum: name=/tmp/oracle-jdk.rpm state=present
-
+  when: ansible_os_family == 'RedHat'
+# Debian / Ubuntu
+- name: Install Java JDK rpm from a local file
+  apt_rpm: name=/tmp/oracle-jdk.rpm state=present
+  when: ansible_os_family == 'Debian'
+# Suse
+- name: Install Java JDK rpm from a local file
+  zypper: name=/tmp/oracle-jdk.rpm state=present
+  when: ansible_os_family == 'Suse'
+# Other actions
 - name: Copy Local Policy
   copy: src="../files/UnlimitedJCEPolicyJDK8/local_policy.jar" dest="{{ oracle_jdk_folder }}/jre/lib/security/" mode=0644
 - name: Copy US Export Policy

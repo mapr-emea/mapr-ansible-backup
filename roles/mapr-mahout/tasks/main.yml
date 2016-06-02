@@ -1,5 +1,14 @@
 ---
 # Install Mahout
+# Redhat / CentOS
 - name: Install mapr-mahout
   yum: name=mapr-mahout state=present
   when: ansible_os_family == 'RedHat'
+# Debian / Ubuntu
+- name: Install mapr-mahout
+  apt: name=mapr-mahout state=present
+  when: ansible_os_family == 'Debian'
+# Suse
+- name: Install mapr-mahout
+  zypper: name=mapr-mahout state=present
+  when: ansible_os_family == 'Suse'

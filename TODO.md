@@ -3,6 +3,4 @@
 - Add posix
 - Add storm
 - Add hue
-- Add Suse
-- Add Ubuntu
 - Add latest patches

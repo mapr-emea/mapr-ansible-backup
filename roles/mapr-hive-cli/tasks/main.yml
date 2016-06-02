@@ -1,16 +1,47 @@
 ---
 # Install Hive CLI
-- name: Install mysql-server
-  yum: name=mariadb-server state=present
+# Redhat / CentOS
+- name: Install MySQL
+  yum: name={{ item }} state=present
+  with_items:
+  - mariadb-server
+  - python-mysql
   when: ansible_os_family == 'RedHat'
 - name: Start the mysqld service
   service: name=mariadb state=started enabled=yes
-- name: Install python-mysql
-  yum: name=MySQL-python state=present
   when: ansible_os_family == 'RedHat'
 - name: Install mapr-hive
   yum: name=mapr-hive state=present
   when: ansible_os_family == 'RedHat'
+# Debian / Ubuntu
+- name: Install MySQL
+  apt: name={{ item }} state=present
+  with_items:
+  - mysql-server
+  - python-mysql
+  when: ansible_os_family == 'Debian'
+- name: Start the mysqld service
+  service: name=mysql state=started enabled=yes # TODO correct service?
+  when: ansible_os_family == 'Debian'
+- name: Install mapr-hive
+  apt: name=mapr-hive state=present
+  when: ansible_os_family == 'Debian'
+# Suse
+- name: Install MySQL
+  zypper: name={{ item }} state=present
+  with_items:
+  - mysql-client
+  - python-mysql
+  - mariadb
+  when: ansible_os_family == 'Suse'
+- name: Start the mysqld service
+  service: name=mariadb state=started enabled=yes # TODO set correct service name
+  when: ansible_os_family == 'Suse'
+- name: Install mapr-hive
+  zypper: name=mapr-hive state=present
+  when: ansible_os_family == 'Suse'
+
+# Other actions
 - name: Create hive mysql db
   mysql_db: name={{ hive_db_schema }} state=present
 - name: Create hive mysql user

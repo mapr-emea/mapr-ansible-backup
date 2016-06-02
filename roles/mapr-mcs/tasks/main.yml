@@ -1,5 +1,14 @@
 ---
 # Install MapR Control System (MCS)
+# Redhat / CentOS
 - name: Install mapr-webserver
   yum: name=mapr-webserver state=present
   when: ansible_os_family == 'RedHat'
+# Debian / Ubuntu
+- name: Install mapr-webserver
+  apt: name=mapr-webserver state=present
+  when: ansible_os_family == 'Debian'
+# Suse
+- name: Install mapr-webserver
+  zypper: name=mapr-webserver state=present
+  when: ansible_os_family == 'Suse'

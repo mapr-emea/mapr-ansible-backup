@@ -1,5 +1,6 @@
 ---
 # Install NFS
+# Redhat / CentOS
 - name: Install mapr-nfs
   yum: name={{ item }} state=present
   with_items:
@@ -8,6 +9,26 @@
   - nfs-utils
   - rpcbind
   when: ansible_os_family == 'RedHat'
+# Debian / Ubuntu
+- name: Install mapr-nfs
+  apt: name={{ item }} state=present
+  with_items:
+#  - mapr-nfs
+  - mapr-loopbacknfs
+  - nfs-utils
+  - rpcbind
+  when: ansible_os_family == 'Debian'
+# Other
+- name: Install mapr-nfs
+  zypper: name={{ item }} state=present
+  with_items:
+#  - mapr-nfs
+  - mapr-loopbacknfs
+  - nfs-utils
+  - rpcbind
+  when: ansible_os_family == 'Suse'
+
+# Other actions
 - name: Copy nfsserver.conf
   copy: remote_src=True src=/opt/mapr/conf/nfsserver.conf dest=/usr/local/mapr-loopbacknfs/conf/nfsserver.conf
 - name: Copy mapr-clusters.conf
