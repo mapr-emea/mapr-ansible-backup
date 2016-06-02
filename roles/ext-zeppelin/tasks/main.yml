@@ -17,7 +17,7 @@
   when: ansible_os_family == 'RedHat'
  # Suse
 - name: Create NodeJS Repo for Suse
-  zypper_repository: name=Node.js repo=http://download.opensuse.org/repositories/devel:/languages:/nodejs/openSUSE_13.1/
+  zypper_repository: name=Node.js disable_gpg_check=yes repo=http://download.opensuse.org/repositories/devel:/languages:/nodejs/openSUSE_13.1/
   when: ansible_os_family == 'Suse'
 - name: Install build dependencies  (Suse)
   zypper: name={{ item }} state=present
