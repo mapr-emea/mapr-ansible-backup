@@ -1,6 +1,6 @@
-mapr_release_url = http://package.mapr.com/releases/v5.1.0
-mapr_ecosystem_url = http://package.mapr.com/releases/ecosystem-5.x
-mapr_gpg_url = http://package.mapr.com/releases/pub/maprgpg.key
+mapr_release_url: http://package.mapr.com/releases/v5.1.0
+mapr_ecosystem_url: http://package.mapr.com/releases/ecosystem-5.x
+mapr_gpg_url: http://package.mapr.com/releases/pub/maprgpg.key
 
 oracle_jdk_url: http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-linux-x64.rpm
 oracle_jdk_folder: /usr/java/jdk1.8.0_92

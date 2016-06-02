@@ -5,18 +5,18 @@
     name: maprtech
     description: MapR Technologies
     file: external_repos
-    baseurl: {{ mapr_release_url }}/redhat/
+    baseurl: "{{ mapr_release_url }}/redhat/"
     gpgcheck: no
-    gpgkey: {{ mapr_gpg_url }}
+    gpgkey: "{{ mapr_gpg_url }}"
   when: ansible_os_family == 'RedHat'
 - name: Create MapR Releases Ecosystem for RedHat
   yum_repository:
     name: maprecosystem
     description: MapR Technologies
     file: external_repos
-    baseurl: {{ mapr_ecosystem_url }}/redhat/
+    baseurl: "{{ mapr_ecosystem_url }}/redhat/"
     gpgcheck: no
-    gpgkey: {{ mapr_gpg_url }}
+    gpgkey: "{{ mapr_gpg_url }}"
   when: ansible_os_family == 'RedHat'
 
 # Ubuntu / Debian
