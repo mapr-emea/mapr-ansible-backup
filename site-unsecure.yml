@@ -32,10 +32,6 @@
   hosts: mapr-drill
   roles:
     - mapr-drill
-- name: Install MySQL
-  hosts: ext-mysql
-  roles:
-    - ext-mysql
 - name: Install Flume
   hosts: mapr-flume
   roles:

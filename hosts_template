@@ -16,10 +16,6 @@
 [mapr-mcs]
 10.0.0.148 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
-# MySQL, IMPORTANT: only one
-[ext-mysql]
-10.0.0.148 ansible_user=centos ansible_become=yes ansible_become_method=sudo
-
 # YARN resource manager
 [mapr-resourcemanager]
 10.0.0.148 ansible_user=centos ansible_become=yes ansible_become_method=sudo

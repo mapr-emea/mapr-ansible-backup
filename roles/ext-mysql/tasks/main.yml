@@ -1,7 +1,0 @@
----
-# Install MySQL
-- name: Install mysql-server
-  yum: name=mariadb-server state=present
-  when: ansible_os_family == 'RedHat'
-- name: Start the mysqld service
-  service: name=mariadb state=started enabled=yes
