@@ -1,19 +1,23 @@
 oracle_jdk_url: http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-linux-x64.rpm
 oracle_jdk_folder: /usr/java/jdk1.8.0_92
 
+hadoop_version: 2.7.0
+spark_version: 1.6.1
+oozie_version: 4.2.0
+hive_version: 1.2
+zeppelin_version: 0.6.0-incubating-SNAPSHOT
+
 mapr_group: mapr
 mapr_group_gid: 5000
 mapr_user: mapr
 mapr_user_uid: 5000
 cluster_name: my2.cluster.com
 
-hadoop_version: 2.7.0
-oozie_version: 4.2.0
 oozie_db_schema: oozie
 oozie_db_user: oozie
 oozie_db_password: oozie
 
-hive_version: 1.2
+
 hive_db_schema: hive
 hive_db_user: hive
 hive_db_password: hive

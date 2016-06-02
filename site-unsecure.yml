@@ -97,12 +97,6 @@
   hosts: mapr-httpfs
   roles:
     - mapr-httpfs
-# TODO implement
-#- name: Install Zeppelin
-#  hosts: ext-zeppelin
-#  roles:
-#    - ext-zeppelin
-
 - name: Configure and start
   hosts: all
   roles:
@@ -119,3 +113,7 @@
   hosts: all
   roles:
     - mapr-configure-warden-restart
+- name: Install Zeppelin
+  hosts: ext-zeppelin
+  roles:
+    - ext-zeppelin
