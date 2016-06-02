@@ -1,7 +1,5 @@
 - Add config for non secure
-    - hive -> metastore mysql
     - hue -> resource manager
-    - oozie -> mysql
 - Create config for native secure
 - Add Zeppelin
 - Add posix
