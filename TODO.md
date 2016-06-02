@@ -1,9 +1,8 @@
-- Add config for non secure
-    - hue -> resource manager
 - Create config for native secure
 - Add Zeppelin
 - Add posix
 - Add storm
-- Add latest patches
+- Add hue
 - Add Suse
 - Add Ubuntu
+- Add latest patches

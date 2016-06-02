@@ -17,9 +17,7 @@
 - name: Start NFS Loopback
   service: name=mapr-loopbacknfs state=restarted enabled=yes
 - name: Create /mapr dir
-  file: path=/mapr state=directory mode=0755
-- name: Add /mapr mount to /etc/profile
-  lineinfile: dest=/etc/fstab state=present line="localhost:/mapr /mapr   nfs     rw      0       0"
+  file: path=/mapr state=directory
 - name: Mount /mapr
-  mount: name=/mapr state=present
+  mount: name=/mapr state=mounted src=localhost:/mapr fstype=nfs opts=rw
 
