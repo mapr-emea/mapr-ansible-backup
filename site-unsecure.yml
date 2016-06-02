@@ -5,6 +5,7 @@
     - common-mapruser
     - common-rpcbind
     - common-ntp
+    - common-misc
 - name: Install MapR Core
   hosts: all
   roles:

@@ -2,6 +2,7 @@
 - name: Install ntp
   yum: name=ntp state=present
   tags: ntp
+  when: ansible_os_family == 'RedHat'
 - name: Start the ntp service
   service: name=ntpd state=started enabled=yes
   tags: ntp

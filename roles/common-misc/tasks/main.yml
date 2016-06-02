@@ -1,0 +1,7 @@
+---
+- name: Install Midnight Commander
+  yum: name=mc state=present
+  when: ansible_os_family == 'RedHat'
+- name: Install wget
+  yum: name=wget state=present
+  when: ansible_os_family == 'RedHat'
