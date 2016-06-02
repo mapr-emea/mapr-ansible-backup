@@ -2,8 +2,6 @@
     - hive -> metastore mysql
     - hue -> resource manager
     - oozie -> mysql
-    - nfs -> Mount
-    - spark history server braucht maprfs://apps/spark, danach spark history server neustarten...
 - Create config for native secure
 - Add Zeppelin
 - Add posix

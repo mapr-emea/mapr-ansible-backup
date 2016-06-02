@@ -76,22 +76,10 @@
   hosts: mapr-mcs
   roles:
     - mapr-mcs
-- name: Install NFS
-  hosts: mapr-nfs
-  roles:
-    - mapr-nfs
 - name: Install Pig
   hosts: mapr-pig
   roles:
     - mapr-pig
-- name: Install Spark on YARN
-  hosts: mapr-spark-yarn
-  roles:
-    - mapr-spark-yarn
-- name: Install Sqoop v1
-  hosts: mapr-sqoop
-  roles:
-    - mapr-spark-yarn
 - name: Install Sqoop 2 Server
   hosts: mapr-sqoop2-server
   roles:
@@ -122,3 +110,11 @@
   hosts: all
   roles:
     - mapr-configure-unsecure
+- name: Install NFS
+  hosts: mapr-nfs
+  roles:
+    - mapr-nfs
+- name: Install Spark on YARN
+  hosts: mapr-spark-yarn
+  roles:
+    - mapr-spark-yarn

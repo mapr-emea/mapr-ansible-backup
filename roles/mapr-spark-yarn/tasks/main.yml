@@ -6,6 +6,9 @@
   - mapr-spark
   - mapr-spark-historyserver
   when: ansible_os_family == 'RedHat'
-
-# TODO in MapR FS wird /apps/spark benötigt aber das is dann noch nicht da, -> handler
-#  http://maprdocs.mapr.com/51/index.html#Spark/InstallSparkonYARN.html
+- name: Create maprfs:///apps/spark
+  shell: hadoop fs -mkdir /apps/spark
+- name: Owner maprfs:///apps/spark
+  shell: hadoop fs -chown mapr:mapr /apps/spark
+- name: Configure.sh -R
+  shell: /opt/mapr/server/configure.sh -R

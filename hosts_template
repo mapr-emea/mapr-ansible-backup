@@ -88,10 +88,6 @@
 [mapr-mahout]
 10.0.0.148 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
-# Sqoop (v1)
-[mapr-sqoop]
-# 10.0.0.148 ansible_user=centos ansible_become=yes ansible_become_method=sudo
-
 # Sqoop2 Server
 [mapr-sqoop2-server]
 10.0.0.148 ansible_user=centos ansible_become=yes ansible_become_method=sudo

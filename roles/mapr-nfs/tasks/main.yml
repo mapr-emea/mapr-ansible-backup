@@ -4,5 +4,22 @@
   yum: name={{ item }} state=present
   with_items:
   - mapr-nfs
+  - mapr-loopbacknfs
+  - nfs-utils
   - rpcbind
   when: ansible_os_family == 'RedHat'
+- name: Copy nfsserver.conf
+  copy: remote_src=True src=/opt/mapr/conf/nfsserver.conf dest=/usr/local/mapr-loopbacknfs/conf/nfsserver.conf
+- name: Copy mapr-clusters.conf
+  copy: remote_src=True src=/opt/mapr/conf/mapr-clusters.conf dest=/usr/local/mapr-loopbacknfs/conf/mapr-clusters.conf
+- name: Start NFS server
+  service: name=mapr-nfsserver state=restarted enabled=yes
+- name: Start NFS Loopback
+  service: name=mapr-loopbacknfs state=restarted enabled=yes
+- name: Create /mapr dir
+  file: path=/mapr state=directory mode=0755
+- name: Add /mapr mount to /etc/profile
+  lineinfile: dest=/etc/fstab state=present line="localhost:/mapr /mapr   nfs     rw      0       0"
+- name: Mount /mapr
+  shell: mount /mapr
+

@@ -1,5 +1,0 @@
----
-# Install Sqoop v1
-- name: Install mapr-sqoop
-  yum: name=mapr-sqoop state=present
-  when: ansible_os_family == 'RedHat'
