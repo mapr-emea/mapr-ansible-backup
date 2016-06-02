@@ -1,6 +1,6 @@
 - Create config for native secure
-- Add Zeppelin
 - Add posix
+- Add precheck for disks
 - Add storm
 - Add hue
 - Add latest patches
