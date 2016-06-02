@@ -21,5 +21,5 @@
 - name: Add /mapr mount to /etc/profile
   lineinfile: dest=/etc/fstab state=present line="localhost:/mapr /mapr   nfs     rw      0       0"
 - name: Mount /mapr
-  shell: mount /mapr
+  mount: name=/mapr state=present
 
