@@ -1,15 +1,15 @@
 ---
 # Install HttpFS
 # Redhat / CentOS
-- name: Install mapr-httpfs
+- name: Install mapr-httpfs (Redhat / CentOS)
   yum: name=mapr-httpfs state=present
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
-- name: Install mapr-httpfs
+- name: Install mapr-httpfs (Debian / Ubuntu)
   apt: name=mapr-httpfs state=present
   when: ansible_os_family == 'Debian'
 # Suse
-- name: Install mapr-httpfs
+- name: Install mapr-httpfs (Suse)
   zypper: name=mapr-httpfs state=present
   when: ansible_os_family == 'Suse'
 

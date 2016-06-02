@@ -2,14 +2,14 @@
 # Install MapR Core components for all machines
 
 # Redhat / CentOS
-- name: Install mapr-core
+- name: Install mapr-core (Redhat / CentOS)
   yum: name={{ item }} state=present
   with_items:
   - mapr-core
   - mapr-core-internal
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
-- name: Install mapr-core
+- name: Install mapr-core (Debian / Ubuntu)
   apt: name={{ item }} state=present
   with_items:
   - mapr-core
@@ -17,7 +17,7 @@
   when: ansible_os_family == 'Debian'
 
 # Suse
-- name: Install mapr-core
+- name: Install mapr-core (Suse)
   zypper: name={{ item }} state=present
   with_items:
   - mapr-compat-suse

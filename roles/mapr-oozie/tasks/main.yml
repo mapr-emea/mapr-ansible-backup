@@ -1,43 +1,44 @@
 ---
 # Install Oozie and MySQL
 # Redhat / CentOS
-- name: Install MySQL
+- name: Install MySQL (Redhat / CentOS)
   yum: name={{ item }} state=present
   with_items:
   - mariadb-server
-  - python-mysql
+  - MySQL-python
   when: ansible_os_family == 'RedHat'
-- name: Start the mysqld service
+- name: Start the mysqld service (Redhat / CentOS)
   service: name=mariadb state=started enabled=yes
   when: ansible_os_family == 'RedHat'
-- name: Install mapr-oozie
+- name: Install mapr-oozie (Redhat / CentOS)
   yum: name=mapr-oozie state=present
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
-- name: Install MySQL
+- name: Install MySQL (Debian / Ubuntu)
   apt: name={{ item }} state=present
   with_items:
   - mysql-server
-  - python-mysql
+  - mysql-client
+  - python-mysqldb
   when: ansible_os_family == 'Debian'
-- name: Start the mysqld service
-  service: name=mysql state=started enabled=yes # TODO correct service?
+- name: Start the mysqld service (Debian / Ubuntu)
+  service: name=mysql state=started enabled=yes
   when: ansible_os_family == 'Debian'
-- name: Install mapr-oozie
+- name: Install mapr-oozie (Debian / Ubuntu)
   apt: name=mapr-oozie state=present
   when: ansible_os_family == 'Debian'
 # Suse
-- name: Install MySQL
+- name: Install MySQL (Suse)
   zypper: name={{ item }} state=present
   with_items:
-  - mysql-client
-  - python-mysql
   - mariadb
+  - mariadb-client
+  - python-mysql
   when: ansible_os_family == 'Suse'
-- name: Start the mysqld service
-  service: name=mariadb state=started enabled=yes # TODO set correct service name
+- name: Start the mysqld service (Suse)
+  service: name=mysql state=started enabled=yes
   when: ansible_os_family == 'Suse'
-- name: Install mapr-oozie
+- name: Install mapr-oozie (Suse)
   zypper: name=mapr-oozie state=present
   when: ansible_os_family == 'Suse'
 

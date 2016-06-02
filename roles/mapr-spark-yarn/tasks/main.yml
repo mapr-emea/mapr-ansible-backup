@@ -1,21 +1,21 @@
 ---
 # Install Spark on YARN
 # Redhat / CentOS
-- name: Install mapr-spark
+- name: Install mapr-spark (Redhat / CentOS)
   yum: name={{ item }} state=present
   with_items:
   - mapr-spark
   - mapr-spark-historyserver
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
-- name: Install mapr-spark
+- name: Install mapr-spark (Debian / Ubuntu)
   apt: name={{ item }} state=present
   with_items:
   - mapr-spark
   - mapr-spark-historyserver
   when: ansible_os_family == 'Debian'
 # Suse
-- name: Install mapr-spark
+- name: Install mapr-spark (Suse)
   zypper: name={{ item }} state=present
   with_items:
   - mapr-spark

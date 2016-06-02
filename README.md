@@ -4,8 +4,10 @@ Ansible 2.1 or higher required!
 
 ## Supported OS
 
-* Redhat
-* CentOS
+* Redhat 7 or higher
+* CentOS 7 or higher
+* Ubuntu 14.x or higher
+* Suse SLES 12 or higher
 
 ## Use the UI installer
 

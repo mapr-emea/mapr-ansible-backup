@@ -1,15 +1,15 @@
 ---
 # Install Hive Metastore
 # Redhat / CentOS
-- name: Install mapr-hivemetastore
+- name: Install mapr-hivemetastore (Redhat / CentOS)
   yum: name=mapr-hivemetastore state=present
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
-- name: Install mapr-hivemetastore
+- name: Install mapr-hivemetastore (Debian / Ubuntu)
   apt: name=mapr-hivemetastore state=present
   when: ansible_os_family == 'Debian'
 # Suse
-- name: Install mapr-hivemetastore
+- name: Install mapr-hivemetastore (Suse)
   zypper: name=mapr-hivemetastore state=present
   when: ansible_os_family == 'Suse'
 

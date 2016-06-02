@@ -1,14 +1,14 @@
 ---
 # Redhat / CentOS
-- name: Install ntp
+- name: Install ntp (Redhat / CentOS)
   yum: name=ntp state=present
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
-- name: Install ntp
+- name: Install ntp (Debian / Ubuntu)
   apt: name=ntp state=present
   when: ansible_os_family == 'Debian'
 # Suse
-- name: Install ntp
+- name: Install ntp (Suse)
   zypper: name=ntp state=present
   when: ansible_os_family == 'Suse'
 # Other actions

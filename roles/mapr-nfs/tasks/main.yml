@@ -1,7 +1,7 @@
 ---
 # Install NFS
 # Redhat / CentOS
-- name: Install mapr-nfs
+- name: Install mapr-nfs (Redhat / CentOS)
   yum: name={{ item }} state=present
   with_items:
 #  - mapr-nfs
@@ -10,7 +10,7 @@
   - rpcbind
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
-- name: Install mapr-nfs
+- name: Install mapr-nfs (Debian / Ubuntu)
   apt: name={{ item }} state=present
   with_items:
 #  - mapr-nfs
@@ -19,7 +19,7 @@
   - rpcbind
   when: ansible_os_family == 'Debian'
 # Other
-- name: Install mapr-nfs
+- name: Install mapr-nfs (Suse)
   zypper: name={{ item }} state=present
   with_items:
 #  - mapr-nfs
