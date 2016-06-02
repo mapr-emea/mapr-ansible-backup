@@ -1,2 +1,12 @@
 ---
 # Download, Compile and Install Zeppelin
+
+#sudo yum install git npm libfontconfig
+# git clone https://github.com/apache/incubator-zeppelin.git
+
+
+
+
+
+# Example read-write git checkout from github
+#- git: repo=ssh://git@github.com/mylogin/hello.git dest=/home/mylogin/hello

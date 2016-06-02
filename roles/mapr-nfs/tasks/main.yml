@@ -3,7 +3,7 @@
 - name: Install mapr-nfs
   yum: name={{ item }} state=present
   with_items:
-  - mapr-nfs
+#  - mapr-nfs
   - mapr-loopbacknfs
   - nfs-utils
   - rpcbind
