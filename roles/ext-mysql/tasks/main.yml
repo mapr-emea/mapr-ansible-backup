@@ -1,0 +1,34 @@
+---
+# Install MySQL
+# Redhat / CentOS
+- name: Install MySQL (Redhat / CentOS)
+  yum: name={{ item }} state=present
+  with_items:
+  - mariadb-server
+  - MySQL-python
+  when: ansible_os_family == 'RedHat'
+- name: Start the mysqld service (Redhat / CentOS)
+  service: name=mariadb state=started enabled=yes
+  when: ansible_os_family == 'RedHat'
+# Debian / Ubuntu
+- name: Install MySQL (Debian / Ubuntu)
+  apt: name={{ item }} state=present
+  with_items:
+  - mysql-server
+  - mysql-client
+  - python-mysqldb
+  when: ansible_os_family == 'Debian'
+- name: Start the mysqld service (Debian / Ubuntu)
+  service: name=mysql state=started enabled=yes
+  when: ansible_os_family == 'Debian'
+# Suse
+- name: Install MySQL (Suse)
+  zypper: name={{ item }} state=present
+  with_items:
+  - mariadb
+  - mariadb-client
+  - python-mysql
+  when: ansible_os_family == 'Suse'
+- name: Start the mysqld service (Suse)
+  service: name=mysql state=started enabled=yes
+  when: ansible_os_family == 'Suse'

@@ -23,7 +23,7 @@
     </property>
     <property>
         <name>oozie.service.JPAService.jdbc.url</name>
-        <value>jdbc:mysql://localhost:3306/{{ oozie_db_schema }}</value>
+        <value>jdbc:mysql://{{ oozie_db_host }}:3306/{{ oozie_db_schema }}</value>
     </property>
     <property>
         <name>oozie.service.JPAService.jdbc.username</name>

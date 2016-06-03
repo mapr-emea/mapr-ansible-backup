@@ -1,4 +1,4 @@
 - name: Test single component
   hosts: base
   roles:
-    - ext-zeppelin
+    - mapr-hive-cli

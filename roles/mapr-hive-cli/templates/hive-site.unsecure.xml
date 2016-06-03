@@ -19,7 +19,7 @@
 <configuration>
     <property>
         <name>javax.jdo.option.ConnectionURL</name>
-        <value>jdbc:mysql://localhost:3306/{{ hive_db_schema }}?createDatabaseIfNotExist=true</value>
+        <value>jdbc:mysql://{{ hive_db_host }}:3306/{{ hive_db_schema }}?createDatabaseIfNotExist=true</value>
         <description>JDBC connect string for a JDBC metastore</description>
     </property>
 

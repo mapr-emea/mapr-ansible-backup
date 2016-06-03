@@ -26,3 +26,14 @@
 - name: Install mapr-hbasethrift (Suse)
   zypper: name=mapr-hbasethrift state=present
   when: ansible_os_family == 'Suse'
+
+# Other actions
+- name: Get Zookeeper FQDNs
+  set_fact: zoo_item={{ hostvars[item]['ansible_fqdn'] }}
+  with_items:
+    - "{{ groups['mapr-zookeeper'] }}"
+  register: zookeeper_hosts
+- name: Make Zookeeper String
+  set_fact: zookeeper_string={{ zookeeper_hosts.results | map(attribute='ansible_facts.zoo_item') | list | join(',')}}
+- name: Configure hbase-site.xml
+  template: src=hbase-site.unsecure.xml dest=/opt/mapr/hbase/hbase-{{ hbase_version }}/conf/hbase-site.xml

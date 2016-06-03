@@ -29,6 +29,10 @@
   hosts: mapr-resourcemanager
   roles:
     - mapr-resourcemanager
+- name: Install MySQL
+  hosts: ext-mysql
+  roles:
+    - ext-mysql
 - name: Install Drill
   hosts: mapr-drill
   roles:
