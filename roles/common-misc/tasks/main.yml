@@ -1,17 +1,17 @@
 ---
 # Redhat / CentOS
 - name: Install Midnight Commander (Redhat / CentOS)
-  yum: name=mc state=present
+  yum: name=mc state=present update_cache=yes
   when: ansible_os_family == 'RedHat'
 - name: Install wget (Redhat / CentOS)
-  yum: name=wget state=present
+  yum: name=wget state=present update_cache=yes
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install Midnight Commander (Debian / Ubuntu)
-  apt: name=mc state=present
+  apt: name=mc state=present update_cache=yes
   when: ansible_os_family == 'Debian'
 - name: Install wget (Debian / Ubuntu)
-  apt: name=wget state=present
+  apt: name=wget state=present update_cache=yes
   when: ansible_os_family == 'Debian'
 # Suse
 - name: Install Midnight Commander (Suse)

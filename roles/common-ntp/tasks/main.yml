@@ -1,14 +1,14 @@
 ---
 # Redhat / CentOS
 - name: Install ntp (Redhat / CentOS)
-  yum: name=ntp state=present
+  yum: name=ntp state=present update_cache=yes
   when: ansible_os_family == 'RedHat'
 - name: Start the ntp service (Redhat / CentOS)
   service: name=ntpd state=started enabled=yes
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install ntp (Debian / Ubuntu)
-  apt: name=ntp state=present
+  apt: name=ntp state=present update_cache=yes
   when: ansible_os_family == 'Debian'
 - name: Start the ntp service (Debian / Ubuntu)
   service: name=ntp state=started enabled=yes
