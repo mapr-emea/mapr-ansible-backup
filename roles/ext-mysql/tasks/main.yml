@@ -18,6 +18,8 @@
   - mysql-client
   - python-mysqldb
   when: ansible_os_family == 'Debian'
+- name: Remove localhost binding
+  lineinfile: dest=/etc/mysql/my.cnf regexp="^bind-address" state=absent
 - name: Start the mysqld service (Debian / Ubuntu)
   service: name=mysql state=started enabled=yes
   when: ansible_os_family == 'Debian'
