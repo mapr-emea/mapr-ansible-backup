@@ -1,7 +1,5 @@
 ---
-# Restart Zookeeper and Warden
-- name: Restart Zookeeper
-  service: name=mapr-zookeeper state=restarted enabled=yes
+# Restart  Warden
 - name: Restart MapR Warden
   service: name=mapr-warden state=restarted enabled=yes
 

@@ -74,41 +74,31 @@
 
 # Hive WebHCat
 [mapr-hive-webhcat]
-10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # HttpFS
 [mapr-httpfs]
-10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Hue, not yet supported
 # [mapr-hue]
-# 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Mahout
 [mapr-mahout]
-10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Sqoop2 Server
 [mapr-sqoop2-server]
-10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Sqoop2 Client
 [mapr-sqoop2-client]
-10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Pig
 [mapr-pig]
-10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Oozie
 [mapr-oozie]
-10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # HttpFS
 [mapr-httpfs]
-10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Zeppelin
 [ext-zeppelin]
-10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 

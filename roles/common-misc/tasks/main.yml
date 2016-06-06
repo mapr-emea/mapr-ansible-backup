@@ -6,12 +6,18 @@
 - name: Install wget (Redhat / CentOS)
   yum: name=wget state=present update_cache=yes
   when: ansible_os_family == 'RedHat'
+- name: Install MySQL-python (Redhat / CentOS)
+  yum: name=MySQL-python state=present update_cache=yes
+  when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install Midnight Commander (Debian / Ubuntu)
   apt: name=mc state=present update_cache=yes
   when: ansible_os_family == 'Debian'
 - name: Install wget (Debian / Ubuntu)
   apt: name=wget state=present update_cache=yes
+  when: ansible_os_family == 'Debian'
+- name: Install python-mysqldb (Debian / Ubuntu)
+  apt: name=python-mysqldb state=present update_cache=yes
   when: ansible_os_family == 'Debian'
 # Suse
 - name: Install Midnight Commander (Suse)
@@ -20,3 +26,6 @@
 - name: Install wget  (Suse)
   zypper: name=wget state=present
   when: ansible_os_family == 'Suse'
+- name: Install python-mysql (Debian / Ubuntu)
+  apt: name=python-mysql state=present update_cache=yes
+  when: ansible_os_family == 'Debian'

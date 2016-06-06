@@ -1,4 +1,5 @@
 - name: Test single component
   hosts: base
   roles:
+    - ext-mysql
     - mapr-hive-cli

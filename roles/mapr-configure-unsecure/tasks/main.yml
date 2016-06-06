@@ -47,8 +47,4 @@
   command: /opt/mapr/server/disksetup -F /tmp/disks.txt
   ignore_errors: True # TODO error result should be handeled
 
-- name: Restart Zookeeper
-  service: name=mapr-zookeeper state=restarted enabled=yes
-- name: Restart MapR Warden
-  service: name=mapr-warden state=restarted enabled=yes
 
