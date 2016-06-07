@@ -32,9 +32,9 @@
 - name: Install wget  (Suse)
   zypper: name=wget state=present
   when: ansible_os_family == 'Suse'
-- name: Install python-mysql (Debian / Ubuntu)
+- name: Install python-mysql (Suse)
   zypper: name={{ item }} state=present
   with_items:
 #  - mariadb-client
   - python-mysql
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Suse'
