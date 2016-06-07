@@ -40,6 +40,10 @@ base
 [mapr-spark-yarn:children]
 base
 
+# Spark HistoryServer
+[mapr-spark-historyserver:children]
+base
+
 # NFS
 [mapr-nfs:children]
 base

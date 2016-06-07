@@ -40,6 +40,10 @@
 [mapr-spark-yarn]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
+# Spark HistoryServer
+[mapr-spark-historyserver]
+10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
 # NFS
 [mapr-nfs]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo

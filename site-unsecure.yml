@@ -125,6 +125,10 @@
   hosts: mapr-spark-yarn
   roles:
     - mapr-spark-yarn
+- name: Install Spark History Server
+  hosts: mapr-spark-historyserver
+  roles:
+    - mapr-spark-historyserver
 - name: Restarting mapr-warden
   hosts: all
   roles:
