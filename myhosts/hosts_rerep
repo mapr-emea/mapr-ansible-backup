@@ -20,6 +20,10 @@
 10.0.0.26 ansible_user=ec2-user ansible_become=yes ansible_become_method=sudo
 10.0.0.25 ansible_user=ec2-user ansible_become=yes ansible_become_method=sudo
 
+# Gateway for Streams and MapR-DB
+[mapr-gateway]
+10.0.0.27 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
 # MapR Control System
 [mapr-mcs]
 10.0.0.27 ansible_user=ec2-user ansible_become=yes ansible_become_method=sudo

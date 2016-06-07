@@ -16,6 +16,10 @@ base
 [mapr-mcs:children]
 base
 
+# Gateway for Streams and MapR-DB
+[mapr-gateway:children]
+base
+
 # YARN resource manager
 [mapr-resourcemanager:children]
 base

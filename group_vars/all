@@ -18,7 +18,10 @@ mapr_group: mapr
 mapr_group_gid: 5000
 mapr_user: mapr
 mapr_user_uid: 5000
-cluster_name: sync3.cluster.com
+cluster_name: my.cluster.com
+
+mysql_db_op_user: mapr
+mysql_db_op_password: mapr123
 
 oozie_db_schema: oozie
 oozie_db_user: oozie

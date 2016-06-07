@@ -11,6 +11,10 @@
 # Container Location DataBase
 [mapr-cldb]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+# Gateway for Streams and MapR-DB
+
+[mapr-gateway]
+10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # MapR Control System
 [mapr-mcs]

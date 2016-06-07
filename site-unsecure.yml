@@ -19,6 +19,10 @@
   hosts: mapr-cldb
   roles:
     - mapr-cldb
+- name: Install Gateway
+  hosts: mapr-gateway
+  roles:
+    - mapr-gateway
 - name: Install Filesystem, MapReduce2, YARN Node Manager
   hosts: mapr-datanode
   roles:
