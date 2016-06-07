@@ -1,0 +1,90 @@
+ - hosts: base
+   tasks:
+    # Redhat / CentOS
+    - name: Install MySQL (Redhat / CentOS)
+      yum: name={{ item }} state=present update_cache=yes
+      with_items:
+      - mariadb-server
+      - mariadb
+      - MySQL-python
+      when: ansible_os_family == 'RedHat'
+    - name: Remove localhost binding
+      lineinfile: dest=/etc/my.cnf regexp="^bind-address" state=absent
+      when: ansible_os_family == 'RedHat'
+    - name: Start the mysqld service (Redhat / CentOS)
+      service: name=mariadb state=restarted enabled=yes
+      when: ansible_os_family == 'RedHat'
+    # Debian / Ubuntu
+    - name: Install MySQL (Debian / Ubuntu)
+      apt: name={{ item }} state=present update_cache=yes
+      with_items:
+      - mysql-server
+      - mysql-client
+      - python-mysqldb
+      when: ansible_os_family == 'Debian'
+    - name: Remove localhost binding
+      lineinfile: dest=/etc/mysql/my.cnf regexp="^bind-address" state=absent
+      when: ansible_os_family == 'Debian'
+    - name: Start the mysqld service (Debian / Ubuntu)
+      service: name=mysql state=restarted enabled=yes
+      when: ansible_os_family == 'Debian'
+    # Suse
+    - name: Install MySQL (Suse)
+      zypper: name={{ item }} state=present
+      with_items:
+      - mariadb
+      - mariadb-client
+      - python-mysql
+      when: ansible_os_family == 'Suse'
+    - name: Remove localhost binding
+      lineinfile: dest=/etc/my.cnf regexp="^bind-address" state=absent
+      when: ansible_os_family == 'Suse'
+    #- name: Suse seems to create a database with root password which unknown, so delete /var/lib/mysql
+    #  file: path=/var/lib/mysql state=absent
+    #  when: ansible_os_family == 'Suse'
+    - name: Start the mysqld service (Suse)
+      service: name=mysql state=started enabled=yes
+      when: ansible_os_family == 'Suse'
+    # Other tasks
+    - name: Create mapr mysql user localhost
+      mysql_user: name=mapr password=mapr123 host=localhost priv=*.*:ALL,GRANT state=present
+    - name: Create mapr mysql user {{ ansible_fqdn }}
+      mysql_user: name=mapr password=mapr123 host={{ ansible_fqdn }} priv=*.*:ALL,GRANT state=present
+    - name: Create mapr mysql user %
+      mysql_user: name=mapr password=mapr123 host=% priv=*.*:ALL,GRANT state=present
+ - hosts: nodes
+   tasks:
+   # Redhat / CentOS
+    - name: Install MySQL-python (Redhat / CentOS)
+      yum: name={{ item }} state=present update_cache=yes
+      with_items:
+     #  - mariadb
+      - MySQL-python
+      when: ansible_os_family == 'RedHat'
+    # Debian / Ubuntu
+    - name: Install python-mysqldb (Debian / Ubuntu)
+      apt: name={{ item }} state=present update_cache=yes
+      with_items:
+    #  - mysql-client
+      - python-mysqldb
+      when: ansible_os_family == 'Debian'
+    # Suse
+    - name: Install python-mysql (Suse)
+      zypper: name={{ item }} state=present
+      with_items:
+     #  - mariadb-client
+      - python-mysql
+      when: ansible_os_family == 'Suse'
+    - name: Get MySQL Host
+      set_fact: mysql_item={{ hostvars[item]['ansible_fqdn'] }}
+      with_items:
+       - "{{ groups['ext-mysql'] }}"
+      register: mysql_hosts
+    - name: Make MySQL Host String
+      set_fact: hive_db_host={{ mysql_hosts.results | map(attribute='ansible_facts.mysql_item') | list | join(',')}}
+    - name: Create hive mysql user localhost
+      mysql_user: name=hive password=hive host=localhost priv=hive.*:ALL state=present login_host={{ hive_db_host }} login_user=mapr login_password=mapr123
+    - name: Create hive mysql user {{ ansible_fqdn }}
+      mysql_user: name=hive password=hive host={{ hive_db_host }} priv=hive.*:ALL state=present login_host={{ hive_db_host }} login_user=mapr login_password=mapr123
+    - name: Create hive mysql user %
+      mysql_user: name=hive password=hive host=% priv=hive.*:ALL state=present login_host={{ hive_db_host }} login_user=mapr login_password=mapr123

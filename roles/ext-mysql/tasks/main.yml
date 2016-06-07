@@ -49,7 +49,7 @@
 # Other tasks
 - name: Create mapr mysql user localhost
   mysql_user: name={{ mysql_db_op_user }} password={{ mysql_db_op_password }} host=localhost priv=*.*:ALL,GRANT state=present
-#- name: Create mapr mysql user {{ ansible_fqdn }}
-#  mysql_user: name=mapr password=mapr123 host={{ ansible_fqdn }} priv=*.*:ALL,GRANT state=present
+- name: Create mapr mysql user {{ ansible_fqdn }}
+  mysql_user: name={{ mysql_db_op_user }} password={{ mysql_db_op_password }} host={{ ansible_fqdn }} priv=*.*:ALL,GRANT state=present
 - name: Create mapr mysql user %
   mysql_user: name={{ mysql_db_op_user }} password={{ mysql_db_op_password }} host=% priv=*.*:ALL,GRANT state=present
