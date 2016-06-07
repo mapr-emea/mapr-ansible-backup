@@ -39,8 +39,11 @@
 - name: Remove localhost binding
   lineinfile: dest=/etc/my.cnf regexp="^bind-address" state=absent
   when: ansible_os_family == 'Suse'
+#- name: Suse seems to create a database with root password which unknown, so delete /var/lib/mysql
+#  file: path=/var/lib/mysql state=absent
+#  when: ansible_os_family == 'Suse'
 - name: Start the mysqld service (Suse)
-  service: name=mysql state=restarted enabled=yes
+  service: name=mysql state=started enabled=yes
   when: ansible_os_family == 'Suse'
 
 # Other tasks

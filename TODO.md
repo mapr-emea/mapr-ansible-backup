@@ -7,4 +7,5 @@
 
 - Split spark history server from spark.
 - make mapr user and password for mysql configurable.
+- add mapr gateway
 
