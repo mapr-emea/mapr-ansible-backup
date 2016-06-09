@@ -1,14 +1,8 @@
 # If you do not want to install a component leave the block empty
 
 # sets up ntp, rpcbind, Java and mapr default user with standard password mapr123
-[nodes]
-10.0.0.78 ansible_user=ec2-user ansible_become=yes ansible_become_method=sudo
-10.0.0.79 ansible_user=ec2-user ansible_become=yes ansible_become_method=sudo
-10.0.0.80 ansible_user=ec2-user ansible_become=yes ansible_become_method=sudo
-
-
 [base]
-10.0.0.78 ansible_user=ec2-user ansible_become=yes ansible_become_method=sudo
+10.0.0.87 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 
 # Zookeeper
 [mapr-zookeeper:children]
@@ -100,9 +94,11 @@ base
 
 # Sqoop2 Server
 [mapr-sqoop2-server:children]
+base
 
 # Sqoop2 Client
 [mapr-sqoop2-client:children]
+base
 
 # Pig
 [mapr-pig:children]
