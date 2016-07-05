@@ -1,5 +1,5 @@
 - name: Test single component
-  hosts: base
+  hosts: ext-zeppelin
   roles:
-    - ext-mysql
+    - ext-zeppelin
 #    - mapr-hive-cli

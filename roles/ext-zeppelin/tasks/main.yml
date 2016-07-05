@@ -33,10 +33,10 @@
   - nodejs
   - npm
   when: ansible_os_family == 'Debian'
-- name: Download and extract Maven 3.3.3
-  unarchive: src=http://www.eu.apache.org/dist/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz dest=/usr/local/ copy=no
+- name: Download and extract Maven 3.3.9
+  unarchive: src=http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz dest=/usr/local/ copy=no
 - name: Create mvn link
-  file: src=/usr/local/apache-maven-3.3.3/bin/mvn dest=/usr/local/bin/mvn state=link
+  file: src=/usr/local/apache-maven-3.3.9/bin/mvn dest=/usr/local/bin/mvn state=link
 - name: Clone Zeppelin Git Repo
   git: repo={{ zeppelin_git_repo }} dest=/tmp/zeppelin.git version={{ zeppelin_git_hash }}
 - name: Build Zeppelin with Maven
