@@ -40,5 +40,5 @@
 - name: Create /mapr dir
   file: path=/mapr state=directory
 - name: Mount /mapr
-  mount: name=/mapr state=mounted src=localhost:/mapr fstype=nfs opts=rw
+  mount: name=/mapr state=mounted src=localhost:/mapr fstype=nfs opts=hard,nolock
 
