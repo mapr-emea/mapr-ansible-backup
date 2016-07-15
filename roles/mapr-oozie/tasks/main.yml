@@ -22,13 +22,7 @@
 - name: Make MySQL Host String
   set_fact: oozie_db_host={{ mysql_hosts.results | map(attribute='ansible_facts.mysql_item') | list | join(',')}}
 - name: Create oozie mysql db
-  mysql_db: name={{ oozie_db_schema }} state=present login_host={{ oozie_db_host }} login_user=mapr login_password=mapr123
-- name: Create oozie mysql user localhost
-  mysql_user: name={{ oozie_db_user }} password={{ oozie_db_password }} host=localhost priv=oozie.*:ALL state=present login_host={{ oozie_db_host }} login_user={{ mysql_db_op_user }} login_password={{ mysql_db_op_password }}
-- name: Create oozie mysql user {{ oozie_db_host }}
-  mysql_user: name={{ oozie_db_user }} password={{ oozie_db_password }} host={{ oozie_db_host }} priv=oozie.*:ALL state=present login_host={{ oozie_db_host }} login_user={{ mysql_db_op_user }} login_password={{ mysql_db_op_password }}
-- name: Create oozie mysql user %
-  mysql_user: name={{ oozie_db_user }} password={{ oozie_db_password }} host=% priv=oozie.*:ALL state=present login_host={{ oozie_db_host }} login_user={{ mysql_db_op_user }} login_password={{ mysql_db_op_password }}
+  mysql_db: name={{ oozie_db_schema }} state=present login_host={{ oozie_db_host }} login_user={{ mapr_mysql_user }} login_password={{ mapr_mysql_password }}
 - name: Downloading MySQL Driver
   unarchive: src={{ mysql_jdbc_url }} dest=/tmp copy=no
 - name: Copy mysql driver

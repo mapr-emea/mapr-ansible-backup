@@ -27,10 +27,10 @@
     </property>
     <property>
         <name>oozie.service.JPAService.jdbc.username</name>
-        <value>{{ oozie_db_user }}</value>
+        <value>{{ mapr_mysql_user }}</value>
     </property>
     <property>
         <name>oozie.service.JPAService.jdbc.password</name>
-        <value>{{ oozie_db_password }}</value>
+        <value>{{ mapr_mysql_password }}</value>
     </property>
 </configuration>

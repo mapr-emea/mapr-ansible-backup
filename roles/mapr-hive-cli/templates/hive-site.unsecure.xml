@@ -31,13 +31,13 @@
 
     <property>
         <name>javax.jdo.option.ConnectionUserName</name>
-        <value>{{ hive_db_user }}</value>
+        <value>{{ mapr_mysql_user }}</value>
         <description>username to use against metastore database</description>
     </property>
 
     <property>
         <name>javax.jdo.option.ConnectionPassword</name>
-        <value>{{ hive_db_password }}</value>
+        <value>{{ mapr_mysql_password }}</value>
         <description>password to use against metastore database</description>
     </property>
 

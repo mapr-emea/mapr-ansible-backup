@@ -22,13 +22,7 @@
 - name: Make MySQL Host String
   set_fact: hive_db_host={{ mysql_hosts.results | map(attribute='ansible_facts.mysql_item') | list | join(',')}}
 - name: Create hive mysql db
-  mysql_db: name={{ hive_db_schema }} state=present login_host={{ hive_db_host }} login_user=mapr login_password=mapr123
-- name: Create hive mysql user localhost
-  mysql_user: name={{ hive_db_user }} password={{ hive_db_password }} host=localhost priv=hive.*:ALL state=present login_host={{ hive_db_host }} login_user={{ mysql_db_op_user }} login_password={{ mysql_db_op_password }}
-- name: Create hive mysql user {{ hive_db_host }}
-  mysql_user: name={{ hive_db_user }} password={{ hive_db_password }} host={{ hive_db_host }} priv=hive.*:ALL state=present login_host={{ hive_db_host }} login_user={{ mysql_db_op_user }} login_password={{ mysql_db_op_password }}
-- name: Create hive mysql user %
-  mysql_user: name={{ hive_db_user }} password={{ hive_db_password }} host=% priv=hive.*:ALL state=present login_host={{ hive_db_host }} login_user={{ mysql_db_op_user }} login_password={{ mysql_db_op_password }}
+  mysql_db: name={{ hive_db_schema }} state=present login_host={{ hive_db_host }} login_user={{ mapr_mysql_user }} login_password={{ mapr_mysql_password }}
 - name: Downloading MySQL Driver
   unarchive: src={{ mysql_jdbc_url }} dest=/tmp copy=no
 - name: Copy mysql driver

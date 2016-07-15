@@ -2,7 +2,7 @@
 
 # sets up ntp, rpcbind, Java and mapr default user with standard password mapr123
 [base]
-10.0.0.87 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+10.0.0.78 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Zookeeper
 [mapr-zookeeper:children]
@@ -42,7 +42,7 @@ base
 
 # Spark HistoryServer
 [mapr-spark-historyserver:children]
-base
+# base
 
 # NFS
 [mapr-nfs:children]
@@ -94,22 +94,23 @@ base
 
 # Sqoop2 Server
 [mapr-sqoop2-server:children]
-base
+# base
 
 # Sqoop2 Client
 [mapr-sqoop2-client:children]
-base
+# base
 
 # Pig
 [mapr-pig:children]
 
 # Oozie
 [mapr-oozie:children]
-base
+# base
 
 # HttpFS
 [mapr-httpfs:children]
 
 # Zeppelin
 [ext-zeppelin:children]
+base
 

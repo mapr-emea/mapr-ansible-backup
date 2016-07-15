@@ -105,6 +105,10 @@
   hosts: mapr-httpfs
   roles:
     - mapr-httpfs
+- name: Install NFS
+  hosts: mapr-nfs
+  roles:
+    - mapr-nfs
 - name: Configure and start
   hosts: all
   roles:
@@ -117,10 +121,6 @@
   hosts: all
   roles:
   - mapr-configure-warden-restart
-- name: Install NFS
-  hosts: mapr-nfs
-  roles:
-    - mapr-nfs
 - name: Install Spark on YARN
   hosts: mapr-spark-yarn
   roles:
