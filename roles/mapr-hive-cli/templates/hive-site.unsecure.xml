@@ -45,4 +45,8 @@
         <name>hive.metastore.uris</name>
         <value>{{ metastore_string }}</value>
     </property>
+    <property>
+        <name>datanucleus.schema.autoCreateTables</name>
+        <value>true</value>
+    </property>
 </configuration>
