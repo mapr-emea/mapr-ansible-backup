@@ -32,6 +32,8 @@ mysql_jdbc_url: https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-
 # sudo gem install mkpasswd
 #
 # passwd is mapr123
-mapr_passwd: $6$X4.bqoTK$RTAwnhg2BG/y.3Dugw9Vc31ZdXFsZAitwKtKuu3HgKSNutcQmZ7zLy4cXasivlv2gKD8QGouAjND5fU7H.HDW0
+# mapr_passwd: $6$X4.bqoTK$RTAwnhg2BG/y.3Dugw9Vc31ZdXFsZAitwKtKuu3HgKSNutcQmZ7zLy4cXasivlv2gKD8QGouAjND5fU7H.HDW0
+# passwd is mapr
+mapr_passwd: $6$GzlcP5ei$E6P9QM40O6KJFLZ3wMcg3jzQBNxGXrf8yc77CbCmf0KtFSxK0mpCParhc3WVNEAm4fHKPAqyRV9rsiF6DAFlW0
 
 disks: /dev/xvdb,/dev/xvdc,/dev/xvdd

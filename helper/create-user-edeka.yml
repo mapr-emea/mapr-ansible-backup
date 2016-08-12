@@ -1,0 +1,13 @@
+ - hosts: all
+   tasks:
+    - name: Create marketing Group
+      group: name=marketing gid=5601 state=present
+    - name: Create region1 Group
+      group: name=region1 gid=5602 state=present
+
+    - name: Create inge_mkt User
+      user: name=inge_mkt uid=6051 groups=marketing password={{ mapr_passwd }} createhome=yes state=present
+
+    - name: Create bob_region1 User
+      user: name=bob_region1 uid=6052 groups=region1 password={{ mapr_passwd }} createhome=yes state=present
+

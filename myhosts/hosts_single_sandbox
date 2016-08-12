@@ -2,7 +2,7 @@
 
 # sets up ntp, rpcbind, Java and mapr default user with standard password mapr123
 [base]
-10.0.0.204 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+10.0.0.105 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Zookeeper
 [mapr-zookeeper:children]
@@ -57,6 +57,7 @@ base
 
 # HBase CLI
 [mapr-hbase-cli:children]
+base
 
 # HBase REST and Thrift
 [mapr-hbase-thrift-rest:children]
