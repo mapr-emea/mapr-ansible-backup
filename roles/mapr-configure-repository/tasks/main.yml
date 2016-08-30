@@ -28,7 +28,7 @@
   when: ansible_os_family == 'Debian'
 - name: Create MapR Ecosystem Repository for Ubuntu
   apt_repository:
-    repo: "deb {{ mapr_ecosystem_url }}/ubuntu/ binary/"
+    repo: "deb {{ mapr_ecosystem_url }}/ubuntu/ binary trusty"
     state: present
     update_cache: yes
   when: ansible_os_family == 'Debian'

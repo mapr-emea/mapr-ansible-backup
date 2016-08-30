@@ -2,7 +2,7 @@
 
 # sets up ntp, rpcbind, Java and mapr default user with standard password mapr123
 [base]
-10.0.0.105 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+10.0.0.58 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Zookeeper
 [mapr-zookeeper:children]

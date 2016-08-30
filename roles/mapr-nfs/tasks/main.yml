@@ -28,8 +28,9 @@
 # Other actions
 - name: Create /mapr dir
   file: path=/mapr state=directory
-- name: Copy nfsserver.conf
-  copy: remote_src=True src=/opt/mapr/conf/mapr_fstab.sample dest=/opt/mapr/conf/mapr_fstab
-#- name: Mount /mapr
-#  mount: name=/mapr state=mounted src=localhost:/mapr fstype=nfs opts=hard,nolock
+- name: Configure hive-site.xml
+  template: src=mapr_fstab dest=/opt/mapr/conf/mapr_fstab
+#- name: Copy nfsserver.conf
+#  copy: remote_src=True src=/opt/mapr/conf/mapr_fstab.sample dest=/opt/mapr/conf/mapr_fstab
+
 

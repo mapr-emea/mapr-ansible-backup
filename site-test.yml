@@ -1,5 +1,5 @@
 - name: Test single component
-  hosts: ext-zeppelin
+  hosts: mapr-zookeeper
   roles:
-    - ext-zeppelin
+    - test-subnet
 #    - mapr-hive-cli
