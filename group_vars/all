@@ -18,7 +18,7 @@ mapr_group: mapr
 mapr_group_gid: 5000
 mapr_user: mapr
 mapr_user_uid: 5000
-cluster_name: demo.mapr.com
+cluster_name: maprpoc.arvato.com
 
 mapr_mysql_user: mapr
 mapr_mysql_password: mapr123
@@ -34,6 +34,8 @@ mysql_jdbc_url: https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-
 # passwd is mapr123
 # mapr_passwd: $6$X4.bqoTK$RTAwnhg2BG/y.3Dugw9Vc31ZdXFsZAitwKtKuu3HgKSNutcQmZ7zLy4cXasivlv2gKD8QGouAjND5fU7H.HDW0
 # passwd is mapr
-mapr_passwd: $6$GzlcP5ei$E6P9QM40O6KJFLZ3wMcg3jzQBNxGXrf8yc77CbCmf0KtFSxK0mpCParhc3WVNEAm4fHKPAqyRV9rsiF6DAFlW0
+# mapr_passwd: $6$GzlcP5ei$E6P9QM40O6KJFLZ3wMcg3jzQBNxGXrf8yc77CbCmf0KtFSxK0mpCParhc3WVNEAm4fHKPAqyRV9rsiF6DAFlW0
+# passwd is DD4uQrZ9
+mapr_passwd: $6$5O4zk6v0$3iqcUEpiDefVj1k7QGTJvLUnVWqaM7EfPJwf5JbQ8cGy6Au/qPD0yxNRHY0XSp9Yzc75xqdJDaD7OI.lkExAE0
 
-disks: /dev/xvdb /dev/xvdc /dev/xvdd
+disks: /dev/xvdc /dev/xvdd /dev/xvde
