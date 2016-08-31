@@ -1,4 +1,0 @@
----
-# Redhat / CentOS
-- name: Set env.sh MAPR_SUBNETS
-  lineinfile: dest=/opt/mapr/conf/env.sh regexp='^export MAPR_SUBNETS=' line='export MAPR_SUBNETS=10.0.0.0/24' insertafter='^\#export MAPR_SUBNETS='
