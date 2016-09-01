@@ -1,9 +1,4 @@
 - name: Set global configure vars
   hosts: all
   roles:
-    - mapr-configure-vars
-- name: Set global configure vars
-  hosts: mapr-client
-  roles:
-    - mapr-configure-vars
-    - mapr-configure-unsecure
+    - ext-rlang
