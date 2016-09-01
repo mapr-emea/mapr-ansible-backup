@@ -52,6 +52,7 @@ HADOOP_CMD=/opt/mapr/hadoop/hadoop-{{ hadoop_version }}/bin/hadoop
 HADOOP_CONF=/opt/mapr/hadoop/hadoop-{{ hadoop_version }}/etc/hadoop
 HADOOP_STREAMING=/opt/mapr/hadoop/hadoop-{{ hadoop_version }}/share/hadoop/tools/lib/hadoop-streaming-{{ hadoop_version }}-{{mapr_build}}.jar
 SPARK_HOME=/opt/mapr/spark/spark-{{ spark_version }}
+SPARKR_SUBMIT_ARGS= --master yarn --properties-file /opt/mapr/spark/spark-{{ spark_version }}/conf/spark-defaults.conf sparkr-shell
 
 
 
