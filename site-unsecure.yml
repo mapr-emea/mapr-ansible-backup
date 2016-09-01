@@ -57,6 +57,10 @@
   hosts: mapr-historyserver
   roles:
     - mapr-historyserver
+- name: Setup Hive Variables
+  hosts: all
+  roles:
+    - mapr-hive-vars
 - name: Install Hive CLI
   hosts: mapr-hive-cli
   roles:
@@ -152,6 +156,8 @@
     - mapr-configure-repository
     - mapr-client
     - mapr-nfsloopback
+    - mapr-hive-cli
+    - mapr-spark-yarn
 
 - name: Install R Lang
   hosts: ext-rlang

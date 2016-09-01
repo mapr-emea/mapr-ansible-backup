@@ -13,6 +13,7 @@
     - mapr-configure-repository
     - mapr-client
     - mapr-nfsloopback
+    - mapr-hive-cli
     - mapr-spark-yarn
 
 - name: Install R Lang
