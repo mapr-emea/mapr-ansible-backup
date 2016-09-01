@@ -1,5 +1,26 @@
-- name: Test single component
-  hosts: mapr-zookeeper
+- name: Set global configure vars
+  hosts: all
   roles:
-    - test-subnet
-#    - mapr-hive-cli
+    - mapr-configure-vars
+- name: Install MapR client
+  hosts: mapr-client
+  roles:
+    - common-oracle-jdk
+    - common-mapruser
+    - common-rpcbind
+    - common-ntp
+    - common-misc
+    - mapr-configure-repository
+    - mapr-client
+    - mapr-nfsloopback
+    - mapr-spark-yarn
+
+- name: Install R Lang
+  hosts: ext-rlang
+  roles:
+    - ext-rlang
+
+- name: Install R Studio Server Pro
+  hosts: ext-rstudioserverpro
+  roles:
+    - ext-rstudioserverpro
