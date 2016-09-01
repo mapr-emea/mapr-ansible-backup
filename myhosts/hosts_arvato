@@ -47,7 +47,7 @@
 
 # MySQL, required for Hive MetaStore and Oozie, IMPORTANT: only one
 [ext-mysql]
-#10.0.0.110 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+172.19.0.250 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 
 # Spark on YARN
 [mapr-spark-yarn]
@@ -98,13 +98,15 @@
 
 # Hive CLI
 [mapr-hive-cli]
-#10.0.0.110 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
-#10.0.0.111 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
-#10.0.0.112 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+172.19.0.250 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+172.19.0.251 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+172.19.0.252 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+172.19.0.253 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+172.19.0.254 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 
 # Hive Meta Store
 [mapr-hive-metastore]
-#10.0.0.110 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+172.19.0.250 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 
 # Hive Server2
 [mapr-hive-server2]
@@ -143,5 +145,22 @@
 
 # Zeppelin
 [ext-zeppelin]
-172.19.0.250 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+# 172.19.0.250 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 
+# MapR Client
+[mapr-client]
+172.19.0.247 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+
+# R Lang
+
+[ext-rlang]
+172.19.0.250 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+172.19.0.251 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+172.19.0.252 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+172.19.0.253 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+172.19.0.254 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+172.19.0.247 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+
+# RStudioServer Pro
+[ext-rstudioserverpro]
+172.19.0.247 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo

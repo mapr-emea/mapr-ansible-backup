@@ -5,6 +5,7 @@
   with_items:
   - unixodbc
   - unixodbc-dev
+#  - openjdk-7-jdk
   when: ansible_os_family == 'Debian'
 - name: Install R Lang
   apt: name={{ item }} state=present update_cache=yes
