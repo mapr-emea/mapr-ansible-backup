@@ -29,8 +29,8 @@
   when: ansible_os_family == 'Suse'
 
 # Other actions
-- name: Copy nfsserver.conf
-  copy: remote_src=True src=/opt/mapr/conf/nfsserver.conf dest=/usr/local/mapr-loopbacknfs/conf/nfsserver.conf
+#- name: Copy nfsserver.conf
+#  copy: remote_src=True src=/opt/mapr/conf/nfsserver.conf dest=/usr/local/mapr-loopbacknfs/conf/nfsserver.conf
 - name: Copy mapr-clusters.conf
   copy: remote_src=True src=/opt/mapr/conf/mapr-clusters.conf dest=/usr/local/mapr-loopbacknfs/conf/mapr-clusters.conf
 #- name: Start NFS server

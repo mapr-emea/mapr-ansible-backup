@@ -1,5 +1,5 @@
 - name: Apply common configuration to all nodes
-  hosts: all
+  hosts: base
   roles:
     - common-oracle-jdk
     - common-mapruser
@@ -7,7 +7,7 @@
     - common-ntp
     - common-misc
 - name: Install MapR Core
-  hosts: all
+  hosts: base
   roles:
     - mapr-configure-repository
     - mapr-core
@@ -57,6 +57,10 @@
   hosts: mapr-historyserver
   roles:
     - mapr-historyserver
+- name: Setup Hive Variables
+  hosts: all
+  roles:
+    - mapr-hive-vars
 - name: Install Hive CLI
   hosts: mapr-hive-cli
   roles:
@@ -109,8 +113,12 @@
   hosts: mapr-nfs
   roles:
     - mapr-nfs
-- name: Configure and start
+- name: Setup global vars
   hosts: all
+  roles:
+    - mapr-configure-vars
+- name: Configure and start
+  hosts: base
   roles:
     - mapr-configure-unsecure
 - name: Restarting mapr-zookeeper
@@ -118,7 +126,7 @@
   roles:
   - mapr-configure-zookeeper-restart
 - name: Restarting mapr-warden
-  hosts: all
+  hosts: base
   roles:
   - mapr-configure-warden-restart
 - name: Install Spark on YARN
@@ -130,10 +138,33 @@
   roles:
     - mapr-spark-historyserver
 - name: Restarting mapr-warden
-  hosts: all
+  hosts: base
   roles:
     - mapr-configure-warden-restart
 - name: Install Zeppelin
   hosts: ext-zeppelin
   roles:
     - ext-zeppelin
+- name: Install MapR client
+  hosts: mapr-client
+  roles:
+    - common-oracle-jdk
+    - common-mapruser
+    - common-rpcbind
+    - common-ntp
+    - common-misc
+    - mapr-configure-repository
+    - mapr-client
+    - mapr-nfsloopback
+    - mapr-hive-cli
+    - mapr-spark-yarn
+
+- name: Install R Lang
+  hosts: ext-rlang
+  roles:
+    - ext-rlang
+
+- name: Install R Studio Server Pro
+  hosts: ext-rstudioserverpro
+  roles:
+    - ext-rstudioserverpro

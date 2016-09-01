@@ -5,6 +5,7 @@ mapr_gpg_url: http://package.mapr.com/releases/pub/maprgpg.key
 oracle_jdk_url: http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-linux-x64.tar.gz
 oracle_jdk_folder: /opt/java/jdk1.8.0_92
 
+mapr_build: mapr-1607
 hadoop_version: 2.7.0
 spark_version: 1.6.1
 oozie_version: 4.2.0
@@ -13,6 +14,9 @@ hbase_version: 1.1.1
 zeppelin_version: 0.6.0-SNAPSHOT
 zeppelin_git_repo: https://github.com/apache/incubator-zeppelin.git
 zeppelin_git_hash: 5af7747
+
+# Get url from https://www.rstudio.com/products/rstudio/download-commercial/
+rstudio_server_pro_deb: http://download2.rstudio.org/rstudio-server-pro-0.99.903-amd64.deb
 
 mapr_group: mapr
 mapr_group_gid: 5000

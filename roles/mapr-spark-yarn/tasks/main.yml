@@ -12,13 +12,14 @@
 - name: Install mapr-spark (Suse)
   zypper: name=mapr-spark state=present
   when: ansible_os_family == 'Suse'
-
+- name: Link hive-site.xml to Spark (otherwise Spark startup throws errors)
+  file: src=/opt/mapr/hive/hive-{{ hive_version }}/conf/hive-site.xml dest=/opt/mapr/spark/spark-{{ spark_version }}/conf/hive-site.xml state=link
 # Other actions
 - name: Create maprfs:///apps/spark
   shell: hadoop fs -mkdir -p /apps/spark
 - name: Owner maprfs:///apps/spark
   shell: hadoop fs -chown mapr:mapr /apps/spark
-- name: Configure.sh -R
-  shell: /opt/mapr/server/configure.sh -R
+#- name: Configure.sh -R
+#  shell: /opt/mapr/server/configure.sh -R
 - name: Set owner mapr-system user
   file: path=/opt/mapr/spark owner={{ mapr_user }} group={{ mapr_group }} state=directory recurse=yes
