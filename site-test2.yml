@@ -1,4 +1,4 @@
 - name: Set global configure vars
-  hosts: all
+  hosts: ext-rstudioserverpro
   roles:
-    - ext-rlang
+    - ext-rstudioserverpro
