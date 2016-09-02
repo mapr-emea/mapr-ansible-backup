@@ -6,7 +6,7 @@ www-port=8443
 rsession-which-r=/usr/lib/R/bin/R
 #r-cran-repos=http://mapr6"
 server-shared-storage-path=/mapr/{{ cluster_name }}/R-Shared/rprojects
-auth-pam-sessions-profile=rstudio-session
+auth-pam-sessions-profile=login
 auth-pam-sessions-use-password=1
 
 
