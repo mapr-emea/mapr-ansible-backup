@@ -4,6 +4,11 @@
 [base]
 10.0.0.14 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
+[mapr-core]
+10.0.0.14 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
+[mapr-client]
+
 # Zookeeper
 [mapr-zookeeper:children]
 base
@@ -114,3 +119,10 @@ base
 [ext-zeppelin:children]
 # base
 
+# R Lang
+[ext-rlang:children]
+# base
+
+# RStudioServer Pro
+[ext-rstudioserverpro:children]
+# base

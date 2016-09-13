@@ -7,7 +7,7 @@
     - common-ntp
     - common-misc
 - name: Install MapR Core
-  hosts: base
+  hosts: mapr-core
   roles:
     - mapr-configure-repository
     - mapr-core
@@ -141,29 +141,24 @@
   hosts: base
   roles:
     - mapr-configure-warden-restart
+- name: Install MapR client
+  hosts: mapr-client
+  roles:
+    - mapr-configure-repository
+    - mapr-client
+    - mapr-nfsloopback
+- name: Install NFS loopback
+  hosts: mapr-nfsloopback
+  roles:
+    - mapr-nfsloopback
 - name: Install Zeppelin
   hosts: ext-zeppelin
   roles:
     - ext-zeppelin
-- name: Install MapR client
-  hosts: mapr-client
-  roles:
-    - common-oracle-jdk
-    - common-mapruser
-    - common-rpcbind
-    - common-ntp
-    - common-misc
-    - mapr-configure-repository
-    - mapr-client
-    - mapr-nfsloopback
-    - mapr-hive-cli
-    - mapr-spark-yarn
-
 - name: Install R Lang
   hosts: ext-rlang
   roles:
     - ext-rlang
-
 - name: Install R Studio Server Pro
   hosts: ext-rstudioserverpro
   roles:

@@ -6,6 +6,13 @@
 10.0.0.121 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 10.0.0.122 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 
+[mapr-core]
+10.0.0.120 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+10.0.0.121 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+10.0.0.122 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+
+[mapr-client]
+
 # Zookeeper
 [mapr-zookeeper]
 10.0.0.120 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
@@ -129,11 +136,7 @@
 [ext-zeppelin]
 # 10.0.0.120 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 
-# MapR Client
-[mapr-client]
-10.0.0.123 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 # R Lang
-
 [ext-rlang]
 10.0.0.120 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 10.0.0.121 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo

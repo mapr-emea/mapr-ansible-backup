@@ -14,6 +14,17 @@ cat << EOF
             "ansible_become_method" :  "sudo"
         }
     },
+    "mapr-core" : {
+        "hosts"   : [ "$NODE1",
+                      "$NODE2",
+                      "$NODE3"
+                    ],
+         "vars" : {
+             "ansible_user" :  "centos",
+             "ansible_become" :  "yes",
+             "ansible_become_method" :  "sudo"
+         }
+    },
     "mapr-zookeeper" : {
         "hosts"   : [ "$NODE1",
                       "$NODE2",

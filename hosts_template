@@ -4,6 +4,12 @@
 [base]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
+[mapr-core]
+10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
+[mapr-client]
+10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
 # Zookeeper
 [mapr-zookeeper]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
@@ -47,6 +53,10 @@
 # NFS
 [mapr-nfs]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
+# NFS loopback, ATTENTION: install only on edge node (mapr-client)!!!
+[mapr-nfsloopback]
+#10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Apache Drill
 [mapr-drill]
@@ -120,3 +130,8 @@
 [ext-zeppelin]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
+# R Lang
+[ext-rlang]
+
+# RStudioServer Pro
+[ext-rstudioserverpro]
