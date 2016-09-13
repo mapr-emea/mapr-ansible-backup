@@ -56,4 +56,4 @@
 - name: Set owner mapr-system user
   file: path=/opt/mapr/zeppelin owner={{ mapr_user }} group={{ mapr_group }} state=directory recurse=yes
 - name: Start Zeppelin
-  shell: /opt/mapr/zeppelin/zeppelin-{{ zeppelin_version }}/bin/zeppelin-daemon.sh start
+  shell: su - {{ mapr_user }} -c "/opt/mapr/zeppelin/zeppelin-{{ zeppelin_version }}/bin/zeppelin-daemon.sh start"

@@ -13,3 +13,5 @@
 - name: Copy rsession.conf
   template: src=rsession.conf.ubuntu dest=/etc/rstudio/rsession.conf
   when: ansible_os_family == 'Debian'
+- name: Restart RStudio Server Pro and disable service startup
+  service: name=rstudio-server state=restarted enabled=no

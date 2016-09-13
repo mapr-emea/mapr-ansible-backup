@@ -6,11 +6,13 @@
 10.0.0.121 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 10.0.0.122 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 
+# MapR core packages
 [mapr-core]
 10.0.0.120 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 10.0.0.121 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 10.0.0.122 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 
+# MapR client packages
 [mapr-client]
 
 # Zookeeper

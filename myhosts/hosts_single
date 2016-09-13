@@ -4,9 +4,11 @@
 [base]
 10.0.0.14 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
+# MapR core packages
 [mapr-core]
 10.0.0.14 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
+# MapR client packages
 [mapr-client]
 
 # Zookeeper
