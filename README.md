@@ -66,3 +66,6 @@ ansible-playbook -i hosts_template helper/create-user-ace.yml
 ## Other notes for copying
 
 export ANSIBLE_HOSTS=/Users/chufe/Documents/workspaces/mapr_ansible/hosts
+
+
+/opt/mapr/server/configure.sh -N maprpoc.arvato.com -Z ip-172-19-0-250.eu-central-1.compute.internal,ip-172-19-0-251.eu-central-1.compute.internal,ip-172-19-0-252.eu-central-1.compute.internal -C ip-172-19-0-250.eu-central-1.compute.internal:7222,ip-172-19-0-251.eu-central-1.compute.internal:7222,ip-172-19-0-252.eu-central-1.compute.internal:7222 -u mapr -g mapr -unsecure -RM ip-172-19-0-253.eu-central-1.compute.internal,ip-172-19-0-254.eu-central-1.compute.internal -HS ip-172-19-0-251.eu-central-1.compute.internal
