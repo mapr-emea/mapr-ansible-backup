@@ -1,4 +1,9 @@
-- name: Zeppelin
-  hosts: ext-zeppelin
+
+- name: Install R Studio Server lang
+  hosts: ext-rlang
   roles:
-    - ext-zeppelin
+    - ext-rlang
+- name: Install R Studio Server Pro
+  hosts: ext-rstudioserverpro
+  roles:
+    - ext-rstudioserverpro

@@ -41,7 +41,8 @@ TAR=${TAR-'/bin/tar'}
 R_SYSTEM_ABI='linux,gcc,gxx,gfortran,?'
 R_LIBS_SITE='/mapr/{{ cluster_name }}/R-Shared/shared-libs'
 #R_LIBS_USER=${R_LIBS_USER-'~/Library/R/3.2/library'}
-R_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/3.0'}
+#R_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/3.0'}
+R_LIBS_USER=/mapr/{{ cluster_name }}/R-Shared/shared-libs
 
 ### Local Variables: ***
 ### mode: sh ***
