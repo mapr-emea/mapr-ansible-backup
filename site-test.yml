@@ -1,9 +1,18 @@
+- name: Install MapR collectd
+  hosts: mapr-collectd
+  roles:
+    - mapr-collectd
+- name: Install MapR OpenTSDB
+  hosts: mapr-opentsdb
+  roles:
+    - mapr-opentsdb
+- name: Install MapR Grafana
+  hosts: mapr-grafana
+  roles:
+    - mapr-grafana
+- name: Install MapR Configure OpenTSDB / Grafana
+  hosts: mapr-collectd
+  roles:
+    - mapr-opentsdb-configure
 
-- name: Install R Studio Server lang
-  hosts: ext-rlang
-  roles:
-    - ext-rlang
-- name: Install R Studio Server Pro
-  hosts: ext-rstudioserverpro
-  roles:
-    - ext-rstudioserverpro
+

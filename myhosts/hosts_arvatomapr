@@ -134,6 +134,18 @@
 # HttpFS
 [mapr-httpfs]
 
+# CollectD
+[mapr-collectd:children]
+mapr-core
+
+# OpenTSDB
+[mapr-opentsdb]
+10.0.0.195 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
+# Grafana
+[mapr-grafana]
+10.0.0.195 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
 # Zeppelin
 [ext-zeppelin]
 10.0.0.196 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo

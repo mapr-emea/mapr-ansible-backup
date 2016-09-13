@@ -117,6 +117,18 @@ base
 # HttpFS
 [mapr-httpfs:children]
 
+# CollectD
+[mapr-collectd:children]
+mapr-core
+
+# OpenTSDB
+[mapr-opentsdb]
+base
+
+# Grafana
+[mapr-grafana]
+base
+
 # Zeppelin
 [ext-zeppelin:children]
 # base

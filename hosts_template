@@ -126,6 +126,18 @@
 [mapr-httpfs]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
+# CollectD
+[mapr-collectd:children]
+mapr-core
+
+# OpenTSDB
+[mapr-opentsdb]
+10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
+# Grafana
+[mapr-grafana]
+10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
 # Zeppelin
 [ext-zeppelin]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
