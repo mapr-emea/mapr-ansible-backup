@@ -151,6 +151,22 @@
   hosts: mapr-nfsloopback
   roles:
     - mapr-nfsloopback
+- name: Install MapR collectd
+  hosts: mapr-collectd
+  roles:
+    - mapr-collectd
+- name: Install MapR OpenTSDB
+  hosts: mapr-opentsdb
+  roles:
+    - mapr-opentsdb
+- name: Install MapR Grafana
+  hosts: mapr-grafana
+  roles:
+    - mapr-grafana
+- name: Install MapR Configure OpenTSDB / Grafana
+  hosts: mapr-collectd
+  roles:
+    - mapr-opentsdb-configure
 - name: Install Zeppelin
   hosts: ext-zeppelin
   roles:
