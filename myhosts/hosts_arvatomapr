@@ -57,6 +57,8 @@
 # Spark on YARN
 [mapr-spark-yarn]
 10.0.0.195 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+10.0.0.196 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
+10.0.0.197 ansible_user=ubuntu ansible_become=yes ansible_become_method=sudo
 
 # Spark HistoryServer
 [mapr-spark-historyserver]
