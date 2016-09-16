@@ -150,7 +150,7 @@ mapr-core
 
 # Zeppelin
 [ext-zeppelin]
-# 10.0.0.202 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+10.0.0.202 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # R Lang
 [ext-rlang]
