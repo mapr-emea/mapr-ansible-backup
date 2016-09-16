@@ -39,12 +39,28 @@ Use `hosts_template` as template and copy it and the hostnames to the components
 ansible-playbook -i hosts_template site-unsecure.yml
 ```
 
-## Install cluster with native security
+## Install cluster with native security - NOT YET implemented
 
 Use `hosts_template` as template and copy it and the hostnames to the components you want to get installed. If components are not required, just leave the block empty. Then run:
 
 ```
 ansible-playbook -i hosts_template site-nativesecurity.yml
+```
+
+## Install RStudio Server (m5 license requried for NFS)
+
+Use `hosts_template` as template and copy it and the hostnames to the components you want to get installed. If components are not required, just leave the block empty. Then run:
+
+```
+ansible-playbook -i hosts_template rstudio-server.yml
+```
+
+## Install Zeppelin
+
+Use `hosts_template` as template and copy it and the hostnames to the components you want to get installed. If components are not required, just leave the block empty. Then run:
+
+```
+ansible-playbook -i hosts_template rstudio-server.yml
 ```
 
 ## Helpers
