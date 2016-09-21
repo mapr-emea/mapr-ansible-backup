@@ -1,4 +1,7 @@
  - hosts: all
+   vars:
+   # mapr123
+      mapr_passwd: $6$X4.bqoTK$RTAwnhg2BG/y.3Dugw9Vc31ZdXFsZAitwKtKuu3HgKSNutcQmZ7zLy4cXasivlv2gKD8QGouAjND5fU7H.HDW0
    tasks:
     - name: Create financegroup Group
       group: name=financegroup gid=5501 state=present

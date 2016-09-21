@@ -1,0 +1,9 @@
+---
+# Install Impala
+- name: Install mapr-impala-server
+  yum: name={{ item }} state=present
+  with_items:
+  - mapr-impala-statestore
+  - mapr-impala-catalog
+  - mapr-impala-server
+  when: ansible_os_family == 'RedHat'

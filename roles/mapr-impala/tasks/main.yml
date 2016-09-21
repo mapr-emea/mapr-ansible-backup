@@ -1,0 +1,26 @@
+---
+# Install Impala
+- name: Install mapr-impala
+  yum: name={{ item }} state=present
+  with_items:
+  - mapr-impala
+  when: ansible_os_family == 'RedHat'
+
+- name: Get Impala State Host FQDNs
+  set_fact: impala_state_item={{ hostvars[item]['ansible_fqdn'] }}
+  with_items:
+    - "{{ groups['mapr-impala-server'] }}"
+  register: impala_state_hosts
+- name: Make Impala State Hosts String
+  set_fact: impala_state_hosts_string={{ impala_state_hosts.results | map(attribute='ansible_facts.impala_state_item') | list | join(',')}}
+
+- name: Get Impala Catalog Host FQDNs
+  set_fact: impala_catalog_item={{ hostvars[item]['ansible_fqdn'] }}
+  with_items:
+    - "{{ groups['mapr-impala-server'] }}"
+  register: impala_catalog_hosts
+- name: Make Impala Catalog Hosts String
+  set_fact: impala_catalog_hosts_string={{ impala_catalog_hosts.results | map(attribute='ansible_facts.impala_catalog_item') | list | join(',')}}
+
+- name: Configure env.sh
+  template: src=env.unsecure.sh dest=/opt/mapr/impala/impala-{{ impala_version }}/conf/env.sh

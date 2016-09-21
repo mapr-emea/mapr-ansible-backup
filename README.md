@@ -9,6 +9,11 @@ Ansible 2.1 or higher required!
 * Ubuntu 14.x or higher
 * Suse SLES 12 or higher
 
+## Limitations
+
+* Impala is only supported for Redhat/Centos
+* RStudio Server is only implemented for Ubuntu
+
 ## Use the UI installer
 
 This script sets up the Java, mapr user with password `mapr123`, install ntp and rpcbind. Last step is that it launches the MapR-UI installer on the master-node.

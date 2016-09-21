@@ -2,11 +2,11 @@
 
 # sets up ntp, rpcbind, Java and mapr default user with standard password mapr123
 [base]
-10.0.0.14 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+10.0.0.106 ansible_user=ec2-user ansible_become=yes ansible_become_method=sudo
 
 # MapR core packages
-[mapr-core]
-10.0.0.14 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+[mapr-core:children]
+base
 
 # MapR client packages
 [mapr-client]
@@ -57,6 +57,14 @@ base
 
 # Apache Drill
 [mapr-drill:children]
+base
+
+# Apache Impala
+[mapr-impala:children]
+base
+
+# Apache Impala Server Components
+[mapr-impala-server:children]
 base
 
 # Flume
@@ -122,11 +130,11 @@ base
 mapr-core
 
 # OpenTSDB
-[mapr-opentsdb]
+[mapr-opentsdb:children]
 base
 
 # Grafana
-[mapr-grafana]
+[mapr-grafana:children]
 base
 
 # Zeppelin

@@ -41,6 +41,14 @@
   hosts: mapr-drill
   roles:
     - mapr-drill
+- name: Install Impala
+  hosts: mapr-impala
+  roles:
+    - mapr-impala
+- name: Install Impala Server Components
+  hosts: mapr-impala-server
+  roles:
+    - mapr-impala-server
 - name: Install Flume
   hosts: mapr-flume
   roles:
