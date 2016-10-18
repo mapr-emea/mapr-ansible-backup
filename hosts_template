@@ -59,7 +59,11 @@
 #10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Apache Drill
-[mapr-drill]
+[mapr-drill-standalone]
+10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
+# Apache Drill
+[mapr-drill-yarn]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Flume
@@ -136,6 +140,18 @@ mapr-core
 
 # Grafana
 [mapr-grafana]
+10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
+# FluentD
+[mapr-fluentd:children]
+mapr-core
+
+# ElasticSearch
+[mapr-elasticsearch]
+10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
+# Kibana
+[mapr-kibana]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # Zeppelin

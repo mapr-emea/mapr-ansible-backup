@@ -56,8 +56,12 @@ base
 base
 
 # Apache Drill
-[mapr-drill:children]
+[mapr-drill-standalone:children]
 base
+
+# Apache Drill
+[mapr-drill-yarn:children]
+#base
 
 # Flume
 [mapr-flume:children]
@@ -127,6 +131,18 @@ base
 
 # Grafana
 [mapr-grafana]
+base
+
+# FluentD
+[mapr-fluentd:children]
+base
+
+# ElasticSearch
+[mapr-elasticsearch]
+base
+
+# Kibana
+[mapr-kibana]
 base
 
 # Zeppelin

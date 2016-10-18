@@ -1,5 +1,5 @@
 ---
-# Install Apache Drill
+# Install Apache Drill Standalone
 
 # Redhat / CentOS
 - name: Install mapr-drill (Redhat / CentOS)

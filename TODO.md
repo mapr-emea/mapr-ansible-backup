@@ -1,11 +1,11 @@
 - Create config for native secure
 - Add precheck for disks
-- Add OpenTSDB / Grafana
-- Add elastic search, kibana
 - RStudio for Redhat, Centos, Suse
 - Execute spark Hadoop fs creation only once
 - Add storm
 - Add hue
+- Add Drill on YARN
+- Add warden restart handler http://stackoverflow.com/questions/22649333/ansible-notify-handlers-in-another-role
 - Add latest patches
 
 http://maprdocs.mapr.com/home/AdvancedInstallation/InstallMonitoring.html
