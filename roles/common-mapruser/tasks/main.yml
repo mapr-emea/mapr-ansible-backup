@@ -3,4 +3,4 @@
 - name: Create MapR Group
   group: name={{ mapr_group }} gid={{ mapr_group_gid }} state=present
 - name: Create MapR User
-  user: name={{ mapr_user }} comment="MapR default user" uid={{ mapr_user_uid }} group={{mapr_group}} groups={{ mapr_group }},root createhome=yes state=present
+  user: name={{ mapr_user }} comment="MapR default user" uid={{ mapr_user_uid }} group={{mapr_group}} groups={{ mapr_group }} createhome=yes state=present

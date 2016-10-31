@@ -20,6 +20,7 @@ zeppelin_git_hash: 5af7747
 rstudio_server_pro_deb: http://download2.rstudio.org/rstudio-server-pro-0.99.903-amd64.deb
 
 mapr_subnets: 172.20.9.5/26
+# mapr_subnets: 10.0.0.0/24
 mapr_group: mapr
 mapr_group_gid: 5000
 mapr_user: mapr
@@ -43,3 +44,4 @@ mysql_jdbc_url: https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-
 mapr_passwd: $6$GzlcP5ei$E6P9QM40O6KJFLZ3wMcg3jzQBNxGXrf8yc77CbCmf0KtFSxK0mpCParhc3WVNEAm4fHKPAqyRV9rsiF6DAFlW0
 
 disks: /dev/sdb /dev/sdc /dev/sdd,/dev/sde /dev/sdf /dev/sdg,/dev/sdh /dev/sdi /dev/sdj,/dev/sdk /dev/sdl /dev/sdm
+#disks: /dev/xvdb /dev/xvdc /dev/xvdd

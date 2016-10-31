@@ -123,7 +123,7 @@
   roles:
     - mapr-configure-vars
 - name: Configure and start
-  hosts: base
+  hosts: mapr-core
   roles:
     - mapr-configure-unsecure
 - name: Restarting mapr-zookeeper
@@ -131,7 +131,7 @@
   roles:
   - mapr-configure-zookeeper-restart
 - name: Restarting mapr-warden
-  hosts: base
+  hosts: mapr-core
   roles:
   - mapr-configure-warden-restart
 - name: Install Spark on YARN

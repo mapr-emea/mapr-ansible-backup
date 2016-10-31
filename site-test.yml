@@ -1,7 +1,6 @@
 - name: Install MapR hive cli
-  hosts: mapr-hive-cli
+  hosts: base
   roles:
-    - mapr-hive-vars
-    - mapr-hive-cli
+    - common-sysctl
 
 
