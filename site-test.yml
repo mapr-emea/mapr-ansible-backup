@@ -1,18 +1,7 @@
-- name: Install MapR collectd
-  hosts: mapr-collectd
+- name: Install MapR hive cli
+  hosts: mapr-hive-cli
   roles:
-    - mapr-collectd
-- name: Install MapR OpenTSDB
-  hosts: mapr-opentsdb
-  roles:
-    - mapr-opentsdb
-- name: Install MapR Grafana
-  hosts: mapr-grafana
-  roles:
-    - mapr-grafana
-- name: Install MapR Configure OpenTSDB / Grafana
-  hosts: mapr-collectd
-  roles:
-    - mapr-opentsdb-configure
+    - mapr-hive-vars
+    - mapr-hive-cli
 
 

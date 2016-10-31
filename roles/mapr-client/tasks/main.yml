@@ -2,17 +2,17 @@
 # Install MapR Client
 
 # Redhat / CentOS
-- name: Install mapr-core (Redhat / CentOS)
+- name: Install mapr-client (Redhat / CentOS)
   yum: name=mapr-client state=present
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
-- name: Install mapr-core (Debian / Ubuntu)
+- name: Install mapr-client (Debian / Ubuntu)
   apt: name=mapr-client state=present allow_unauthenticated=yes
   when: ansible_os_family == 'Debian'
 # Suse
-- name: Install mapr-core (Suse)
+- name: Install mapr-client (Suse)
   zypper: name=mapr-client state=present
   when: ansible_os_family == 'Suse'
 
 - name: Configure.sh
-  shell: /opt/mapr/server/configure.sh -N {{ cluster_name }} -Z {{ zookeeper_string }} -C {{ cldb_string }} -u {{ mapr_user }} -g {{mapr_group}} -unsecure -RM {{ resourcemanager_string }} -HS {{ historyserver_string }}
+  shell: /opt/mapr/server/configure.sh -N {{ cluster_name }} -Z {{ zookeeper_string }} -C {{ cldb_string }} -u {{ mapr_user }} -g {{mapr_group}} -unsecure

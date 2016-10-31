@@ -19,14 +19,15 @@ zeppelin_git_hash: 5af7747
 # Get url from https://www.rstudio.com/products/rstudio/download-commercial/
 rstudio_server_pro_deb: http://download2.rstudio.org/rstudio-server-pro-0.99.903-amd64.deb
 
+mapr_subnets: 172.20.9.5/26
 mapr_group: mapr
 mapr_group_gid: 5000
 mapr_user: mapr
 mapr_user_uid: 5000
-cluster_name: demo.mapr.com
+cluster_name: mapr-01.aap
 
 mapr_mysql_user: mapr
-mapr_mysql_password: mapr123
+mapr_mysql_password: qpvvW4MUrm3JL
 
 oozie_db_schema: oozie
 hive_db_schema: hive
@@ -41,4 +42,4 @@ mysql_jdbc_url: https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-
 # passwd is mapr
 mapr_passwd: $6$GzlcP5ei$E6P9QM40O6KJFLZ3wMcg3jzQBNxGXrf8yc77CbCmf0KtFSxK0mpCParhc3WVNEAm4fHKPAqyRV9rsiF6DAFlW0
 
-disks: /dev/xvdb /dev/xvdc /dev/xvdd
+disks: /dev/sdb /dev/sdc /dev/sdd,/dev/sde /dev/sdf /dev/sdg,/dev/sdh /dev/sdi /dev/sdj,/dev/sdk /dev/sdl /dev/sdm

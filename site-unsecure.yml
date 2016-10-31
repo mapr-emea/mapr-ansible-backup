@@ -1,15 +1,16 @@
 - name: Apply common configuration to all nodes
   hosts: base
   roles:
-    - common-oracle-jdk
-    - common-mapruser
+    - common-open-jdk
+#    - common-mapruser
+    - common-sysctl
     - common-rpcbind
     - common-ntp
     - common-misc
 - name: Install MapR Core
   hosts: mapr-core
   roles:
-    - mapr-configure-repository
+#    - mapr-configure-repository
     - mapr-core
 - name: Install Zookeeper
   hosts: mapr-zookeeper
@@ -150,7 +151,7 @@
   roles:
     - mapr-configure-repository
     - mapr-client
-    - mapr-nfsloopback
+#    - mapr-nfsloopback
 - name: Install NFS loopback
   hosts: mapr-nfsloopback
   roles:
