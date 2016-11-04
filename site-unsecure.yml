@@ -3,7 +3,7 @@
   roles:
     - common-open-jdk
 #    - common-mapruser
-    - common-sysctl
+    - common-prereq
     - common-rpcbind
     - common-ntp
     - common-misc
@@ -12,6 +12,14 @@
   roles:
 #    - mapr-configure-repository
     - mapr-core
+- name: Install MapR client
+  hosts: mapr-client
+  roles:
+#    - mapr-configure-repository
+    - common-prereq
+    - common-misc
+    - mapr-client
+#    - mapr-nfsloopback
 - name: Install Zookeeper
   hosts: mapr-zookeeper
   roles:
@@ -102,10 +110,10 @@
   hosts: mapr-sqoop2-client
   roles:
     - mapr-sqoop2-client
-#- name: Install Hue
-#  hosts: mapr-hue
-#  roles:
-#    - mapr-hue
+- name: Install Hue
+  hosts: mapr-hue
+  roles:
+    - mapr-hue
 - name: Install Oozie
   hosts: mapr-oozie
   roles:
@@ -118,10 +126,10 @@
   hosts: mapr-nfs
   roles:
     - mapr-nfs
-- name: Setup global vars
-  hosts: all
-  roles:
-    - mapr-configure-vars
+#- name: Setup global vars
+#  hosts: all
+#  roles:
+#    - mapr-configure-vars
 - name: Configure and start
   hosts: mapr-core
   roles:
@@ -143,15 +151,13 @@
   roles:
     - mapr-spark-historyserver
 - name: Restarting mapr-warden
-  hosts: base
+  hosts: mapr-core
   roles:
     - mapr-configure-warden-restart
-- name: Install MapR client
-  hosts: mapr-client
+- name: Install mapr-posix-client-basic (FUSE)
+  hosts: mapr-posix-client-basic
   roles:
-    - mapr-configure-repository
-    - mapr-client
-#    - mapr-nfsloopback
+    - mapr-posix-client-basic
 - name: Install NFS loopback
   hosts: mapr-nfsloopback
   roles:
@@ -189,6 +195,6 @@
   roles:
     - mapr-log-monitoring-configure
 #- name: Restarting mapr-warden
-#  hosts: base
+#  hosts: mapr-core
 #  roles:
 #    - mapr-configure-warden-restart

@@ -27,6 +27,16 @@ mapr_user: mapr
 mapr_user_uid: 5000
 cluster_name: mapr-01.aap
 
+cldb_string: gn-aapdb-prd-01.prd.it.zesko.nl,gn-aapdb-prd-02.prd.it.zesko.nl,gn-aapdb-prd-03.prd.it.zesko.nl
+zookeeper_string: gn-aapdb-prd-01.prd.it.zesko.nl,gn-aapdb-prd-02.prd.it.zesko.nl,gn-aapdb-prd-03.prd.it.zesko.nl
+historyserver_string: gn-aapdb-prd-04.prd.it.zesko.nl
+opentsdb_string: gn-aapdb-prd-05.prd.it.zesko.nl
+elasticsearch_string: gn-aapdb-prd-04.prd.it.zesko.nl
+
+
+hive_metastore: thrift://gn-aapdb-prd-01.prd.it.zesko.nl:9083
+
+mapr_mysql_host: gn-aapdb-prd-01.prd.it.zesko.nl
 mapr_mysql_user: mapr
 mapr_mysql_password: qpvvW4MUrm3JL
 
@@ -43,5 +53,5 @@ mysql_jdbc_url: https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-
 # passwd is mapr
 mapr_passwd: $6$GzlcP5ei$E6P9QM40O6KJFLZ3wMcg3jzQBNxGXrf8yc77CbCmf0KtFSxK0mpCParhc3WVNEAm4fHKPAqyRV9rsiF6DAFlW0
 
-disks: /dev/sdb /dev/sdc /dev/sdd,/dev/sde /dev/sdf /dev/sdg,/dev/sdh /dev/sdi /dev/sdj,/dev/sdk /dev/sdl /dev/sdm
+disks: /dev/sdb,/dev/sdc,/dev/sdd,/dev/sde,/dev/sdf,/dev/sdg,/dev/sdh,/dev/sdi,/dev/sdj,/dev/sdk,/dev/sdl,/dev/sdm
 #disks: /dev/xvdb /dev/xvdc /dev/xvdd

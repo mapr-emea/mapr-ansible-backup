@@ -23,3 +23,6 @@
 #  shell: /opt/mapr/server/configure.sh -R
 - name: Set owner mapr-system user
   file: path=/opt/mapr/spark owner={{ mapr_user }} group={{ mapr_group }} state=directory recurse=yes
+- name: set SPARK_LOCAL_IP for Spark shell back channel
+  lineinfile: dest=/opt/mapr/spark/spark-1.6.1/conf/spark-env.sh line="SPARK_LOCAL_IP={{ ansible_bond1['ipv4']['address'] }}"
+  when: ansible_bond1 is defined

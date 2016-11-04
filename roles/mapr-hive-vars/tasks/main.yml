@@ -1,15 +1,16 @@
 ---
-- name: Get MySQL Host
-  set_fact: mysql_item={{ hostvars[item]['ansible_fqdn'] }}
-  with_items:
-    - "{{ groups['ext-mysql'] }}"
-  register: mysql_hosts
+#- name: Get MySQL Host
+#  set_fact: mysql_item={{ hostvars[item]['ansible_fqdn'] }}
+#  with_items:
+#    - "{{ groups['ext-mysql'] }}"
+#  register: mysql_hosts
 - name: Make MySQL Host String
-  set_fact: hive_db_host={{ mysql_hosts.results | map(attribute='ansible_facts.mysql_item') | list | join(',')}}
-- name: Get Thrift server
-  set_fact: metastore_item=thrift://{{ hostvars[item]['ansible_fqdn'] }}:9083
-  with_items:
-    - "{{ groups['mapr-hive-metastore'] }}"
-  register: metastore_hosts
+  set_fact: hive_db_host={{ mapr_mysql_host }}
+#  set_fact: hive_db_host={{ mysql_hosts.results | map(attribute='ansible_facts.mysql_item') | list | join(',')}}
+#- name: Get Thrift server
+#  set_fact: metastore_item=thrift://{{ hostvars[item]['ansible_fqdn'] }}:9083
+#  with_items:
+#    - "{{ groups['mapr-hive-metastore'] }}"
+#  register: metastore_hosts
 - name: Make Resource Manager String
-  set_fact: metastore_string={{ metastore_hosts.results | map(attribute='ansible_facts.metastore_item') | list | join(',')}}
+  set_fact: metastore_string={{ hive_metastore }}

@@ -1,127 +1,52 @@
 # If you do not want to install a component leave the block empty
 
-# sets up ntp, rpcbind, Java and mapr default user 
-[base]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-03-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-04-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-05-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# MapR core packages
-[mapr-core]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-03-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-04-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-05-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# Zookeeper
-[mapr-zookeeper]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-03-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# Container Location DataBase
-[mapr-cldb]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-03-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# Gateway for Streams and MapR-DB
-[mapr-gateway]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-03-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# MapR Control System
-[mapr-mcs]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-03-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# YARN resource manager
-[mapr-resourcemanager]
-gn-aapdb-prd-04-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-05-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# Job History Server, IMPORTANT: only one
-[mapr-historyserver]
-gn-aapdb-prd-04-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# Contains YARN Node Manager, MapReduce2 and MapR FileServer (MFS)
-[mapr-datanode]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-03-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-04-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-05-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# MySQL, required for Hive MetaStore and Oozie, IMPORTANT: only one
-[ext-mysql]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+# MapR client packages
+[mapr-client]
+gn-aaphbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapmbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapmbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
 
 # Spark on YARN
 [mapr-spark-yarn]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-03-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-04-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-05-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapmbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapmbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
 
-# Spark HistoryServer
-[mapr-spark-historyserver]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# NFS
-[mapr-nfs]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-03-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-04-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-05-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# Apache Drill
-[mapr-drill-standalone]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-03-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-04-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-05-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# Apache Drill
-[mapr-drill-yarn]
-
+# POSIX client
+[mapr-posix-client-basic]
+gn-aaphbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapmbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapmbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
 
 # Flume
 [mapr-flume]
 
 
+
 # HBase CLI
 [mapr-hbase-cli]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-03-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-04-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-05-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapmbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapmbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
 
 # HBase REST and Thrift
 [mapr-hbase-thrift-rest]
 
 # Hive CLI
 [mapr-hive-cli]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-03-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-04-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-gn-aapdb-prd-05-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# Hive Meta Store
-[mapr-hive-metastore]
-gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapmbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapmbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
 
 # Hive Server2
 [mapr-hive-server2]
+gn-aapmbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapmbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
 
 # Hive HCatalog
 [mapr-hive-hcatalog]
@@ -131,9 +56,13 @@ gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansi
 
 # HttpFS
 [mapr-httpfs]
+gn-aaphbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
 
 # Hue, not yet supported
-# [mapr-hue]
+[mapr-hue]
+gn-aaphbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
 
 # Mahout
 [mapr-mahout]
@@ -150,43 +79,43 @@ gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansi
 # Oozie
 [mapr-oozie]
 
-# HttpFS
-[mapr-httpfs]
-
-# CollectD
-[mapr-collectd:children]
-mapr-core
-
-# OpenTSDB
-[mapr-opentsdb]
-gn-aapdb-prd-05-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# Grafana
-[mapr-grafana]
-gn-aapdb-prd-05-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# FluentD
-[mapr-fluentd:children]
-mapr-core
-
-# ElasticSearch
-[mapr-elasticsearch]
-gn-aapdb-prd-04-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
-# Kibana
-[mapr-kibana]
-gn-aapdb-prd-04-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
-
 # Zeppelin
 [ext-zeppelin]
+gn-aaphbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
 
 # R Lang
 [ext-rlang]
+gn-aapdb-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapdb-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapdb-prd-03-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapdb-prd-04-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapdb-prd-05-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapdb-prd-06-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapdb-prd-07-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapdb-prd-08-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapdb-prd-09-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapdb-prd-10-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapmbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aapmbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
 
 # RStudioServer Pro
 [ext-rstudioserverpro]
 
+# RStudioServer Pro
+[ext-rstudioserver]
+gn-aaphbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
 
-# MapR client packages
-[mapr-client]
+
+# Drill Client (just copies from first node
+[mapr-drill-client]
+gn-aaphbe-prd-01-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+gn-aaphbe-prd-02-sh.prd.it.zesko.nl ansible_user=jniezink ansible_become=yes ansible_become_method=sudo
+
+# TODO implement drill client
+# TODO implement hue
+# TODO zeppelin
 

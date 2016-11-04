@@ -4,15 +4,15 @@
 - name: Install MySQL (Redhat / CentOS)
   yum: name={{ item }} state=present update_cache=yes
   with_items:
-  - mariadb-server
-  - mariadb
+  - mysql-server
+  - mysql
   - MySQL-python
   when: ansible_os_family == 'RedHat'
 - name: Remove localhost binding
   lineinfile: dest=/etc/my.cnf regexp="^bind-address" state=absent
   when: ansible_os_family == 'RedHat'
 - name: Start the mysqld service (Redhat / CentOS)
-  service: name=mariadb state=restarted enabled=yes
+  service: name=mysqld state=restarted enabled=yes
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
 - name: Install MySQL (Debian / Ubuntu)

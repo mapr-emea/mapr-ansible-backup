@@ -13,6 +13,14 @@
 - name: Install mapr-client (Suse)
   zypper: name=mapr-client state=present
   when: ansible_os_family == 'Suse'
-
 - name: Configure.sh
-  shell: /opt/mapr/server/configure.sh -N {{ cluster_name }} -Z {{ zookeeper_string }} -C {{ cldb_string }} -u {{ mapr_user }} -g {{mapr_group}} -unsecure
+  shell: /opt/mapr/server/configure.sh -N {{ cluster_name }} -Z {{ zookeeper_string }} -C {{ cldb_string }} -u {{ mapr_user }} -g {{mapr_group}} -unsecure -c
+- name: Set MapR Subnet
+  lineinfile: dest=/opt/mapr/conf/env.sh regexp="^export MAPR_SUBNETS" insertafter="^\#export MAPR_SUBNETS" line="export MAPR_SUBNETS={{ mapr_subnets }}"
+- name: YARN proxy Jar
+  copy: src=/opt/mapr/hadoop/hadoop-2.7.0/share/hadoop/yarn/hadoop-yarn-server-web-proxy-2.7.0-mapr-1607.jar dest=/opt/mapr/hadoop/hadoop-2.7.0/share/hadoop/yarn/
+
+- name: YARN RM Jar
+  copy: src=/opt/mapr/hadoop/hadoop-2.7.0/share/hadoop/yarn/hadoop-yarn-server-common-2.7.0-mapr-1607.jar dest=/opt/mapr/hadoop/hadoop-2.7.0/share/hadoop/yarn/
+- name: YARN RM Jar
+  copy: src=/opt/mapr/hadoop/hadoop-2.7.0/share/hadoop/yarn/hadoop-yarn-server-resourcemanager-2.7.0-mapr-1607.jar dest=/opt/mapr/hadoop/hadoop-2.7.0/share/hadoop/yarn/
