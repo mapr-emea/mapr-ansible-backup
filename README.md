@@ -36,16 +36,24 @@ ansible-playbook -i hosts_run-installer-template site-run-installer-nativesecuri
 Use `hosts_template` as template and copy it and the hostnames to the components you want to get installed. If components are not required, just leave the block empty. Then run:
 
 ```
-ansible-playbook -i hosts_template site-unsecure.yml
+ansible-playbook -i hosts_template site-cluster.yml
 ```
 
 ## Install cluster with native security - NOT YET implemented
 
+Not yet implemented
+
+## Install unsecure client
+
 Use `hosts_template` as template and copy it and the hostnames to the components you want to get installed. If components are not required, just leave the block empty. Then run:
 
 ```
-ansible-playbook -i hosts_template site-nativesecurity.yml
+ansible-playbook -i hosts_template site-client.yml
 ```
+
+## Install client with native security - NOT YET implemented
+
+Not yet implemented
 
 ## Install RStudio Server (m5 license requried for NFS)
 

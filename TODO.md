@@ -3,8 +3,6 @@
 - RStudio for Redhat, Centos, Suse
 - Execute spark Hadoop fs creation only once
 - Add storm
-- Add hue
-- Add Drill on YARN
 - Add warden restart handler http://stackoverflow.com/questions/22649333/ansible-notify-handlers-in-another-role
 - Add latest patches
 

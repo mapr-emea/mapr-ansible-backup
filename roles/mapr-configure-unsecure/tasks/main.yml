@@ -7,7 +7,7 @@
 - name: Write disk tmp file
   shell: echo {{ disks }} | tr , '\n' > /tmp/disks.txt
 - name: Disk setup
-  command: /opt/mapr/server/disksetup -F /tmp/disks.txt
+  command: /opt/mapr/server/disksetup -F /tmp/disks.txt -W {{ disk_storage_pool_size }}
   ignore_errors: True # TODO error result should be handeled
 
 
