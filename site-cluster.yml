@@ -103,10 +103,10 @@
   hosts: mapr-sqoop2-client
   roles:
     - mapr-sqoop2-client
-#- name: Install Hue
-#  hosts: mapr-hue
-#  roles:
-#    - mapr-hue
+- name: Install Hue
+  hosts: mapr-hue
+  roles:
+    - mapr-hue
 - name: Install Oozie
   hosts: mapr-oozie
   roles:

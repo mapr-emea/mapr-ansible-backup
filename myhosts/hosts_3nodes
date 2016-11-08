@@ -122,8 +122,8 @@
 # HttpFS
 [mapr-httpfs]
 
-# Hue, not yet supported
-# [mapr-hue]
+# Hue
+[mapr-hue]
 
 # Mahout
 [mapr-mahout]
