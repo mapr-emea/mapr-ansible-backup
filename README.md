@@ -31,6 +31,10 @@ the cluster name you used in UI installation (only required for secured cluster)
 ansible-playbook -i hosts_run-installer-template site-run-installer-nativesecurity.yml
 ```
 
+## Inventory file templates
+
+Can be found `host_templates`
+
 ## Install unsecure cluster
 
 Use `hosts_template` as template and copy it and the hostnames to the components you want to get installed. If components are not required, just leave the block empty. Then run:
