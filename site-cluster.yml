@@ -147,21 +147,6 @@
   hosts: mapr-core
   roles:
     - mapr-configure-warden-restart
-- name: Install MapR client
-  hosts: mapr-client
-  roles:
-    - mapr-configure-repository
-    - mapr-client
-    - mapr-configure-subnets
-    - mapr-client-configure-unsecure
-- name: Install NFS loopback
-  hosts: mapr-nfsloopback
-  roles:
-    - mapr-nfsloopback
-- name: Install mapr-posix-client-basic (FUSE)
-  hosts: mapr-posix-client-basic
-  roles:
-    - mapr-posix-client-basic
 - name: Install MapR collectd
   hosts: mapr-collectd
   roles:
