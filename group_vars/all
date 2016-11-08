@@ -19,6 +19,7 @@ zeppelin_git_hash: 5af7747
 # Get url from https://www.rstudio.com/products/rstudio/download-commercial/
 rstudio_server_pro_deb: http://download2.rstudio.org/rstudio-server-pro-0.99.903-amd64.deb
 
+mapr_subnets: 10.0.0.0/24
 mapr_group: mapr
 mapr_group_gid: 5000
 mapr_user: mapr
@@ -31,8 +32,8 @@ mapr_mysql_password: mapr123
 oozie_db_schema: oozie
 hive_db_schema: hive
 
-mysql_jdbc_version: 5.1.39
-mysql_jdbc_url: https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-{{ mysql_jdbc_version }}.tar.gz
+#mysql_jdbc_version: 5.1.40
+#mysql_jdbc_url: https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-{{ mysql_jdbc_version }}.tar.gz
 
 # sudo gem install mkpasswd
 #

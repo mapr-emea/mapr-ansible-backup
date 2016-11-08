@@ -1,16 +1,18 @@
 - name: Apply common configuration to all nodes
-  hosts: base
+  hosts: common
   roles:
     - common-oracle-jdk
     - common-mapruser
     - common-rpcbind
     - common-ntp
     - common-misc
+    - common-sysctl
 - name: Install MapR Core
   hosts: mapr-core
   roles:
     - mapr-configure-repository
     - mapr-core
+    - mapr-configure-subnets
 - name: Install Zookeeper
   hosts: mapr-zookeeper
   roles:
@@ -122,7 +124,7 @@
   roles:
     - mapr-configure-vars
 - name: Configure and start
-  hosts: base
+  hosts: mapr-core
   roles:
     - mapr-configure-unsecure
 - name: Restarting mapr-zookeeper
@@ -130,7 +132,7 @@
   roles:
   - mapr-configure-zookeeper-restart
 - name: Restarting mapr-warden
-  hosts: base
+  hosts: mapr-core
   roles:
   - mapr-configure-warden-restart
 - name: Install Spark on YARN
@@ -142,7 +144,7 @@
   roles:
     - mapr-spark-historyserver
 - name: Restarting mapr-warden
-  hosts: base
+  hosts: mapr-core
   roles:
     - mapr-configure-warden-restart
 - name: Install MapR client
@@ -150,11 +152,16 @@
   roles:
     - mapr-configure-repository
     - mapr-client
-    - mapr-nfsloopback
+    - mapr-configure-subnets
+    - mapr-client-configure-unsecure
 - name: Install NFS loopback
   hosts: mapr-nfsloopback
   roles:
     - mapr-nfsloopback
+- name: Install mapr-posix-client-basic (FUSE)
+  hosts: mapr-posix-client-basic
+  roles:
+    - mapr-posix-client-basic
 - name: Install MapR collectd
   hosts: mapr-collectd
   roles:

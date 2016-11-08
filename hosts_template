@@ -1,7 +1,7 @@
 # If you do not want to install a component leave the block empty
 
 # sets up ntp, rpcbind, Java and mapr default user with standard password mapr123
-[base]
+[common]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 [mapr-core]
@@ -153,6 +153,12 @@ mapr-core
 # Kibana
 [mapr-kibana]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
+
+# MapR NFS loopback (only for MapR client!)
+[mapr-nfsloopback]
+
+# MapR Fuse Posix Client (only for MapR client!)
+[mapr-posix-client-basic]
 
 # Zeppelin
 [ext-zeppelin]
