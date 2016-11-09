@@ -7,6 +7,13 @@
     - common-ntp
     - common-misc
     - common-sysctl
+- name: Install MapR client
+  hosts: mapr-client
+  roles:
+    - mapr-configure-repository
+    - mapr-client
+    - mapr-configure-subnets
+    - mapr-client-configure-unsecure
 - name: Install Drill on YARN
   hosts: mapr-drill-yarn
   roles:
@@ -75,13 +82,6 @@
   hosts: mapr-spark-yarn
   roles:
     - mapr-spark-yarn
-- name: Install MapR client
-  hosts: mapr-client
-  roles:
-    - mapr-configure-repository
-    - mapr-client
-    - mapr-configure-subnets
-    - mapr-client-configure-unsecure
 - name: Install NFS loopback
   hosts: mapr-nfsloopback
   roles:
