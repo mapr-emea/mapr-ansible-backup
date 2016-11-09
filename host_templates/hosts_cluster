@@ -51,10 +51,6 @@
 [mapr-nfs]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
-# NFS loopback, ATTENTION: install only on edge node (mapr-client)!!!
-[mapr-nfsloopback]
-#10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
-
 # Apache Drill
 [mapr-drill-standalone]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
@@ -120,10 +116,6 @@
 
 # Oozie
 [mapr-oozie]
-10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
-
-# HttpFS
-[mapr-httpfs]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
 # CollectD

@@ -74,10 +74,6 @@
 [mapr-oozie]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
-# HttpFS
-[mapr-httpfs]
-10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
-
 # MapR NFS loopback (only for MapR client!)
 [mapr-nfsloopback]
 

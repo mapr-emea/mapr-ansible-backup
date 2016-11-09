@@ -6,7 +6,7 @@
     - common-rpcbind
     - common-ntp
     - common-misc
-    - common-sysctl
+#    - common-sysctl
 - name: Install MapR Core
   hosts: mapr-core
   roles:
