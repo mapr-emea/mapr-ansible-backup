@@ -1,0 +1,4 @@
+- name: Setup global vars
+  hosts: mapr-spark-yarn
+  roles:
+    - mapr-spark-yarn

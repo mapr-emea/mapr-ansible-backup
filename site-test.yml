@@ -1,18 +1,20 @@
-- name: Install MapR collectd
-  hosts: mapr-collectd
+- name: Setup global vars
+  hosts: all
   roles:
-    - mapr-collectd
-- name: Install MapR OpenTSDB
-  hosts: mapr-opentsdb
+    - mapr-configure-vars
+- name: Configure and start
+  hosts: mapr-core
   roles:
-    - mapr-opentsdb
-- name: Install MapR Grafana
-  hosts: mapr-grafana
+   - {role: mapr-configure-unsecure, when: mapr_security == 'none'}
+- name: Configure and start
+  hosts: mapr-core
   roles:
-    - mapr-grafana
-- name: Install MapR Configure OpenTSDB / Grafana
-  hosts: mapr-collectd
+   - {role: mapr-configure-nativesecurity-secure, when: mapr_security == 'native'}
+- name: Restarting mapr-zookeeper
+  hosts: mapr-zookeeper
   roles:
-    - mapr-opentsdb-configure
-
-
+   - mapr-configure-zookeeper-restart
+- name: Restarting mapr-warden
+  hosts: mapr-core
+  roles:
+   - mapr-configure-warden-restart

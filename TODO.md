@@ -1,5 +1,6 @@
 - Create config for native secure
 - Add precheck for disks
+- Import GPG key
 - RStudio for Redhat, Centos, Suse
 - Execute spark Hadoop fs creation only once
 - Add storm

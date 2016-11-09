@@ -123,18 +123,22 @@
   hosts: all
   roles:
     - mapr-configure-vars
-- name: Configure and start
+- name: Configure and start (unsecure)
   hosts: mapr-core
   roles:
-    - mapr-configure-unsecure
+   - {role: mapr-configure-unsecure, when: mapr_security == 'none'}
+- name: Configure and start (native-security)
+  hosts: mapr-core
+  roles:
+   - {role: mapr-configure-nativesecurity-secure, when: mapr_security == 'native'}
 - name: Restarting mapr-zookeeper
   hosts: mapr-zookeeper
   roles:
-  - mapr-configure-zookeeper-restart
+   - mapr-configure-zookeeper-restart
 - name: Restarting mapr-warden
   hosts: mapr-core
   roles:
-  - mapr-configure-warden-restart
+   - mapr-configure-warden-restart
 - name: Install Spark on YARN
   hosts: mapr-spark-yarn
   roles:

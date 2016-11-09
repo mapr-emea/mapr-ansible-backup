@@ -19,6 +19,8 @@ zeppelin_git_hash: 5af7747
 # Get url from https://www.rstudio.com/products/rstudio/download-commercial/
 rstudio_server_pro_deb: http://download2.rstudio.org/rstudio-server-pro-0.99.903-amd64.deb
 
+# none, native
+mapr_security: native
 mapr_subnets: 10.0.0.0/24
 mapr_group: mapr
 mapr_group_gid: 5000
