@@ -24,8 +24,18 @@
   copy: src=mysql-connector-java-5.1.40-bin.jar dest=/opt/mapr/hive/hive-{{ hive_version }}/lib/
 - name: Configure hive-site.xml
   template: src=hive-site.unsecure.xml dest=/opt/mapr/hive/hive-{{ hive_version }}/conf/hive-site.xml
+  when: hive_server_security == 'none'
+- name: Configure hive-site.xml - unsecure
+  template: src=hive-site.unsecure.xml dest=/opt/mapr/hive/hive-{{ hive_version }}/conf/hive-site.xml
+  when: hive_server_security == 'none'
+- name: Configure hive-site.xml - maprsasl
+  template: src=hive-site.maprsasl.xml dest=/opt/mapr/hive/hive-{{ hive_version }}/conf/hive-site.xml
+  when: hive_server_security == 'maprsasl'
+- name: Configure hive-site.xml - pam
+  template: src=hive-site.pam.xml dest=/opt/mapr/hive/hive-{{ hive_version }}/conf/hive-site.xml
+  when: hive_server_security == 'pam'
 - name: Configure hive-env.sh
-  template: src=hive-env.unsecure.sh dest=/opt/mapr/hive/hive-{{ hive_version }}/conf/hive-env.sh
+  template: src=hive-env.sh dest=/opt/mapr/hive/hive-{{ hive_version }}/conf/hive-env.sh
 - name: Add HIVE_HOME to /etc/profile
   lineinfile: dest=/etc/profile state=present line="export HIVE_HOME=/opt/mapr/hive/hive-{{ hive_version }}/"
 - name: Set owner mapr-system user

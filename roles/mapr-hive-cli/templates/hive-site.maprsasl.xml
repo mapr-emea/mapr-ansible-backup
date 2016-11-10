@@ -72,14 +72,7 @@
 
     <property>
         <name>hive.server2.authentication</name>
-        <value>PAM</value>
-        <!-- value>MAPRSASL</value -->
-    </property>
-
-    <property>
-        <name>hive.server2.authentication.pam.services</name>
-        <value>login,sudo</value>
-        <description>comma separated list of pam modules to verify</description>
+        <value>MAPRSASL</value>
     </property>
 
     <property>

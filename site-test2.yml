@@ -1,4 +1,9 @@
 - name: Setup global vars
-  hosts: mapr-spark-yarn
+  hosts: all
   roles:
-    - mapr-spark-yarn
+    - mapr-configure-vars
+- name: Setup global vars
+  hosts: mapr-drill-standalone
+  roles:
+    - mapr-drill-standalone
+

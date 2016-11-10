@@ -8,6 +8,11 @@
     - common-misc
     - common-sysctl
     - common-prereq
+# used by configure.sh and drill
+- name: Setup global vars
+  hosts: all
+  roles:
+    - mapr-configure-vars
 - name: Install MapR Core
   hosts: mapr-core
   roles:
@@ -120,10 +125,6 @@
   hosts: mapr-nfs
   roles:
     - mapr-nfs
-- name: Setup global vars
-  hosts: all
-  roles:
-    - mapr-configure-vars
 - name: Configure and start (unsecure)
   hosts: mapr-core
   roles:

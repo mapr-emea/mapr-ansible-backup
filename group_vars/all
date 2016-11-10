@@ -11,6 +11,7 @@ spark_version: 1.6.1
 oozie_version: 4.2.0
 hive_version: 1.2
 hbase_version: 1.1.1
+drill_version: 1.8.0
 zeppelin_version: 0.6.0-SNAPSHOT
 zeppelin_git_repo: https://github.com/apache/incubator-zeppelin.git
 # zeppelin_git_hash: v0.6.1
@@ -31,8 +32,15 @@ cluster_name: demo.mapr.com
 mapr_mysql_user: mapr
 mapr_mysql_password: mapr123
 
-oozie_db_schema: oozie
 hive_db_schema: hive
+# Hive security: none, maprsasl or pam
+hive_server_security: pam
+
+# Drill security (only standalone): none, pam
+drill_security: pam
+
+oozie_db_schema: oozie
+
 
 # sudo gem install mkpasswd
 #

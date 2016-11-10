@@ -2,7 +2,7 @@
 # Configure unsecure cluster
 
 - name: Get Zookeeper FQDNs
-  set_fact: zoo_item={{ hostvars[item]['ansible_fqdn'] }}
+  set_fact: zoo_item={{ hostvars[item]['ansible_fqdn'] }}:5181
   with_items:
     - "{{ groups['mapr-zookeeper'] }}"
   register: zookeeper_hosts
