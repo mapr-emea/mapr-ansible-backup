@@ -14,6 +14,7 @@
   hosts: all
   roles:
     - mapr-configure-vars
+    - mapr-configure-vars-hs
 - name: Install MapR Core
   hosts: mapr-core
   roles:
@@ -74,6 +75,7 @@
   hosts: all
   roles:
     - mapr-hive-vars
+    - mapr-hive-vars-mysql
 - name: Install Hive CLI
   hosts: mapr-hive-cli
   roles:

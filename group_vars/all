@@ -3,7 +3,7 @@ mapr_ecosystem_url: http://package.mapr.com/releases/MEP/MEP-1.1.0/
 mapr_gpg_url: http://package.mapr.com/releases/pub/maprgpg.key
 
 # JDK choose: openjdk18 or oraclejdk
-jdk: openjdk18
+jdk: oraclejdk
 jdk_folder: /opt/java/jdk1.8.0_111
 oracle_jdk_url: http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
 
@@ -23,10 +23,10 @@ zeppelin_git_hash: 5af7747
 rstudio_server_pro_deb: http://download2.rstudio.org/rstudio-server-pro-0.99.903-amd64.deb
 
 ####### Enable security features ##########
-# Will delete existing keys (cldb.key, maprserverticket, ssl_truststore, ssl_keystore) and generate new one: true /false
-generate_keys: false
 # none, native
 mapr_security: native
+# Will delete existing keys (cldb.key, maprserverticket, ssl_truststore, ssl_keystore) and generate new one: true /false
+generate_keys: true
 # Hive security: none, maprsasl or pam
 hive_server_security: pam
 # Drill security (only standalone): none, pam
