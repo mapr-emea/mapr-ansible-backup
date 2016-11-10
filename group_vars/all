@@ -2,8 +2,10 @@ mapr_release_url: http://package.mapr.com/releases/v5.2.0
 mapr_ecosystem_url: http://package.mapr.com/releases/MEP/MEP-1.1.0/
 mapr_gpg_url: http://package.mapr.com/releases/pub/maprgpg.key
 
+# JDK choose: openjdk18 or oraclejdk
+jdk: openjdk18
+jdk_folder: /opt/java/jdk1.8.0_92
 oracle_jdk_url: http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-linux-x64.tar.gz
-oracle_jdk_folder: /opt/java/jdk1.8.0_92
 
 mapr_build: mapr-1607
 hadoop_version: 2.7.0

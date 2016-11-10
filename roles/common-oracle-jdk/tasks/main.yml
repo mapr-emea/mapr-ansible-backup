@@ -10,14 +10,14 @@
 - name: Install Java JDK
   unarchive: src=/tmp/oracle-jdk.tar.gz dest=/opt/java copy=no
 - name: Create link /usr/bin/java
-  file: src={{ oracle_jdk_folder }}/bin/java dest=/usr/bin/java state=link
+  file: src={{ jdk_folder }}/bin/java dest=/usr/bin/java state=link
 # Other actions
 - name: Copy Local Policy
-  copy: src="../files/UnlimitedJCEPolicyJDK8/local_policy.jar" dest="{{ oracle_jdk_folder }}/jre/lib/security/" mode=0644
+  copy: src="../files/UnlimitedJCEPolicyJDK8/local_policy.jar" dest="{{ jdk_folder }}/jre/lib/security/" mode=0644
 - name: Copy US Export Policy
-  copy: src="../files/UnlimitedJCEPolicyJDK8/US_export_policy.jar" dest="{{ oracle_jdk_folder }}/jre/lib/security/" mode=0644
+  copy: src="../files/UnlimitedJCEPolicyJDK8/US_export_policy.jar" dest="{{ jdk_folder }}/jre/lib/security/" mode=0644
 - name: Add JAVA_HOME to /etc/profile
-  lineinfile: dest=/etc/profile state=present line="export JAVA_HOME={{ oracle_jdk_folder }}"
+  lineinfile: dest=/etc/profile state=present line="export JAVA_HOME={{ jdk_folder }}"
 
 
 #  - name: Copy /etc/environment with java and path settings
