@@ -24,15 +24,15 @@ rstudio_server_pro_deb: http://download2.rstudio.org/rstudio-server-pro-0.99.903
 
 ####### Enable security features ##########
 # none, native
-mapr_security: none
+mapr_security: native
 # Will delete existing keys (cldb.key, maprserverticket, ssl_truststore, ssl_keystore) and generate new one: true /false
-generate_keys: false
+generate_keys: true
 # Hive security: none, maprsasl or pam
-hive_server_security: none
+hive_server_security: pam
 # Drill security (only standalone): none, pam
-drill_security: none
+drill_security: pam
 # HBase REST/Thrift: none, maprauth_and_ssl (MapR-SSL and Basic-auth + SSL enabled)
-hbase_thrift_rest_security: none
+hbase_thrift_rest_security: maprauth_and_ssl
 ###########################################
 
 mapr_subnets: 10.0.0.0/24
