@@ -1,9 +1,6 @@
-- name: Setup global vars
-  hosts: all
-  roles:
-    - mapr-configure-vars
-- name: Setup global vars
-  hosts: mapr-hbase-thrift-rest
-  roles:
-    - mapr-hbase-thrift-rest
-
+ - hosts: mapr-core[0]
+   tasks:
+    - name: Copy keys to local
+      fetch: src={{ item }} dest=/tmp/ flat=yes
+      with_items:
+      - /opt/mapr/hadoop/hadoop-2.7.0/share/hadoop/yarn/hadoop-yarn-server-web-proxy-*.jar

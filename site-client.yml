@@ -7,13 +7,18 @@
     - common-ntp
     - common-misc
     - common-sysctl
+- name: Fetch files from cluster required for client
+  hosts: mapr-core[0]
+  roles:
+    - mapr-client-configure-nativesecurity-fetch
 - name: Install MapR client
   hosts: mapr-client
   roles:
     - mapr-configure-repository
     - mapr-client
     - mapr-configure-subnets
-    - mapr-client-configure-unsecure
+    - {role: mapr-client-configure-unsecure, when: mapr_security == 'none'}
+    - {role: mapr-client-configure-nativesecurity-secure, when: mapr_security == 'native'}
 - name: Install Drill on YARN
   hosts: mapr-drill-yarn
   roles:
