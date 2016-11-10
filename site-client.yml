@@ -1,16 +1,21 @@
 - name: Apply common configuration to all nodes
   hosts: common
   roles:
-    - common-oracle-jdk
+    - {role: common-oracle-jdk, when: jdk == 'oraclejdk'}
+    - {role: common-openjdk18, when: jdk == 'openjdk18'}
     - common-mapruser
     - common-rpcbind
     - common-ntp
     - common-misc
     - common-sysctl
 - name: Fetch files from cluster required for client
-  hosts: mapr-core[0]
+  hosts: mapr-cldb[0]
   roles:
     - mapr-client-configure-nativesecurity-fetch
+- name: Setup global vars
+  hosts: all
+  roles:
+    - mapr-configure-vars
 - name: Install MapR client
   hosts: mapr-client
   roles:
@@ -35,22 +40,23 @@
   hosts: mapr-hbase-thrift-rest
   roles:
     - mapr-hbase-thrift-rest
-- name: Setup Hive Variables
-  hosts: all
-  roles:
-    - mapr-hive-vars
-- name: Install Hive CLI
-  hosts: mapr-hive-cli
-  roles:
-    - mapr-hive-cli
-- name: Install Hive MetaStore
-  hosts: mapr-hive-metastore
-  roles:
-    - mapr-hive-metastore
-- name: Install Hive Server 2
-  hosts: mapr-hive-server2
-  roles:
-    - mapr-hive-server2
+# Hive does NOT work yet with client install
+#- name: Setup Hive Variables
+#  hosts: all
+#  roles:
+#    - mapr-hive-vars
+#- name: Install Hive CLI
+#  hosts: mapr-hive-cli
+#  roles:
+#    - mapr-hive-cli
+#- name: Install Hive MetaStore
+#  hosts: mapr-hive-metastore
+#  roles:
+#    - mapr-hive-metastore
+#- name: Install Hive Server 2
+#  hosts: mapr-hive-server2
+#  roles:
+#    - mapr-hive-server2
 - name: Install Mahout
   hosts: mapr-mahout
   roles:
@@ -79,14 +85,10 @@
   hosts: mapr-httpfs
   roles:
     - mapr-httpfs
-- name: Setup global vars
-  hosts: all
-  roles:
-    - mapr-configure-vars
-- name: Install Spark on YARN
-  hosts: mapr-spark-yarn
-  roles:
-    - mapr-spark-yarn
+#- name: Install Spark on YARN
+#  hosts: mapr-spark-yarn
+#  roles:
+#    - mapr-spark-yarn
 - name: Install NFS loopback
   hosts: mapr-nfsloopback
   roles:

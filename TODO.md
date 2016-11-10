@@ -1,5 +1,10 @@
 - Create config for native secure
 - secure config for client
+- add flag to regenerate keys or not
+- test hive cli
+- test hbase cli
+- spark
+
 - Add precheck for disks
 - Import GPG key
 - RStudio for Redhat, Centos, Suse

@@ -4,8 +4,8 @@ mapr_gpg_url: http://package.mapr.com/releases/pub/maprgpg.key
 
 # JDK choose: openjdk18 or oraclejdk
 jdk: openjdk18
-jdk_folder: /opt/java/jdk1.8.0_92
-oracle_jdk_url: http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-linux-x64.tar.gz
+jdk_folder: /opt/java/jdk1.8.0_111
+oracle_jdk_url: http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
 
 mapr_build: mapr-1607
 hadoop_version: 2.7.0

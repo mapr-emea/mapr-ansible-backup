@@ -8,7 +8,7 @@
   - rpcbind
   when: ansible_os_family == 'RedHat'
 # Debian / Ubuntu
-- name: Install mapr-nfs (Debian / Ubuntu)
+- name: Install mapr-posix-client-basic (Debian / Ubuntu)
   apt: name={{ item }} state=present allow_unauthenticated=yes
   with_items:
   - mapr-posix-client-basic
