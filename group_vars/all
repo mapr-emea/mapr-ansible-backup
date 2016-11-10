@@ -23,6 +23,8 @@ zeppelin_git_hash: 5af7747
 rstudio_server_pro_deb: http://download2.rstudio.org/rstudio-server-pro-0.99.903-amd64.deb
 
 ####### Enable security features ##########
+# Will delete existing keys (cldb.key, maprserverticket, ssl_truststore, ssl_keystore) and generate new one: true /false
+generate_keys: false
 # none, native
 mapr_security: native
 # Hive security: none, maprsasl or pam

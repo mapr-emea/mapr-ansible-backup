@@ -1,6 +1,20 @@
- - hosts: mapr-core[0]
-   tasks:
-    - name: Copy keys to local
-      fetch: src={{ item }} dest=/tmp/ flat=yes
-      with_items:
-      - /opt/mapr/hadoop/hadoop-2.7.0/share/hadoop/yarn/hadoop-yarn-server-web-proxy-*.jar
+- name: Setup Hive Variables
+  hosts: all
+  roles:
+    - mapr-hive-vars
+- name: Install Hive CLI
+  hosts: mapr-hive-cli
+  roles:
+    - mapr-hive-cli
+- name: Install Hive MetaStore
+  hosts: mapr-hive-metastore
+  roles:
+    - mapr-hive-metastore
+- name: Install Hive Server 2
+  hosts: mapr-hive-server2
+  roles:
+    - mapr-hive-server2
+- name: Install Hive WebHCat
+  hosts: mapr-hive-webhcat
+  roles:
+    - mapr-hive-webhcat

@@ -17,6 +17,8 @@
   limitations under the License.
 -->
 <configuration>
+
+    {%- if hive_db_host is defined -%}
     <property>
         <name>javax.jdo.option.ConnectionURL</name>
         <value>jdbc:mysql://{{ hive_db_host }}:3306/{{ hive_db_schema }}?createDatabaseIfNotExist=true</value>
@@ -40,7 +42,7 @@
         <value>{{ mapr_mysql_password }}</value>
         <description>password to use against metastore database</description>
     </property>
-
+    {%- endif -%}
     <property>
         <name>hive.metastore.uris</name>
         <value>{{ metastore_string }}</value>
