@@ -7,6 +7,7 @@
     - common-ntp
     - common-misc
     - common-sysctl
+    - common-prereq
 - name: Install MapR Core
   hosts: mapr-core
   roles:

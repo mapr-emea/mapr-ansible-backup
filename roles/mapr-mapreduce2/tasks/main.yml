@@ -12,3 +12,6 @@
 - name: Install mapr-mapreduce2 (Suse)
   zypper: name=mapr-mapreduce2 state=present
   when: ansible_os_family == 'Suse'
+
+- name: Configure core-site.xml
+  template: src=core-site.unsecure.xml dest=/opt/mapr/hadoop/hadoop-{{ hadoop_version }}/etc/hadoop/core-site.xml

@@ -1,8 +1,8 @@
 - Create config for native secure
+- secure config for client
 - Add precheck for disks
 - Import GPG key
 - RStudio for Redhat, Centos, Suse
-- Execute spark Hadoop fs creation only once
 - Add storm
 - Add warden restart handler http://stackoverflow.com/questions/22649333/ansible-notify-handlers-in-another-role
 - Add latest patches
