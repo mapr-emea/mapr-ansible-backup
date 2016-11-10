@@ -75,10 +75,10 @@
         <value>org.apache.hadoop.hbase.security.access.AccessController</value>
     </property>
 
-    <property>
+    <!-- property>
         <name>hbase.thrift.security.qop</name>
         <value>auth</value>
-    </property>
+    </property -->
 
     <property>
         <name>hbase.regionserver.thrift.http</name>
