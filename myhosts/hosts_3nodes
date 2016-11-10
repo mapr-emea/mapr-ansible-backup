@@ -86,6 +86,8 @@
 
 # HBase REST and Thrift
 [mapr-hbase-thrift-rest]
+10.0.0.126 ansible_user=ec2-user ansible_become=yes ansible_become_method=sudo
+
 
 # Hive CLI
 [mapr-hive-cli]

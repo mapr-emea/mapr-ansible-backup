@@ -20,8 +20,17 @@ zeppelin_git_hash: 5af7747
 # Get url from https://www.rstudio.com/products/rstudio/download-commercial/
 rstudio_server_pro_deb: http://download2.rstudio.org/rstudio-server-pro-0.99.903-amd64.deb
 
+####### Enable security features ##########
 # none, native
 mapr_security: native
+# Hive security: none, maprsasl or pam
+hive_server_security: pam
+# Drill security (only standalone): none, pam
+drill_security: pam
+# HBase REST/Thrift: none, maprauth_and_ssl (MapR-SSL and Basic-auth + SSL enabled)
+hbase_thrift_rest_security: maprauth_and_ssl
+###########################################
+
 mapr_subnets: 10.0.0.0/24
 mapr_group: mapr
 mapr_group_gid: 5000
@@ -33,12 +42,6 @@ mapr_mysql_user: mapr
 mapr_mysql_password: mapr123
 
 hive_db_schema: hive
-# Hive security: none, maprsasl or pam
-hive_server_security: pam
-
-# Drill security (only standalone): none, pam
-drill_security: pam
-
 oozie_db_schema: oozie
 
 

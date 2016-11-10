@@ -14,7 +14,7 @@
 
     <property>
         <name>hbase.zookeeper.quorum</name>
-        <value>sedca0008680.emea.ebs.corpintra.net,sedca0008690.emea.ebs.corpintra.net,sedca0008700.emea.ebs.corpintra.net</value>
+        <value>{{ zookeeper_string }}</value>
     </property>
 
     <property>
@@ -84,6 +84,48 @@
         <name>hbase.regionserver.thrift.http</name>
         <value>true</value>
     </property>
+
+    <property>
+        <name>hbase.rest.authentication.type</name>
+        <value>org.apache.hadoop.security.authentication.server.MultiMechsAuthenticationHandler</value>
+    </property>
+    <property>
+        <name>hbase.security.authorization</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hbase.rpc.engine</name>
+        <value>org.apache.hadoop.hbase.ipc.SecureRpcEngine</value>
+    </property>
+    <property>
+        <name>hbase.coprocessor.region.classes</name>
+        <value>org.apache.hadoop.hbase.security.token.TokenProvider,org.apache.hadoop.hbase.security.access.AccessController</value>
+    </property>
+    <property>
+        <name>hbase.coprocessor.master.classes</name>
+        <value>org.apache.hadoop.hbase.security.access.AccessController</value>
+    </property>
+    <property>
+        <name>hbase.rest.ssl.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hbase.rest.ssl.keystore.store</name>
+        <value>/opt/mapr/conf/ssl_keystore</value>
+    </property>
+    <property>
+        <name>hbase.rest.ssl.keystore.password</name>
+        <value>mapr123</value>
+    </property>
+    <property>
+        <name>hbase.superuser</name>
+        <value>mapr</value>
+    </property>
+
+    <property>
+        <name>hbase.thrift.authentication.type</name>
+        <value>org.apache.hadoop.security.authentication.server.MultiMechsAuthenticationHandler</value>
+    </property>
     <property>
         <name>hbase.thrift.support.proxyuser</name>
         <value>true</value>
@@ -101,24 +143,4 @@
         <value>mapr123</value>
     </property>
 
-    <property>
-        <name>hbase.rest.ssl.enabled</name>
-        <value>true</value>
-    </property>
-    <property>
-        <name>hbase.rest.ssl.keystore.store</name>
-        <value>/opt/mapr/conf/ssl_keystore</value>
-    </property>
-    <property>
-        <name>hbase.rest.ssl.keystore.password</name>
-        <value>mapr123</value>
-    </property>
-    <property>
-        <name>hbase.superuser</name>
-        <value>mapr</value>
-    </property>
-    <property>
-        <name>hbase.rest.authentication.type</name>
-        <value>simple</value>
-    </property>
 </configuration>

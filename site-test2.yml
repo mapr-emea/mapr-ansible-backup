@@ -3,7 +3,7 @@
   roles:
     - mapr-configure-vars
 - name: Setup global vars
-  hosts: mapr-drill-standalone
+  hosts: mapr-hbase-thrift-rest
   roles:
-    - mapr-drill-standalone
+    - mapr-hbase-thrift-rest
 
