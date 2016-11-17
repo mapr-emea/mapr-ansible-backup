@@ -47,6 +47,9 @@
 [mapr-spark-historyserver]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo
 
+# MapR Fuse Posix Client
+[mapr-posix-client-basic]
+
 # NFS
 [mapr-nfs]
 10.0.0.132 ansible_user=centos ansible_become=yes ansible_become_method=sudo

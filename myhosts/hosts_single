@@ -148,7 +148,7 @@ base
 # MapR NFS loopback (only for MapR client!)
 [mapr-nfsloopback]
 
-# MapR Fuse Posix Client (only for MapR client!)
+# MapR Fuse Posix Client
 [mapr-posix-client-basic]
 
 # Zeppelin
