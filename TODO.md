@@ -3,6 +3,18 @@
 - add flag to regenerate keys or not
 - Uninstall removed components
 
+Ubuntu 16.04 requires:
+
+apt remove -y python3 python3.5
+      - name: apt-get update
+        raw: apt-get update -qq
+      - name: Install python 2.7
+        raw: apt-get install -qq python2.7
+
+
+
+
+
 - Add precheck for disks
 - Import GPG key
 - RStudio for Redhat, Centos, Suse

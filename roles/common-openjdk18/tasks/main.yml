@@ -11,9 +11,8 @@
 - name: Install OpenJDK 1.8.0  (Debian / Ubuntu)
   apt: name={{ item }} state=present update_cache=yes
   with_items:
-  - java-1.8.0-openjdk
-  - java-1.8.0-openjdk-devel
-  - java-1.8.0-openjdk-headless
+  - openjdk-8-jdk
+  - openjdk-8-jdk-headless
   when: ansible_os_family == 'Debian'
 # Suse
 - name: Install OpenJDK 1.8.0 (Suse)

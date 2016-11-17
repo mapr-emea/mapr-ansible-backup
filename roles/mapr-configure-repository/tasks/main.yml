@@ -25,12 +25,14 @@
     repo: "deb {{ mapr_release_url }}/ubuntu/ mapr optional"
     state: present
     update_cache: yes
+    validate_certs: no
   when: ansible_os_family == 'Debian'
 - name: Create MapR Ecosystem Repository for Ubuntu
   apt_repository:
     repo: "deb {{ mapr_ecosystem_url }}/ubuntu/ binary trusty"
     state: present
     update_cache: yes
+    validate_certs: no
   when: ansible_os_family == 'Debian'
 
 # Suse
