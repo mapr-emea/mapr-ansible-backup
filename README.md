@@ -2,6 +2,12 @@
 
 Ansible 2.1 or higher required!
 
+If /usr/bin/python is not available link it (e.g. in Ubuntu 16.xx)
+
+```
+ansible -i myhosts/hosts_3nodes  -m raw -a "ln -s /usr/bin/python3 /usr/bin/python" all -v
+```
+
 ## Supported OS
 
 * Redhat 7 or higher
@@ -87,5 +93,5 @@ ansible-playbook -i hosts_template helper/create-user-ace.yml
 
 export ANSIBLE_HOSTS=/Users/chufe/Documents/workspaces/mapr_ansible/hosts
 
-
+wget -r -np -nH --cut-dirs=3 -R index.html http://archive.mapr.com/releases/v5.2.0/suse/
 /opt/mapr/server/configure.sh -N maprpoc.arvato.com -Z ip-172-19-0-250.eu-central-1.compute.internal,ip-172-19-0-251.eu-central-1.compute.internal,ip-172-19-0-252.eu-central-1.compute.internal -C ip-172-19-0-250.eu-central-1.compute.internal:7222,ip-172-19-0-251.eu-central-1.compute.internal:7222,ip-172-19-0-252.eu-central-1.compute.internal:7222 -u mapr -g mapr -unsecure -RM ip-172-19-0-253.eu-central-1.compute.internal,ip-172-19-0-254.eu-central-1.compute.internal -HS ip-172-19-0-251.eu-central-1.compute.internal

@@ -9,6 +9,6 @@
   apt: name=mapr-flume state=present allow_unauthenticated=yes
   when: ansible_os_family == 'Debian'
 # Suse
-- name: Install mapr-flume (Suse
+- name: Install mapr-flume (Suse)
   zypper: name=mapr-flume state=present
   when: ansible_os_family == 'Suse'

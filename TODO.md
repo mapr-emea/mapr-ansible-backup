@@ -1,9 +1,9 @@
-- Create config for native secure
-- secure config for client
-- add flag to regenerate keys or not
 - Uninstall removed components
+- Import GPG key
+- Make installable for local install
 
 Ubuntu 16.04 requires:
+
 
 apt remove -y python3 python3.5
       - name: apt-get update
@@ -16,7 +16,7 @@ apt remove -y python3 python3.5
 
 
 - Add precheck for disks
-- Import GPG key
+
 - RStudio for Redhat, Centos, Suse
 - Add storm
 - Add warden restart handler http://stackoverflow.com/questions/22649333/ansible-notify-handlers-in-another-role
