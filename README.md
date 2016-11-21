@@ -64,7 +64,7 @@ ansible-playbook -i hosts_template rstudio-server.yml
 Use `hosts_template` as template and copy it and the hostnames to the components you want to get installed. If components are not required, just leave the block empty. Then run:
 
 ```
-ansible-playbook -i hosts_template rstudio-server.yml
+ansible-playbook -i hosts_template site-zeppelin.yml
 ```
 
 ## Helpers
