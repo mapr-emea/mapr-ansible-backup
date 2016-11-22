@@ -1,15 +1,7 @@
 - Uninstall removed components
 - Import GPG key
 - Make installable for local install
-
-Ubuntu 16.04 requires:
-
-
-apt remove -y python3 python3.5
-      - name: apt-get update
-        raw: apt-get update -qq
-      - name: Install python 2.7
-        raw: apt-get install -qq python2.7
+- Add pre checks on supported OS
 
 
 
