@@ -1,0 +1,136 @@
+# If you do not want to install a component leave the block empty
+
+# sets up ntp, rpcbind, Java and mapr default user with standard password mapr123
+[common]
+hush[1:20].sns.sky.com
+
+[mapr-core]
+hush[1:20].sns.sky.com
+
+# Zookeeper
+[mapr-zookeeper]
+hush[1:3].sns.sky.com
+
+# Container Location DataBase
+[mapr-cldb]
+hush[3:6].sns.sky.com
+
+# Gateway for Streams and MapR-DB
+[mapr-gateway]
+hush[1:20].sns.sky.com
+
+# MapR Control System
+[mapr-mcs]
+hush[7:8].sns.sky.com
+
+# YARN resource manager
+[mapr-resourcemanager]
+hush[9:11].sns.sky.com
+
+# Job History Server, IMPORTANT: only one
+[mapr-historyserver]
+hush12.sns.sky.com
+
+# Contains YARN Node Manager, MapReduce2 and MapR FileServer (MFS)
+[mapr-datanode]
+hush[1:20].sns.sky.com
+
+# MySQL, required for Hive MetaStore and Oozie, IMPORTANT: only one
+[ext-mysql]
+hush12.sns.sky.com
+
+# Spark on YARN
+[mapr-spark-yarn]
+hush[1:20].sns.sky.com
+
+# Spark HistoryServer
+[mapr-spark-historyserver]
+hush13.sns.sky.com
+
+# NFS
+[mapr-nfs]
+hush[1:20].sns.sky.com
+
+# MapR Fuse Posix Client
+[mapr-posix-client-basic]
+
+# Apache Drill
+[mapr-drill-standalone]
+
+# Apache Drill
+[mapr-drill-yarn]
+
+# Flume
+[mapr-flume]
+
+# HBase CLI
+[mapr-hbase-cli]
+hush[1:20].sns.sky.com
+
+# HBase REST and Thrift
+[mapr-hbase-thrift-rest]
+
+
+# Hive CLI
+[mapr-hive-cli]
+hush[1:20].sns.sky.com
+
+# Hive Meta Store
+[mapr-hive-metastore]
+hush[13].sns.sky.com
+
+# Hive Server2
+[mapr-hive-server2]
+
+# Hive HCatalog
+[mapr-hive-hcatalog]
+
+# Hive WebHCat
+[mapr-hive-webhcat]
+
+# HttpFS
+[mapr-httpfs]
+
+[mapr-hue]
+
+# Mahout
+[mapr-mahout]
+
+# Sqoop2 Server
+[mapr-sqoop2-server]
+
+# Sqoop2 Client
+[mapr-sqoop2-client]
+
+# Pig
+[mapr-pig]
+
+# Oozie
+[mapr-oozie]
+
+# CollectD
+[mapr-collectd]
+hush[1:20].sns.sky.com
+
+
+# OpenTSDB
+[mapr-opentsdb]
+hush15.sns.sky.com
+
+# Grafana
+[mapr-grafana]
+hush15.sns.sky.com
+
+# FluentD
+[mapr-fluentd]
+hush[1:20].sns.sky.com
+
+# ElasticSearch
+[mapr-elasticsearch]
+hush16.sns.sky.com
+
+# Kibana
+[mapr-kibana]
+hush16.sns.sky.com
+
+
