@@ -1,4 +1,19 @@
 # If you do not want to install a component leave the block empty
+[all:vars]
+cluster_name=flavius.sns.sky.com
+mapr_subnets=10.243.42.0/23
+
+[disk-group1:vars]
+disks=group1
+
+[disk-group2:vars]
+disks=group2
+
+[disk-group1]
+10.0.0.22 ansible_user=ec2-user ansible_become=yes ansible_become_method=sudo
+
+[disk-group2]
+10.0.0.23 ansible_user=ec2-user ansible_become=yes ansible_become_method=sudo
 
 # sets up ntp, rpcbind, Java and mapr default user with standard password mapr123
 [common]

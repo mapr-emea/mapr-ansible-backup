@@ -1,4 +1,4 @@
-- name: Setup global vars
-  hosts: all
-  roles:
-    - mapr-configure-repository
+ - hosts: all
+   tasks:
+    - name: Create financegroup Group
+      debug: msg="Hello world {{ cluster_name }} {{ disks }}"

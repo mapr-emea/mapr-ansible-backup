@@ -2,11 +2,6 @@ mapr_release_url: http://package.mapr.com/releases/v5.2.0
 mapr_ecosystem_url: http://package.mapr.com/releases/MEP/MEP-1.1.0/
 mapr_gpg_url: http://package.mapr.com/releases/pub/maprgpg.key
 
-# JDK choose: openjdk18 or oraclejdk
-jdk: openjdk18
-jdk_folder: /opt/java/jdk1.8.0_111
-oracle_jdk_url: http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
-
 mapr_build: mapr-1607
 hadoop_version: 2.7.0
 spark_version: 1.6.1
@@ -14,13 +9,6 @@ oozie_version: 4.2.0
 hive_version: 1.2
 hbase_version: 1.1.1
 drill_version: 1.8.0
-zeppelin_version: 0.6.0-SNAPSHOT
-zeppelin_git_repo: https://github.com/apache/incubator-zeppelin.git
-# zeppelin_git_hash: v0.6.1
-zeppelin_git_hash: 5af7747
-
-# Get url from https://www.rstudio.com/products/rstudio/download-commercial/
-rstudio_server_pro_deb: http://download2.rstudio.org/rstudio-server-pro-0.99.903-amd64.deb
 
 ####### Enable security features ##########
 # none, native
@@ -34,18 +22,40 @@ drill_security: none
 # HBase REST/Thrift: none, maprauth_and_ssl (MapR-SSL and Basic-auth + SSL enabled)
 hbase_thrift_rest_security: none
 ###########################################
-
-mapr_subnets: 10.0.0.0/24
+# moved to inventory file
+# mapr_subnets: 10.243.42.0/23
 mapr_group: mapr
-mapr_group_gid: 5000
 mapr_user: mapr
-mapr_user_uid: 5000
-cluster_name: demo.mapr.com
+# moved to inventory file
+# cluster_name: flavius.sns.sky.com
+# cassius for the backup
 
 mapr_mysql_user: mapr
-mapr_mysql_password: mapr123
+mapr_mysql_password: h4uMnbVu6t
 
 hive_db_schema: hive
+
+# disks: /dev/xvdb,/dev/xvdc,/dev/xvdd
+disk_storage_pool_size: 3
+
+########################
+# NOT required by Sky
+########################
+
+# JDK choose: openjdk18 or oraclejdk
+jdk: openjdk18
+jdk_folder: /opt/java/jdk1.8.0_111
+oracle_jdk_url: http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
+
+
+zeppelin_version: 0.6.0-SNAPSHOT
+zeppelin_git_repo: https://github.com/apache/incubator-zeppelin.git
+# zeppelin_git_hash: v0.6.1
+zeppelin_git_hash: 5af7747
+
+# Get url from https://www.rstudio.com/products/rstudio/download-commercial/
+rstudio_server_pro_deb: http://download2.rstudio.org/rstudio-server-pro-0.99.903-amd64.deb
+
 oozie_db_schema: oozie
 
 
@@ -55,6 +65,5 @@ oozie_db_schema: oozie
 mapr_passwd: $6$X4.bqoTK$RTAwnhg2BG/y.3Dugw9Vc31ZdXFsZAitwKtKuu3HgKSNutcQmZ7zLy4cXasivlv2gKD8QGouAjND5fU7H.HDW0
 # passwd is mapr
 # mapr_passwd: $6$GzlcP5ei$E6P9QM40O6KJFLZ3wMcg3jzQBNxGXrf8yc77CbCmf0KtFSxK0mpCParhc3WVNEAm4fHKPAqyRV9rsiF6DAFlW0
-
-disks: /dev/xvdb,/dev/xvdc,/dev/xvdd
-disk_storage_pool_size: 3
+mapr_group_gid: 7924
+mapr_user_uid: 7924

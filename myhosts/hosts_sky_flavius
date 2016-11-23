@@ -1,6 +1,23 @@
 # If you do not want to install a component leave the block empty
 
-# sets up ntp, rpcbind, Java and mapr default user with standard password mapr123
+[all:vars]
+cluster_name=flavius.sns.sky.com
+mapr_subnets=10.243.42.0/23
+
+[disk-group1:vars]
+disks=/dev/sda,/dev/sdb,/dev/sdc,/dev/sdd,/dev/sde,/dev/sdf,/dev/sdg,/dev/sdh,/dev/sdi,/dev/sdj,/dev/sdk,/dev/sdl,/dev/sdm,/dev/sdn,/dev/sdo,/dev/sdp,/dev/sds,/dev/sdt,/dev/sdu,/dev/sdv,/dev/sdw
+# sdx,sdy,sdz is left for elastic search
+
+[disk-group2:vars]
+disks=group2
+
+[disk-group1]
+hush[1:16].sns.sky.com
+hush[19:20].sns.sky.com
+
+[disk-group2]
+hush[17:18].sns.sky.com
+
 [common]
 hush[1:20].sns.sky.com
 
