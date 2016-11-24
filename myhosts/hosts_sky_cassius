@@ -1,106 +1,100 @@
 # If you do not want to install a component leave the block empty
 [all:vars]
-cluster_name=flavius.sns.sky.com
+cluster_name=cassius.sns.sky.com
 mapr_subnets=10.243.42.0/23
 
 [disk-group1:vars]
-disks=/dev/sda,/dev/sdb,/dev/sdc,/dev/sdd,/dev/sde,/dev/sdf,/dev/sdg,/dev/sdh,/dev/sdk,/dev/sdl,/dev/sdm,/dev/sdn,/dev/sdo,/dev/sdp,/dev/sdq,/dev/sdr,/dev/sds,/dev/sdt,/dev/sdu,/dev/sdv,/dev/sdw,/dev/sdx,/dev/sdy,/dev/sdz
+disks=/dev/sda,/dev/sdb,/dev/sdc,/dev/sdd,/dev/sde,/dev/sdf,/dev/sdi,/dev/sdj,/dev/sdk,/dev/sdl,/dev/sdm,/dev/sdn,/dev/sdo,/dev/sdp,/dev/sdq,/dev/sdr,/dev/sds,/dev/sdt
 
 [disk-group2:vars]
-disks=/dev/sda,/dev/sdb,/dev/sdc,/dev/sdd,/dev/sde,/dev/sdf,/dev/sdg,/dev/sdh,/dev/sdi,/dev/sdj,/dev/sdk,/dev/sdl,/dev/sdm,/dev/sdn,/dev/sdo,/dev/sdp,/dev/sds,/dev/sdt,/dev/sdu,/dev/sdv,/dev/sdw,/dev/sdx,/dev/sdy,/dev/sdz
+disks=/dev/sdc,/dev/sdd,/dev/sde,/dev/sdf,/dev/sdg,/dev/sdh,/dev/sdi,/dev/sdj,/dev/sdk,/dev/sdl,/dev/sdm,/dev/sdn,/dev/sdo,/dev/sdp,/dev/sdq,/dev/sdr,/dev/sds,/dev/sdt
+
 
 [disk-group1]
-hush[1:16].sns.sky.com
-hush[19:20].sns.sky.com
+queg[1:2].sns.sky.com
+queg4.sns.sky.com
+queg6.sns.sky.com
 
 [disk-group2]
-hush[17:18].sns.sky.com
+queg3.sns.sky.com
+queg5.sns.sky.com
 
 [common]
-hush[1:20].sns.sky.com
+queg[1:6].sns.sky.com
 
 [mapr-core]
-hush[1:20].sns.sky.com
+queg[1:6].sns.sky.com
 
 # Zookeeper
 [mapr-zookeeper]
-hush2.sns.sky.com
-hush4.sns.sky.com
-hush12.sns.sky.com
+queg[1:2].sns.sky.com
+queg4.sns.sky.com
+
 
 # Container Location DataBase
 [mapr-cldb]
-hush3.sns.sky.com
-hush13.sns.sky.com
+queg3.sns.sky.com
+queg5.sns.sky.com
 
 # Gateway for Streams and MapR-DB
 [mapr-gateway]
-hush[1:20].sns.sky.com
+queg[1:6].sns.sky.com
 
 # MapR Control System
 [mapr-mcs]
-hush1.sns.sky.com
-hush11.sns.sky.com
+queg1.sns.sky.com
+queg4.sns.sky.com
 
 # YARN resource manager
 [mapr-resourcemanager]
-hush6.sns.sky.com
-hush16.sns.sky.com
+queg2.sns.sky.com
+queg5.sns.sky.com
 
 # Job History Server, IMPORTANT: only one
 [mapr-historyserver]
-hush15.sns.sky.com
+queg6.sns.sky.com
 
 # Contains YARN Node Manager, MapReduce2 and MapR FileServer (MFS)
 [mapr-datanode]
-hush[1:20].sns.sky.com
+queg[1:6].sns.sky.com
 
 # MySQL, required for Hive MetaStore and Oozie, IMPORTANT: only one
 [ext-mysql]
-hush5.sns.sky.com
 
 # Spark on YARN
 [mapr-spark-yarn]
-hush[1:20].sns.sky.com
 
 # Spark HistoryServer
 [mapr-spark-historyserver]
-hush15.sns.sky.com
 
 # NFS
 [mapr-nfs]
-hush[1:20].sns.sky.com
+queg[1:6].sns.sky.com
 
 # MapR Fuse Posix Client
 [mapr-posix-client-basic]
 
 # Apache Drill
 [mapr-drill-standalone]
-hush[8:10].sns.sky.com
-hush[18:20].sns.sky.com
 
 # Apache Drill
 [mapr-drill-yarn]
-
 
 # Flume
 [mapr-flume]
 
 # HBase CLI
 [mapr-hbase-cli]
-hush[1:20].sns.sky.com
+queg[1:6].sns.sky.com
 
 # HBase REST and Thrift
 [mapr-hbase-thrift-rest]
 
-
 # Hive CLI
 [mapr-hive-cli]
-hush[1:20].sns.sky.com
 
 # Hive Meta Store
 [mapr-hive-metastore]
-hush5.sns.sky.com
 
 # Hive Server2
 [mapr-hive-server2]
@@ -133,28 +127,28 @@ hush5.sns.sky.com
 
 # CollectD
 [mapr-collectd]
-hush[1:20].sns.sky.com
+queg[1:6].sns.sky.com
 
 # OpenTSDB
 [mapr-opentsdb]
-hush7.sns.sky.com
-hush17.sns.sky.com
+queg1.sns.sky.com
+queg4.sns.sky.com
 
 # Grafana
 [mapr-grafana]
-hush19.sns.sky.com
+queg3.sns.sky.com
 
 # FluentD
 [mapr-fluentd]
-hush[1:20].sns.sky.com
+queg[1:6].sns.sky.com
 
 # ElasticSearch
 [mapr-elasticsearch]
-hush8.sns.sky.com
-hush18.sns.sky.com
+queg2.sns.sky.com
+queg5.sns.sky.com
 
 # Kibana
 [mapr-kibana]
-hush20.sns.sky.com
+queg6.sns.sky.com
 
 
