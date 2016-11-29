@@ -1,7 +1,7 @@
 # If you do not want to install a component leave the block empty
 [all:vars]
 cluster_name=cassius.sns.sky.com
-mapr_subnets=10.243.42.0/23
+mapr_subnets=10.243.10.0/23
 
 [disk-group1:vars]
 disks=/dev/sda,/dev/sdb,/dev/sdc,/dev/sdd,/dev/sde,/dev/sdf,/dev/sdi,/dev/sdj,/dev/sdk,/dev/sdl,/dev/sdm,/dev/sdn,/dev/sdo,/dev/sdp,/dev/sdq,/dev/sdr,/dev/sds,/dev/sdt
@@ -20,7 +20,6 @@ queg3.sns.sky.com
 queg5.sns.sky.com
 
 [common]
-queg[1:6].sns.sky.com
 
 [mapr-core]
 queg[1:6].sns.sky.com
@@ -34,7 +33,7 @@ queg4.sns.sky.com
 # Container Location DataBase
 [mapr-cldb]
 queg3.sns.sky.com
-queg5.sns.sky.com
+queg6.sns.sky.com
 
 # Gateway for Streams and MapR-DB
 [mapr-gateway]
