@@ -1,6 +1,7 @@
 - Uninstall removed components
 - Import GPG key
 - Make installable for local install
+- OpenJDK suse doesn't work?
 - Add pre checks on supported OS
 
 
